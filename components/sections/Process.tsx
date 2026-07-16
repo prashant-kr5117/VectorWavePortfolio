@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Reveal from "@/components/Reveal";
 
 const steps = [
@@ -20,18 +21,24 @@ export default function Process() {
           </p>
         </Reveal>
 
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-0">
           {steps.map((step, i) => (
-            <Reveal key={step.n} delay={i * 80}>
-              <div className="group flex items-center gap-3 sm:flex-col sm:text-center">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#0B1B33] text-xs font-bold text-white transition-transform duration-300 group-hover:scale-110">
+            <Fragment key={step.n}>
+              <Reveal
+                delay={i * 80}
+                className="group flex items-center gap-3 sm:flex-col sm:gap-3 sm:text-center"
+              >
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#0B1B33] text-xs font-bold text-white transition-all duration-300 group-hover:scale-110 group-hover:bg-[#30B6CD]">
                   {step.n}
                 </div>
                 <div className="text-sm font-bold text-[#0B1B33]">
                   {step.label}
                 </div>
-              </div>
-            </Reveal>
+              </Reveal>
+              {i < steps.length - 1 && (
+                <div className="hidden flex-1 sm:mt-4 sm:block sm:h-0.5 sm:bg-[#E4E8F0]" />
+              )}
+            </Fragment>
           ))}
         </div>
       </div>
