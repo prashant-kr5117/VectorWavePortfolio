@@ -1,0 +1,146 @@
+"use client";
+
+import { useMemo, useState } from "react";
+import Link from "next/link";
+import { Calendar, Clock, User, Search, ArrowRight } from "lucide-react";
+import { getSortedPosts } from "@/lib/posts";
+import BlogIcon from "@/components/BlogIcon";
+
+const categories = ["All", "ERP", "CRM", "AI", "Web Dev", "Finance"];
+
+export default function BlogGrid() {
+  const [active, setActive] = useState("All");
+  const [query, setQuery] = useState("");
+  const allPosts = useMemo(() => getSortedPosts(), []);
+  const isDefaultView = active === "All" && query.trim() === "";
+  const featured = isDefaultView ? allPosts[0] : null;
+
+  const filtered = allPosts
+    .filter((p) => (featured ? p.slug !== featured.slug : true))
+    .filter((p) => active === "All" || p.category === active)
+    .filter((p) => {
+      const q = query.trim().toLowerCase();
+      if (!q) return true;
+      return (
+        p.title.toLowerCase().includes(q) || p.excerpt.toLowerCase().includes(q)
+      );
+    });
+
+  return (
+    <div>
+      <div className="mb-6 flex justify-center">
+        <div className="relative w-full max-w-md">
+          <Search
+            size={16}
+            className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-[#8A93A8]"
+          />
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search articles"
+            className="w-full rounded-full border border-[#E4E8F0] py-2.5 pl-10 pr-4 text-sm outline-none transition-colors duration-200 focus:border-[#1D4ED8]"
+          />
+        </div>
+      </div>
+
+      <div className="mb-10 flex flex-wrap justify-center gap-2">
+        {categories.map((cat) => (
+          <button
+            key={cat}
+            onClick={() => setActive(cat)}
+            className={`rounded-full border px-4 py-1.5 text-xs font-bold transition-colors duration-200 ${
+              active === cat
+                ? "border-[#1D4ED8] bg-[#EFF4FE] text-[#1D4ED8]"
+                : "border-[#E4E8F0] text-[#33405C] hover:border-[#1D4ED8] hover:text-[#1D4ED8]"
+            }`}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      {featured && (
+        <Link
+          href={`/blog/${featured.slug}`}
+          className="group mb-10 flex flex-col overflow-hidden rounded-xl border border-[#E4E8F0] bg-white transition-all duration-300 hover:-translate-y-1 hover:border-[#1D4ED8]/30 hover:shadow-lg sm:flex-row"
+        >
+          <div className="flex h-40 items-center justify-center bg-[#0B1B33] text-white transition-transform duration-300 group-hover:scale-105 sm:h-auto sm:w-64 sm:shrink-0">
+            <BlogIcon icon={featured.icon} size={48} />
+          </div>
+          <div className="flex flex-1 flex-col justify-center p-6">
+            <span className="mb-2 inline-block w-fit rounded-full bg-[#EFF4FE] px-3 py-1 text-[10px] font-bold text-[#1D4ED8]">
+              Latest &middot; {featured.category}
+            </span>
+            <h2 className="mb-2 text-lg font-bold leading-snug text-[#0B1B33]">
+              {featured.title}
+            </h2>
+            <p className="mb-4 line-clamp-2 text-sm text-[#55607A]">
+              {featured.excerpt}
+            </p>
+            <div className="flex flex-wrap items-center gap-3 text-[11px] text-[#8A93A8]">
+              <span className="flex items-center gap-1">
+                <User size={12} /> {featured.author}
+              </span>
+              <span className="flex items-center gap-1">
+                <Calendar size={12} /> {featured.date}
+              </span>
+              <span className="flex items-center gap-1">
+                <Clock size={12} /> {featured.readTime}
+              </span>
+              <span className="ml-auto flex items-center gap-1 text-xs font-bold text-[#1D4ED8]">
+                Read article
+                <ArrowRight
+                  size={14}
+                  className="transition-transform duration-200 group-hover:translate-x-1"
+                />
+              </span>
+            </div>
+          </div>
+        </Link>
+      )}
+
+      {filtered.length === 0 ? (
+        <p className="py-10 text-center text-sm text-[#55607A]">
+          No articles match your search yet.
+        </p>
+      ) : (
+        <div className="grid grid-cols-1 items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {filtered.map((post) => (
+            <Link
+              key={post.slug}
+              href={`/blog/${post.slug}`}
+              className="group flex h-full flex-col overflow-hidden rounded-xl border border-[#E4E8F0] bg-white transition-all duration-300 hover:-translate-y-1 hover:border-[#1D4ED8]/30 hover:shadow-lg"
+            >
+              <div className="flex h-32 shrink-0 items-center justify-center bg-[#F8FAFC] text-[#1D4ED8] transition-transform duration-300 group-hover:scale-105">
+                <BlogIcon icon={post.icon} size={36} />
+              </div>
+              <div className="flex flex-1 flex-col p-5">
+                <span className="mb-2 inline-block w-fit rounded-full bg-[#EFF4FE] px-3 py-1 text-[10px] font-bold text-[#1D4ED8]">
+                  {post.category}
+                </span>
+                <h3 className="mb-2 text-sm font-bold leading-snug text-[#0B1B33]">
+                  {post.title}
+                </h3>
+                <p className="mb-4 line-clamp-3 flex-1 text-xs leading-relaxed text-[#55607A]">
+                  {post.excerpt}
+                </p>
+                <div className="mt-auto flex flex-wrap items-center gap-3 border-t border-[#E4E8F0] pt-3 text-[10px] text-[#8A93A8]">
+                  <span className="flex items-center gap-1">
+                    <User size={12} /> {post.author}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <Calendar size={12} /> {post.date}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <Clock size={12} /> {post.readTime}
+                  </span>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
