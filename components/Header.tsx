@@ -49,7 +49,7 @@ export default function Header() {
         <div className="hidden lg:block">
           <Link
             href="/contact"
-            className="inline-block rounded-lg bg-[#F97316] px-5 py-2.5 text-[13px] font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#EA6A0C] hover:shadow-md active:translate-y-0"
+            className="inline-block rounded-lg bg-[#30B6CD] px-5 py-2.5 text-[13px] font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#2AA0B4] hover:shadow-md active:translate-y-0"
           >
             Book a call
           </Link>
@@ -91,7 +91,7 @@ export default function Header() {
             })}
             <Link
               href="/contact"
-              className="mt-2 rounded-lg bg-[#F97316] px-4 py-2.5 text-center text-sm font-bold text-white transition-colors duration-200 hover:bg-[#EA6A0C]"
+              className="mt-2 rounded-lg bg-[#30B6CD] px-4 py-2.5 text-center text-sm font-bold text-white transition-colors duration-200 hover:bg-[#2AA0B4]"
               onClick={() => setOpen(false)}
             >
               Book a call

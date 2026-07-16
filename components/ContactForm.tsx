@@ -110,7 +110,7 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={status === "loading"}
-            className="mt-2 inline-flex items-center justify-center gap-2 rounded-lg bg-[#F97316] px-6 py-3 text-sm font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#EA6A0C] hover:shadow-md active:translate-y-0 disabled:opacity-70"
+            className="mt-2 inline-flex items-center justify-center gap-2 rounded-lg bg-[#30B6CD] px-6 py-3 text-sm font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#2AA0B4] hover:shadow-md active:translate-y-0 disabled:opacity-70"
           >
             {status === "loading" && (
               <Loader2 size={16} className="animate-spin" />
