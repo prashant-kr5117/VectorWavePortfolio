@@ -77,15 +77,15 @@ export default function ServicesPage() {
     <>
       <Header />
       <main className="flex-1">
-        <section className="bg-[#F8FAFC] px-4 py-14 text-center sm:px-6 sm:py-16">
+        <section className="bg-surface-alt px-4 py-14 text-center sm:px-6 sm:py-16">
           <Reveal>
-            <span className="inline-block rounded-full bg-[#EFF4FE] px-4 py-1.5 text-[11px] font-bold text-[#1D4ED8]">
+            <span className="inline-block rounded-full bg-surface-chip px-4 py-1.5 text-[11px] font-bold text-primary">
               Services
             </span>
-            <h1 className="mx-auto mt-5 max-w-xl text-[26px] font-bold leading-tight text-[#0B1B33] sm:text-3xl">
+            <h1 className="mx-auto mt-5 max-w-xl text-[26px] font-bold leading-tight text-ink sm:text-3xl">
               We provide a wide range of services
             </h1>
-            <p className="mx-auto mt-4 max-w-xl text-sm text-[#55607A] sm:text-base">
+            <p className="mx-auto mt-4 max-w-xl text-sm text-ink-muted sm:text-base">
               We work with businesses of all sizes to simplify operations,
               improve productivity, and drive growth using the right cloud
               tools and custom technology built around how you work.
@@ -96,24 +96,24 @@ export default function ServicesPage() {
         <section className="px-4 py-14 sm:px-6 lg:px-10">
           <div className="mx-auto max-w-6xl">
             <Reveal className="mb-8 text-center">
-              <h2 className="text-xl font-bold text-[#0B1B33] sm:text-2xl">
+              <h2 className="text-xl font-bold text-ink sm:text-2xl">
                 Comprehensive digital solutions
               </h2>
-              <p className="mt-1 text-sm text-[#55607A]">
+              <p className="mt-1 text-sm text-ink-muted">
                 From ERP and CRM to automation and cloud platforms.
               </p>
             </Reveal>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {coreServices.map((s, i) => (
                 <Reveal key={s.title} delay={i * 60}>
-                  <div className="group h-full rounded-xl border border-[#E4E8F0] bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#1D4ED8]/30 hover:shadow-lg">
-                    <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-[#EFF4FE] text-[#1D4ED8] transition-transform duration-300 group-hover:scale-110">
+                  <div className="group h-full rounded-xl border border-border bg-surface p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg">
+                    <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-surface-chip text-primary transition-transform duration-300 group-hover:scale-110">
                       <s.icon size={20} />
                     </div>
-                    <div className="mb-1 text-sm font-bold text-[#0B1B33]">
+                    <div className="mb-1 text-sm font-bold text-ink">
                       {s.title}
                     </div>
-                    <p className="text-sm leading-relaxed text-[#55607A]">
+                    <p className="text-sm leading-relaxed text-ink-muted">
                       {s.desc}
                     </p>
                   </div>
@@ -123,13 +123,13 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <section className="bg-[#F8FAFC] px-4 py-14 sm:px-6 lg:px-10">
+        <section className="bg-surface-alt px-4 py-14 sm:px-6 lg:px-10">
           <div className="mx-auto max-w-6xl">
             <Reveal className="mb-8 text-center">
-              <h2 className="text-xl font-bold text-[#0B1B33] sm:text-2xl">
+              <h2 className="text-xl font-bold text-ink sm:text-2xl">
                 Industries we serve
               </h2>
-              <p className="mt-1 text-sm text-[#55607A]">
+              <p className="mt-1 text-sm text-ink-muted">
                 Digital solutions built around the specific needs of the
                 sectors we work with.
               </p>
@@ -137,14 +137,14 @@ export default function ServicesPage() {
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {industries.map((item, i) => (
                 <Reveal key={item.title} delay={i * 50}>
-                  <div className="group h-full rounded-xl border border-[#E4E8F0] bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#1D4ED8]/30 hover:shadow-lg">
-                    <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-[#0B1B33] text-white transition-transform duration-300 group-hover:scale-110">
+                  <div className="group h-full rounded-xl border border-border bg-surface p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg">
+                    <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-ink-inverse text-on-inverse transition-transform duration-300 group-hover:scale-110">
                       <item.icon size={18} />
                     </div>
-                    <div className="mb-1 text-sm font-bold text-[#0B1B33]">
+                    <div className="mb-1 text-sm font-bold text-ink">
                       {item.title}
                     </div>
-                    <p className="text-sm leading-relaxed text-[#55607A]">
+                    <p className="text-sm leading-relaxed text-ink-muted">
                       {item.desc}
                     </p>
                   </div>

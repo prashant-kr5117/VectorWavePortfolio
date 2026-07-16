@@ -44,15 +44,15 @@ export default function TeamPage() {
     <>
       <Header />
       <main className="flex-1">
-        <section className="bg-[#F8FAFC] px-4 py-14 text-center sm:px-6 sm:py-16">
+        <section className="bg-surface-alt px-4 py-14 text-center sm:px-6 sm:py-16">
           <Reveal>
-            <span className="inline-block rounded-full bg-[#EFF4FE] px-4 py-1.5 text-[11px] font-bold text-[#1D4ED8]">
+            <span className="inline-block rounded-full bg-surface-chip px-4 py-1.5 text-[11px] font-bold text-primary">
               Team
             </span>
-            <h1 className="mx-auto mt-5 max-w-xl text-[26px] font-bold leading-tight text-[#0B1B33] sm:text-3xl">
+            <h1 className="mx-auto mt-5 max-w-xl text-[26px] font-bold leading-tight text-ink sm:text-3xl">
               Welcome to the VectorWave team
             </h1>
-            <p className="mx-auto mt-4 max-w-xl text-sm text-[#55607A] sm:text-base">
+            <p className="mx-auto mt-4 max-w-xl text-sm text-ink-muted sm:text-base">
               Behind every solution we deliver is a group of people who
               genuinely care about getting it right: specialists across Zoho
               consulting, CRM implementation, finance, web development, and
@@ -65,15 +65,15 @@ export default function TeamPage() {
           <div className="mx-auto flex max-w-4xl flex-col gap-4">
             {departments.map((dept, i) => (
               <Reveal key={dept.title} delay={i * 60}>
-                <div className="group flex flex-col gap-4 rounded-xl border border-[#E4E8F0] bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#1D4ED8]/30 hover:shadow-lg sm:flex-row sm:items-start">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#0B1B33] text-white transition-transform duration-300 group-hover:scale-110">
+                <div className="group flex flex-col gap-4 rounded-xl border border-border bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg sm:flex-row sm:items-start">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-ink-inverse text-on-inverse transition-transform duration-300 group-hover:scale-110">
                     <dept.icon size={20} />
                   </div>
                   <div>
-                    <div className="mb-2 text-sm font-bold text-[#0B1B33] sm:text-base">
+                    <div className="mb-2 text-sm font-bold text-ink sm:text-base">
                       {dept.title}
                     </div>
-                    <p className="text-sm leading-relaxed text-[#55607A]">
+                    <p className="text-sm leading-relaxed text-ink-muted">
                       {dept.desc}
                     </p>
                   </div>

@@ -17,13 +17,13 @@ const companyLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0B1B33] px-4 pb-6 pt-10 sm:px-6 lg:px-10">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 border-b border-[#23324F] pb-8 sm:grid-cols-2 lg:grid-cols-4">
+    <footer className="bg-ink-inverse px-4 pb-6 pt-10 sm:px-6 lg:px-10">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 border-b border-ink-inverse-alt pb-8 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <div className="mb-2 text-sm font-bold text-white">
+          <div className="mb-2 text-sm font-bold text-on-inverse">
             VectorWave Technologies
           </div>
-          <p className="text-xs leading-relaxed text-[#93A0BD]">
+          <p className="text-xs leading-relaxed text-on-inverse-muted">
             Streamline your operations and scale faster. Our experts build
             custom Zoho, Odoo, and AI-driven ERP/CRM solutions tailored to
             power your business.
@@ -31,13 +31,13 @@ export default function Footer() {
         </div>
 
         <div>
-          <div className="mb-2 text-xs font-bold text-white">Company</div>
-          <ul className="space-y-2 text-xs text-[#93A0BD]">
+          <div className="mb-2 text-xs font-bold text-on-inverse">Company</div>
+          <ul className="space-y-2 text-xs text-on-inverse-muted">
             {companyLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="transition-colors duration-200 hover:text-white"
+                  className="transition-colors duration-200 hover:text-on-inverse"
                 >
                   {link.label}
                 </Link>
@@ -47,8 +47,8 @@ export default function Footer() {
         </div>
 
         <div>
-          <div className="mb-2 text-xs font-bold text-white">Services</div>
-          <ul className="space-y-2 text-xs text-[#93A0BD]">
+          <div className="mb-2 text-xs font-bold text-on-inverse">Services</div>
+          <ul className="space-y-2 text-xs text-on-inverse-muted">
             <li>Zoho ERP</li>
             <li>CRM</li>
             <li>Web development</li>
@@ -57,8 +57,8 @@ export default function Footer() {
         </div>
 
         <div>
-          <div className="mb-2 text-xs font-bold text-white">Get in touch</div>
-          <ul className="space-y-2 text-xs text-[#93A0BD]">
+          <div className="mb-2 text-xs font-bold text-on-inverse">Get in touch</div>
+          <ul className="space-y-2 text-xs text-on-inverse-muted">
             <li className="flex items-start gap-2">
               <MapPin size={14} className="mt-0.5 shrink-0" />
               GOLDEN-I, Office No 1034-1035, 10th Floor, Tower 3, Plot No 11,
@@ -69,7 +69,7 @@ export default function Footer() {
               <Mail size={14} />
               <a
                 href="mailto:admin@vectorwavetechnologies.com"
-                className="transition-colors duration-200 hover:text-white"
+                className="transition-colors duration-200 hover:text-on-inverse"
               >
                 admin@vectorwavetechnologies.com
               </a>
@@ -79,7 +79,7 @@ export default function Footer() {
       </div>
 
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-3 pt-5 sm:flex-row sm:justify-between">
-        <span className="text-[11px] text-[#6B7690]">
+        <span className="text-[11px] text-on-inverse-faint">
           Copyright 2026 VectorWave Technologies
         </span>
         <div className="flex gap-2">
@@ -87,7 +87,7 @@ export default function Footer() {
             <span
               key={s.name}
               aria-label={s.name}
-              className="flex h-7 w-7 items-center justify-center rounded-full border border-[#33405C] text-[10px] font-bold text-[#93A0BD] transition-colors duration-200 hover:border-[#1D4ED8] hover:text-white"
+              className="flex h-7 w-7 items-center justify-center rounded-full border border-on-inverse-border text-[10px] font-bold text-on-inverse-muted transition-colors duration-200 hover:border-primary hover:text-on-inverse"
             >
               {s.label}
             </span>

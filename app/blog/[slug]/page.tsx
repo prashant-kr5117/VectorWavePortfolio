@@ -38,22 +38,22 @@ export default async function BlogPostPage(props: {
     <>
       <Header />
       <main className="flex-1">
-        <section className="bg-[#F8FAFC] px-4 py-14 sm:px-6 sm:py-16">
+        <section className="bg-surface-alt px-4 py-14 sm:px-6 sm:py-16">
           <Reveal className="mx-auto max-w-2xl text-center">
             <Link
               href="/blog"
-              className="mb-6 inline-flex items-center gap-1.5 text-xs font-bold text-[#33405C] transition-colors duration-200 hover:text-[#1D4ED8]"
+              className="mb-6 inline-flex items-center gap-1.5 text-xs font-bold text-ink-soft transition-colors duration-200 hover:text-primary"
             >
               <ArrowLeft size={14} /> Back to blog
             </Link>
             <div>
-              <span className="inline-block rounded-full bg-[#EFF4FE] px-4 py-1.5 text-[11px] font-bold text-[#1D4ED8]">
+              <span className="inline-block rounded-full bg-surface-chip px-4 py-1.5 text-[11px] font-bold text-primary">
                 {post.category}
               </span>
-              <h1 className="mx-auto mt-5 text-[24px] font-bold leading-tight text-[#0B1B33] sm:text-3xl">
+              <h1 className="mx-auto mt-5 text-[24px] font-bold leading-tight text-ink sm:text-3xl">
                 {post.title}
               </h1>
-              <div className="mt-5 flex flex-wrap items-center justify-center gap-4 text-xs text-[#55607A]">
+              <div className="mt-5 flex flex-wrap items-center justify-center gap-4 text-xs text-ink-muted">
                 <span className="flex items-center gap-1.5">
                   <User size={14} /> {post.author}
                 </span>
@@ -70,11 +70,11 @@ export default async function BlogPostPage(props: {
 
         <section className="px-4 py-14 sm:px-6">
           <Reveal className="mx-auto flex max-w-2xl flex-col gap-5">
-            <div className="mb-2 flex h-40 items-center justify-center rounded-xl bg-[#0B1B33] text-white">
+            <div className="mb-2 flex h-40 items-center justify-center rounded-xl bg-ink-inverse text-on-inverse">
               <BlogIcon icon={post.icon} size={48} />
             </div>
             {post.content.map((paragraph, i) => (
-              <p key={i} className="text-sm leading-relaxed text-[#33405C] sm:text-base">
+              <p key={i} className="text-sm leading-relaxed text-ink-soft sm:text-base">
                 {paragraph}
               </p>
             ))}
@@ -82,10 +82,10 @@ export default async function BlogPostPage(props: {
         </section>
 
         {related.length > 0 && (
-          <section className="bg-[#F8FAFC] px-4 py-14 sm:px-6 lg:px-10">
+          <section className="bg-surface-alt px-4 py-14 sm:px-6 lg:px-10">
             <div className="mx-auto max-w-4xl">
               <Reveal className="mb-6 text-center">
-                <h2 className="text-lg font-bold text-[#0B1B33]">
+                <h2 className="text-lg font-bold text-ink">
                   More on {post.category}
                 </h2>
               </Reveal>
@@ -94,15 +94,15 @@ export default async function BlogPostPage(props: {
                   <Reveal key={r.slug} delay={i * 60}>
                     <Link
                       href={`/blog/${r.slug}`}
-                      className="group flex h-full flex-col rounded-xl border border-[#E4E8F0] bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#1D4ED8]/30 hover:shadow-lg"
+                      className="group flex h-full flex-col rounded-xl border border-border bg-surface p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg"
                     >
-                      <span className="mb-2 inline-block w-fit rounded-full bg-[#EFF4FE] px-3 py-1 text-[10px] font-bold text-[#1D4ED8]">
+                      <span className="mb-2 inline-block w-fit rounded-full bg-surface-chip px-3 py-1 text-[10px] font-bold text-primary">
                         {r.category}
                       </span>
-                      <h3 className="mb-2 text-sm font-bold leading-snug text-[#0B1B33]">
+                      <h3 className="mb-2 text-sm font-bold leading-snug text-ink">
                         {r.title}
                       </h3>
-                      <p className="line-clamp-2 text-xs text-[#55607A]">
+                      <p className="line-clamp-2 text-xs text-ink-muted">
                         {r.excerpt}
                       </p>
                     </Link>

@@ -6,6 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import Logo from "@/src/logo.png";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -21,7 +22,7 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#E4E8F0] bg-white/95 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-border bg-surface/95 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-10">
         <Link href="/" className="flex items-center gap-2">
           <Image src={Logo} alt="VectorWave Technologies" className="h-9 w-auto" priority />
@@ -34,10 +35,10 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative py-1 text-[13px] font-bold transition-colors duration-200 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-[#1D4ED8] after:transition-all after:duration-300 ${
+                className={`relative py-1 text-[13px] font-bold transition-colors duration-200 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 ${
                   active
-                    ? "text-[#1D4ED8] after:w-full"
-                    : "text-[#33405C] after:w-0 hover:text-[#1D4ED8] hover:after:w-full"
+                    ? "text-primary after:w-full"
+                    : "text-ink-soft after:w-0 hover:text-primary hover:after:w-full"
                 }`}
               >
                 {link.label}
@@ -46,17 +47,18 @@ export default function Header() {
           })}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden items-center gap-4 lg:flex">
+          <ThemeToggle />
           <Link
             href="/contact"
-            className="inline-block rounded-lg bg-[#30B6CD] px-5 py-2.5 text-[13px] font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#2AA0B4] hover:shadow-md active:translate-y-0"
+            className="inline-block rounded-lg bg-accent px-5 py-2.5 text-[13px] font-bold text-on-inverse transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-md active:translate-y-0"
           >
             Book a call
           </Link>
         </div>
 
         <button
-          className="text-[#0B1B33] transition-transform duration-200 active:scale-90 lg:hidden"
+          className="text-ink transition-transform duration-200 active:scale-90 lg:hidden"
           aria-label="Toggle menu"
           aria-expanded={open}
           onClick={() => setOpen(!open)}
@@ -71,7 +73,7 @@ export default function Header() {
         }`}
       >
         <div className="overflow-hidden">
-          <nav className="flex flex-col gap-1 border-t border-[#E4E8F0] px-4 py-3">
+          <nav className="flex flex-col gap-1 border-t border-border px-4 py-3">
             {navLinks.map((link) => {
               const active = pathname === link.href;
               return (
@@ -80,8 +82,8 @@ export default function Header() {
                   href={link.href}
                   className={`rounded-md px-2 py-2.5 text-sm font-bold transition-colors duration-200 ${
                     active
-                      ? "bg-[#EFF4FE] text-[#1D4ED8]"
-                      : "text-[#33405C] hover:bg-[#F8FAFC]"
+                      ? "bg-surface-chip text-primary"
+                      : "text-ink-soft hover:bg-surface-alt"
                   }`}
                   onClick={() => setOpen(false)}
                 >
@@ -89,9 +91,13 @@ export default function Header() {
                 </Link>
               );
             })}
+            <div className="mt-2 flex items-center justify-between border-t border-border pt-3">
+              <span className="text-sm font-bold text-ink-soft">Theme</span>
+              <ThemeToggle />
+            </div>
             <Link
               href="/contact"
-              className="mt-2 rounded-lg bg-[#30B6CD] px-4 py-2.5 text-center text-sm font-bold text-white transition-colors duration-200 hover:bg-[#2AA0B4]"
+              className="mt-2 rounded-lg bg-accent px-4 py-2.5 text-center text-sm font-bold text-on-inverse transition-colors duration-200 hover:bg-accent-hover"
               onClick={() => setOpen(false)}
             >
               Book a call

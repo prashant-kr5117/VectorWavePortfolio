@@ -40,15 +40,15 @@ export default function ContactPage() {
     <>
       <Header />
       <main className="flex-1">
-        <section className="bg-[#F8FAFC] px-4 py-14 text-center sm:px-6 sm:py-16">
+        <section className="bg-surface-alt px-4 py-14 text-center sm:px-6 sm:py-16">
           <Reveal>
-            <span className="inline-block rounded-full bg-[#EFF4FE] px-4 py-1.5 text-[11px] font-bold text-[#1D4ED8]">
+            <span className="inline-block rounded-full bg-surface-chip px-4 py-1.5 text-[11px] font-bold text-primary">
               Contact us
             </span>
-            <h1 className="mx-auto mt-5 max-w-xl text-[26px] font-bold leading-tight text-[#0B1B33] sm:text-3xl">
+            <h1 className="mx-auto mt-5 max-w-xl text-[26px] font-bold leading-tight text-ink sm:text-3xl">
               Powering intelligent business flow
             </h1>
-            <p className="mx-auto mt-4 max-w-xl text-sm text-[#55607A] sm:text-base">
+            <p className="mx-auto mt-4 max-w-xl text-sm text-ink-muted sm:text-base">
               Connect with our experts to get customized, high-impact digital
               solutions tailored to help your business scale efficiently.
             </p>
@@ -60,19 +60,19 @@ export default function ContactPage() {
             <div className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
               {contactMethods.map((m, i) => (
                 <Reveal key={m.title} delay={i * 60}>
-                  <div className="group h-full rounded-xl border border-[#E4E8F0] bg-white p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-[#1D4ED8]/30 hover:shadow-lg">
-                    <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-[#EFF4FE] text-[#1D4ED8] transition-transform duration-300 group-hover:scale-110">
+                  <div className="group h-full rounded-xl border border-border bg-surface p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg">
+                    <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-surface-chip text-primary transition-transform duration-300 group-hover:scale-110">
                       <m.icon size={20} />
                     </div>
-                    <div className="mb-1 text-sm font-bold text-[#0B1B33]">
+                    <div className="mb-1 text-sm font-bold text-ink">
                       {m.title}
                     </div>
-                    <p className="mb-3 text-xs leading-relaxed text-[#55607A]">
+                    <p className="mb-3 text-xs leading-relaxed text-ink-muted">
                       {m.desc}
                     </p>
                     <a
                       href={m.href ?? "#"}
-                      className="text-xs font-bold text-[#1D4ED8] transition-colors duration-200 hover:text-[#0C447C]"
+                      className="text-xs font-bold text-primary transition-colors duration-200 hover:text-link-deep"
                     >
                       {m.action} &rarr;
                     </a>
@@ -86,32 +86,32 @@ export default function ContactPage() {
                 <ContactForm />
               </Reveal>
               <Reveal delay={100}>
-                <div className="h-full rounded-xl border border-[#E4E8F0] bg-[#F8FAFC] p-6 sm:p-8">
-                  <h2 className="mb-4 text-sm font-bold text-[#0B1B33]">
+                <div className="h-full rounded-xl border border-border bg-surface-alt p-6 sm:p-8">
+                  <h2 className="mb-4 text-sm font-bold text-ink">
                     Our office location
                   </h2>
-                  <div className="flex items-start gap-3 text-sm text-[#55607A]">
-                    <MapPin size={18} className="mt-0.5 shrink-0 text-[#1D4ED8]" />
+                  <div className="flex items-start gap-3 text-sm text-ink-muted">
+                    <MapPin size={18} className="mt-0.5 shrink-0 text-primary" />
                     <span>
                       GOLDEN-I, Office No 1034-1035, 10th Floor, Tower 3, Plot
                       No 11, Sector-Techzone IV, Greater Noida (West), Uttar
                       Pradesh 201318, India
                     </span>
                   </div>
-                  <div className="mt-3 flex items-center gap-3 text-sm text-[#55607A]">
-                    <Mail size={18} className="shrink-0 text-[#1D4ED8]" />
+                  <div className="mt-3 flex items-center gap-3 text-sm text-ink-muted">
+                    <Mail size={18} className="shrink-0 text-primary" />
                     <a
                       href="mailto:admin@vectorwavetechnologies.com"
-                      className="transition-colors duration-200 hover:text-[#1D4ED8]"
+                      className="transition-colors duration-200 hover:text-primary"
                     >
                       admin@vectorwavetechnologies.com
                     </a>
                   </div>
-                  <div className="mt-3 flex items-center gap-3 text-sm text-[#55607A]">
-                    <Phone size={18} className="shrink-0 text-[#1D4ED8]" />
+                  <div className="mt-3 flex items-center gap-3 text-sm text-ink-muted">
+                    <Phone size={18} className="shrink-0 text-primary" />
                     <a
                       href="tel:+918791810555"
-                      className="transition-colors duration-200 hover:text-[#1D4ED8]"
+                      className="transition-colors duration-200 hover:text-primary"
                     >
                       +91-8791810555
                     </a>

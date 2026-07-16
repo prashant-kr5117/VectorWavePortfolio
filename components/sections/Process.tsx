@@ -10,13 +10,13 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="bg-[#F8FAFC] px-4 py-14 sm:px-6 lg:px-10">
+    <section className="bg-surface-alt px-4 py-14 sm:px-6 lg:px-10">
       <div className="mx-auto max-w-4xl">
         <Reveal className="mb-8 text-center">
-          <h2 className="text-xl font-bold text-[#0B1B33] sm:text-2xl">
+          <h2 className="text-xl font-bold text-ink sm:text-2xl">
             How we work
           </h2>
-          <p className="mt-1 text-sm text-[#55607A]">
+          <p className="mt-1 text-sm text-ink-muted">
             A clear path from first call to a live, working system.
           </p>
         </Reveal>
@@ -28,15 +28,15 @@ export default function Process() {
                 delay={i * 80}
                 className="group flex items-center gap-3 sm:flex-col sm:gap-3 sm:text-center"
               >
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#0B1B33] text-xs font-bold text-white transition-all duration-300 group-hover:scale-110 group-hover:bg-[#30B6CD]">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ink-inverse text-xs font-bold text-on-inverse transition-all duration-300 group-hover:scale-110 group-hover:bg-accent">
                   {step.n}
                 </div>
-                <div className="text-sm font-bold text-[#0B1B33]">
+                <div className="text-sm font-bold text-ink">
                   {step.label}
                 </div>
               </Reveal>
               {i < steps.length - 1 && (
-                <div className="hidden flex-1 sm:mt-4 sm:block sm:h-0.5 sm:bg-[#E4E8F0]" />
+                <div className="hidden flex-1 sm:mt-4 sm:block sm:h-0.5 sm:bg-border" />
               )}
             </Fragment>
           ))}

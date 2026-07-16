@@ -32,14 +32,14 @@ export default function BlogGrid() {
         <div className="relative w-full max-w-md">
           <Search
             size={16}
-            className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-[#8A93A8]"
+            className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-ink-faint"
           />
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search articles"
-            className="w-full rounded-full border border-[#E4E8F0] py-2.5 pl-10 pr-4 text-sm outline-none transition-colors duration-200 focus:border-[#1D4ED8]"
+            className="w-full rounded-full border border-border py-2.5 pl-10 pr-4 text-sm outline-none transition-colors duration-200 focus:border-primary"
           />
         </div>
       </div>
@@ -51,8 +51,8 @@ export default function BlogGrid() {
             onClick={() => setActive(cat)}
             className={`rounded-full border px-4 py-1.5 text-xs font-bold transition-colors duration-200 ${
               active === cat
-                ? "border-[#1D4ED8] bg-[#EFF4FE] text-[#1D4ED8]"
-                : "border-[#E4E8F0] text-[#33405C] hover:border-[#1D4ED8] hover:text-[#1D4ED8]"
+                ? "border-primary bg-surface-chip text-primary"
+                : "border-border text-ink-soft hover:border-primary hover:text-primary"
             }`}
           >
             {cat}
@@ -63,22 +63,22 @@ export default function BlogGrid() {
       {featured && (
         <Link
           href={`/blog/${featured.slug}`}
-          className="group mb-10 flex flex-col overflow-hidden rounded-xl border border-[#E4E8F0] bg-white transition-all duration-300 hover:-translate-y-1 hover:border-[#1D4ED8]/30 hover:shadow-lg sm:flex-row"
+          className="group mb-10 flex flex-col overflow-hidden rounded-xl border border-border bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg sm:flex-row"
         >
-          <div className="flex h-40 items-center justify-center bg-[#0B1B33] text-white transition-transform duration-300 group-hover:scale-105 sm:h-auto sm:w-64 sm:shrink-0">
+          <div className="flex h-40 items-center justify-center bg-ink-inverse text-on-inverse transition-transform duration-300 group-hover:scale-105 sm:h-auto sm:w-64 sm:shrink-0">
             <BlogIcon icon={featured.icon} size={48} />
           </div>
           <div className="flex flex-1 flex-col justify-center p-6">
-            <span className="mb-2 inline-block w-fit rounded-full bg-[#EFF4FE] px-3 py-1 text-[10px] font-bold text-[#1D4ED8]">
+            <span className="mb-2 inline-block w-fit rounded-full bg-surface-chip px-3 py-1 text-[10px] font-bold text-primary">
               Latest &middot; {featured.category}
             </span>
-            <h2 className="mb-2 text-lg font-bold leading-snug text-[#0B1B33]">
+            <h2 className="mb-2 text-lg font-bold leading-snug text-ink">
               {featured.title}
             </h2>
-            <p className="mb-4 line-clamp-2 text-sm text-[#55607A]">
+            <p className="mb-4 line-clamp-2 text-sm text-ink-muted">
               {featured.excerpt}
             </p>
-            <div className="flex flex-wrap items-center gap-3 text-[11px] text-[#8A93A8]">
+            <div className="flex flex-wrap items-center gap-3 text-[11px] text-ink-faint">
               <span className="flex items-center gap-1">
                 <User size={12} /> {featured.author}
               </span>
@@ -88,7 +88,7 @@ export default function BlogGrid() {
               <span className="flex items-center gap-1">
                 <Clock size={12} /> {featured.readTime}
               </span>
-              <span className="ml-auto flex items-center gap-1 text-xs font-bold text-[#1D4ED8]">
+              <span className="ml-auto flex items-center gap-1 text-xs font-bold text-primary">
                 Read article
                 <ArrowRight
                   size={14}
@@ -101,7 +101,7 @@ export default function BlogGrid() {
       )}
 
       {filtered.length === 0 ? (
-        <p className="py-10 text-center text-sm text-[#55607A]">
+        <p className="py-10 text-center text-sm text-ink-muted">
           No articles match your search yet.
         </p>
       ) : (
@@ -110,22 +110,22 @@ export default function BlogGrid() {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="group flex h-full flex-col overflow-hidden rounded-xl border border-[#E4E8F0] bg-white transition-all duration-300 hover:-translate-y-1 hover:border-[#1D4ED8]/30 hover:shadow-lg"
+              className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg"
             >
-              <div className="flex h-32 shrink-0 items-center justify-center bg-[#F8FAFC] text-[#1D4ED8] transition-transform duration-300 group-hover:scale-105">
+              <div className="flex h-32 shrink-0 items-center justify-center bg-surface-alt text-primary transition-transform duration-300 group-hover:scale-105">
                 <BlogIcon icon={post.icon} size={36} />
               </div>
               <div className="flex flex-1 flex-col p-5">
-                <span className="mb-2 inline-block w-fit rounded-full bg-[#EFF4FE] px-3 py-1 text-[10px] font-bold text-[#1D4ED8]">
+                <span className="mb-2 inline-block w-fit rounded-full bg-surface-chip px-3 py-1 text-[10px] font-bold text-primary">
                   {post.category}
                 </span>
-                <h3 className="mb-2 text-sm font-bold leading-snug text-[#0B1B33]">
+                <h3 className="mb-2 text-sm font-bold leading-snug text-ink">
                   {post.title}
                 </h3>
-                <p className="mb-4 line-clamp-3 flex-1 text-xs leading-relaxed text-[#55607A]">
+                <p className="mb-4 line-clamp-3 flex-1 text-xs leading-relaxed text-ink-muted">
                   {post.excerpt}
                 </p>
-                <div className="mt-auto flex flex-wrap items-center gap-3 border-t border-[#E4E8F0] pt-3 text-[10px] text-[#8A93A8]">
+                <div className="mt-auto flex flex-wrap items-center gap-3 border-t border-border pt-3 text-[10px] text-ink-faint">
                   <span className="flex items-center gap-1">
                     <User size={12} /> {post.author}
                   </span>

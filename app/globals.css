@@ -1,13 +1,77 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* page-flow text — inverts in dark mode */
+  --color-ink: #0b1b33;
+  --color-ink-soft: #33405c;
+  --color-ink-muted: #55607a;
+  --color-ink-faint: #8a93a8;
+  --color-ink-faint-2: #93a0bd;
+  --color-link-deep: #0c447c;
+
+  /* page-flow surfaces/borders — invert in dark mode */
+  --color-surface: #ffffff;
+  --color-surface-alt: #f8fafc;
+  --color-surface-chip: #eff4fe;
+  --color-border: #e4e8f0;
+  --color-border-soft: #c7ceda;
+
+  /* fixed — permanently-dark panels (Footer, CTA, Innovation, icon badges, Process circles) */
+  --color-ink-inverse: #0b1b33;
+  --color-ink-inverse-alt: #23324f;
+  --color-on-inverse: #ffffff;
+  --color-on-inverse-muted: #93a0bd;
+  --color-on-inverse-faint: #6b7690;
+  --color-on-inverse-border: #33405c;
+
+  /* brand accent — fixed, reads fine on both */
+  --color-accent: #30b6cd;
+  --color-accent-hover: #2aa0b4;
+
+  /* primary blue — inverts (lighter in dark mode for contrast) */
+  --color-primary: #1d4ed8;
+}
+
+.dark {
+  --color-ink: #f1f5f9;
+  --color-ink-soft: #c7d0e0;
+  --color-ink-muted: #9aa6be;
+  --color-ink-faint: #7c87a0;
+  --color-ink-faint-2: #8590ac;
+  --color-link-deep: #4c93d6;
+
+  --color-surface: #0b1420;
+  --color-surface-alt: #111b2e;
+  --color-surface-chip: #16233b;
+  --color-border: #22304a;
+  --color-border-soft: #2c3b58;
+
+  --color-primary: #3b82f6;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-ink-muted: var(--color-ink-muted);
+  --color-ink-faint: var(--color-ink-faint);
+  --color-ink-faint-2: var(--color-ink-faint-2);
+  --color-link-deep: var(--color-link-deep);
+  --color-surface: var(--color-surface);
+  --color-surface-alt: var(--color-surface-alt);
+  --color-surface-chip: var(--color-surface-chip);
+  --color-border: var(--color-border);
+  --color-border-soft: var(--color-border-soft);
+  --color-ink-inverse: var(--color-ink-inverse);
+  --color-ink-inverse-alt: var(--color-ink-inverse-alt);
+  --color-on-inverse: var(--color-on-inverse);
+  --color-on-inverse-muted: var(--color-on-inverse-muted);
+  --color-on-inverse-faint: var(--color-on-inverse-faint);
+  --color-on-inverse-border: var(--color-on-inverse-border);
+  --color-accent: var(--color-accent);
+  --color-accent-hover: var(--color-accent-hover);
+  --color-primary: var(--color-primary);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -17,9 +81,10 @@ html {
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--color-surface);
+  color: var(--color-ink);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 @keyframes fade-in-up {
@@ -31,6 +96,21 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-page-enter {
+  animation: page-enter 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @media (prefers-reduced-motion: reduce) {
