@@ -1,8 +1,10 @@
+import Link from "next/link";
 import {
   Boxes,
   Users,
   Headset,
   Calculator,
+  UserCog,
   Database,
   Code2,
   ShoppingCart,
@@ -16,21 +18,31 @@ const services = [
     icon: Boxes,
     title: "Zoho Bundle Suite",
     desc: "CRM, Finance, HR and Analytics set up as one suite.",
+    slug: "zoho-bundled-suite",
   },
   {
     icon: Users,
     title: "Zoho Sales",
     desc: "Pipeline automation, lead capture and reporting.",
+    slug: "sales",
   },
   {
     icon: Headset,
     title: "IT & Support",
     desc: "Infrastructure, helpdesk and reliable uptime.",
+    slug: "it-support",
   },
   {
     icon: Calculator,
     title: "Finance & Accounting",
     desc: "Invoicing, expenses, compliance and reporting.",
+    slug: "zoho-finance",
+  },
+  {
+    icon: UserCog,
+    title: "Human Resources",
+    desc: "Recruitment, onboarding, attendance and payroll.",
+    slug: "human-resources",
   },
   {
     icon: Database,
@@ -73,9 +85,11 @@ export default function Services() {
         </Reveal>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((s, i) => (
-            <Reveal key={s.title} delay={i * 60}>
-              <div className="group h-full rounded-xl border border-border bg-surface p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg">
+          {services.map((s, i) => {
+            const cardClasses =
+              "group h-full rounded-xl border border-border bg-surface p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg";
+            const content = (
+              <>
                 <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-surface-chip text-primary transition-transform duration-300 group-hover:scale-110">
                   <s.icon size={18} />
                 </div>
@@ -83,9 +97,21 @@ export default function Services() {
                   {s.title}
                 </div>
                 <p className="text-sm text-ink-muted">{s.desc}</p>
-              </div>
-            </Reveal>
-          ))}
+              </>
+            );
+
+            return (
+              <Reveal key={s.title} delay={i * 60}>
+                {s.slug ? (
+                  <Link href={`/services/${s.slug}`} className={`block ${cardClasses}`}>
+                    {content}
+                  </Link>
+                ) : (
+                  <div className={cardClasses}>{content}</div>
+                )}
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>

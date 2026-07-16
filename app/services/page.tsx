@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CTA from "@/components/sections/CTA";
 import Reveal from "@/components/Reveal";
+import ServiceIcon from "@/components/ServiceIcon";
+import { serviceCategories } from "@/lib/services";
 import {
   Network,
   Users,
@@ -97,6 +100,36 @@ export default function ServicesPage() {
           <div className="mx-auto max-w-6xl">
             <Reveal className="mb-8 text-center">
               <h2 className="text-xl font-bold text-ink sm:text-2xl">
+                Zoho platforms we implement
+              </h2>
+              <p className="mt-1 text-sm text-ink-muted">
+                Select a category to see the specific tools and what they cover.
+              </p>
+            </Reveal>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+              {serviceCategories.map((service, i) => (
+                <Reveal key={service.slug} delay={i * 60}>
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="group flex h-full flex-col items-center gap-3 rounded-xl border border-border bg-surface p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg"
+                  >
+                    <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-ink-inverse text-on-inverse transition-transform duration-300 group-hover:scale-110">
+                      <ServiceIcon icon={service.icon} size={20} />
+                    </div>
+                    <span className="text-sm font-bold text-ink">
+                      {service.title}
+                    </span>
+                  </Link>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-surface-alt px-4 py-14 sm:px-6 lg:px-10">
+          <div className="mx-auto max-w-6xl">
+            <Reveal className="mb-8 text-center">
+              <h2 className="text-xl font-bold text-ink sm:text-2xl">
                 Comprehensive digital solutions
               </h2>
               <p className="mt-1 text-sm text-ink-muted">
@@ -123,7 +156,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <section className="bg-surface-alt px-4 py-14 sm:px-6 lg:px-10">
+        <section className="px-4 py-14 sm:px-6 lg:px-10">
           <div className="mx-auto max-w-6xl">
             <Reveal className="mb-8 text-center">
               <h2 className="text-xl font-bold text-ink sm:text-2xl">

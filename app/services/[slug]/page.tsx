@@ -1,0 +1,117 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import CTA from "@/components/sections/CTA";
+import Reveal from "@/components/Reveal";
+import ServiceIcon from "@/components/ServiceIcon";
+import { getServiceBySlug, serviceCategories } from "@/lib/services";
+import { ArrowLeft } from "lucide-react";
+
+export function generateStaticParams() {
+  return serviceCategories.map((service) => ({ slug: service.slug }));
+}
+
+export async function generateMetadata(props: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await props.params;
+  const service = getServiceBySlug(slug);
+  if (!service) return {};
+  return {
+    title: `${service.title} | VectorWave Technologies`,
+    description: service.intro,
+  };
+}
+
+export default async function ServiceDetailPage(props: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await props.params;
+  const service = getServiceBySlug(slug);
+  if (!service) notFound();
+
+  const otherServices = serviceCategories.filter((s) => s.slug !== service.slug);
+
+  return (
+    <>
+      <Header />
+      <main className="flex-1">
+        <section className="bg-surface-alt px-4 py-14 text-center sm:px-6 sm:py-16">
+          <Reveal className="mx-auto max-w-2xl">
+            <Link
+              href="/services"
+              className="mb-6 inline-flex items-center gap-1.5 text-xs font-bold text-ink-soft transition-colors duration-200 hover:text-primary"
+            >
+              <ArrowLeft size={14} /> Back to services
+            </Link>
+            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-ink-inverse text-on-inverse">
+              <ServiceIcon icon={service.icon} size={26} />
+            </div>
+            <h1 className="mx-auto text-[26px] font-bold leading-tight text-ink sm:text-3xl">
+              {service.title}
+            </h1>
+            <p className="mx-auto mt-4 max-w-xl text-sm text-ink-muted sm:text-base">
+              {service.intro}
+            </p>
+          </Reveal>
+        </section>
+
+        <section className="px-4 py-14 sm:px-6 lg:px-10">
+          <div className="mx-auto max-w-5xl">
+            <Reveal className="mb-8 text-center">
+              <h2 className="text-xl font-bold text-ink sm:text-2xl">
+                What&apos;s included
+              </h2>
+            </Reveal>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {service.tools.map((tool, i) => (
+                <Reveal key={tool.name} delay={i * 60}>
+                  <div className="h-full rounded-xl border border-border bg-surface p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg">
+                    <div className="mb-1 text-sm font-bold text-ink">
+                      {tool.name}
+                    </div>
+                    <p className="text-sm leading-relaxed text-ink-muted">
+                      {tool.desc}
+                    </p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-surface-alt px-4 py-14 sm:px-6 lg:px-10">
+          <div className="mx-auto max-w-5xl">
+            <Reveal className="mb-6 text-center">
+              <h2 className="text-lg font-bold text-ink">
+                Other services we provide
+              </h2>
+            </Reveal>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {otherServices.map((s, i) => (
+                <Reveal key={s.slug} delay={i * 60}>
+                  <Link
+                    href={`/services/${s.slug}`}
+                    className="group flex h-full flex-col items-center gap-3 rounded-xl border border-border bg-surface p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg"
+                  >
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-surface-chip text-primary transition-transform duration-300 group-hover:scale-110">
+                      <ServiceIcon icon={s.icon} size={20} />
+                    </div>
+                    <span className="text-sm font-bold text-ink">
+                      {s.title}
+                    </span>
+                  </Link>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <CTA />
+      </main>
+      <Footer />
+    </>
+  );
+}
