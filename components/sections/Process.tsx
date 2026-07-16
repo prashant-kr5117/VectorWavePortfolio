@@ -10,7 +10,7 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="bg-surface-alt px-4 py-14 sm:px-6 lg:px-10">
+    <section className="bg-surface-alt px-4 py-20 sm:px-6 lg:px-10 lg:py-28">
       <div className="mx-auto max-w-4xl">
         <Reveal className="mb-8 text-center">
           <h2 className="text-xl font-bold text-ink sm:text-2xl">

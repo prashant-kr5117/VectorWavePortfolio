@@ -61,7 +61,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="px-4 py-14 sm:px-6 lg:px-10">
+    <section className="px-4 py-20 sm:px-6 lg:px-10 lg:py-28">
       <div className="mx-auto max-w-7xl">
         <Reveal className="mb-8 text-center">
           <h2 className="text-xl font-bold text-ink sm:text-2xl">

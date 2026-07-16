@@ -3,7 +3,7 @@ import Reveal from "@/components/Reveal";
 
 export default function Innovation() {
   return (
-    <section className="bg-ink-inverse px-4 py-14 text-center sm:px-6 lg:px-10">
+    <section className="bg-ink-inverse px-4 py-20 text-center sm:px-6 lg:px-10 lg:py-28">
       <Reveal className="mx-auto max-w-2xl">
         <h2 className="text-xl font-bold text-on-inverse sm:text-2xl">
           Innovate digitally

@@ -12,7 +12,7 @@ function Stat({ value, label }: { value: string; label: string }) {
 
 export default function Hero() {
   return (
-    <section className="bg-surface-alt px-4 py-14 text-center sm:px-6 sm:py-16 lg:py-20">
+    <section className="bg-surface-alt px-4 py-20 text-center sm:px-6 lg:py-28">
       <Reveal>
         <span className="inline-block rounded-full bg-surface-chip px-4 py-1.5 text-[11px] font-bold text-primary sm:text-xs">
           Zoho Authorised Partner · ERP · CRM · Web and AI Solutions

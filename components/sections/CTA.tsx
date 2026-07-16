@@ -3,7 +3,7 @@ import Reveal from "@/components/Reveal";
 
 export default function CTA() {
   return (
-    <section className="bg-ink-inverse px-4 py-12 text-center sm:px-6">
+    <section className="bg-ink-inverse px-4 py-16 text-center sm:px-6 lg:py-20">
       <Reveal>
         <h2 className="text-lg font-bold text-on-inverse sm:text-xl">
           Would you like to start a project with us?
