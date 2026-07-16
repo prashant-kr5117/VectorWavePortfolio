@@ -37,7 +37,7 @@ $zoho.salesiq = $zoho.salesiq || { ready: function () {} };`}
         </Script>
         <Script
           id="zsiqscript"
-          src="https://salesiq.zohopublic.in/widget?wc=siq6f8903107a8b817d8ef6172d9f7859f5110c8b5761dd815ba383efcd446c75f4972758567d3708a071b4d1fd09cb4746"
+          src="https://salesiq.zohopublic.in/widget?wc=siq6f8903107a8b817d8ef6172d9f7859f5110c8b5761dd815ba383efcd446c75f420f72f74bd858ff51404ca330c48216c"
           strategy="afterInteractive"
         />
       </body>
