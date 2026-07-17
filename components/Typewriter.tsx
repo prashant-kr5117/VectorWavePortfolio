@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 export default function Typewriter({
   text,
   className = "",
-  speed = 40,
+  speed = 80,
   startDelay = 300,
 }: {
   text: string;
