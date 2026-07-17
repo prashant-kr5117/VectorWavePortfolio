@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import Typewriter from "@/components/Typewriter";
 
 function Stat({ value, label }: { value: string; label: string }) {
   return (
@@ -19,7 +20,7 @@ export default function Hero() {
         </span>
 
         <h1 className="mx-auto mt-5 max-w-xl text-[28px] font-bold leading-tight text-ink sm:text-4xl">
-          Powering intelligent business flow, without the overhead
+          <Typewriter text="Powering intelligent business flow, without the overhead" />
         </h1>
 
         <p className="mx-auto mt-4 max-w-md text-sm text-ink-muted sm:text-base">

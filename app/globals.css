@@ -113,6 +113,21 @@ body {
   animation: page-enter 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.01%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
