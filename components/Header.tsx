@@ -28,7 +28,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-border bg-surface/95 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-10">
         <Link href="/" className="flex items-center gap-2">
-          <Image src={Logo} alt="VectorWave Technologies" className="h-12 w-auto" priority />
+          <Image src={Logo} alt="VectorWave Technologies" className="h-16 w-auto" priority />
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex">
