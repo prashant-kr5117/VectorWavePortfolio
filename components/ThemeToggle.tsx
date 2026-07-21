@@ -24,7 +24,11 @@ function setTheme(next: boolean) {
   listeners.forEach((listener) => listener());
 }
 
-export default function ThemeToggle({ className = "" }: { className?: string }) {
+export default function ThemeToggle({
+  colorClassName = "text-ink",
+}: {
+  colorClassName?: string;
+}) {
   const isDark = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   return (
@@ -32,7 +36,7 @@ export default function ThemeToggle({ className = "" }: { className?: string }) 
       type="button"
       onClick={() => setTheme(!isDark)}
       aria-label="Toggle theme"
-      className={`text-ink transition-transform duration-200 active:scale-90 ${className}`}
+      className={`${colorClassName} transition-all duration-300 active:scale-90`}
     >
       {isDark ? <Sun size={20} /> : <Moon size={20} />}
     </button>

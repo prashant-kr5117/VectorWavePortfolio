@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import Hero from "@/components/sections/Hero";
 import TrustBadges from "@/components/sections/TrustBadges";
 import HowWeHelp from "@/components/sections/HowWeHelp";
@@ -12,7 +11,6 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
-      <Header />
       <main className="flex-1">
         <Hero />
         <TrustBadges />

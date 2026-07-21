@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CTA from "@/components/sections/CTA";
 import Reveal from "@/components/Reveal";
@@ -36,7 +35,6 @@ export default async function BlogPostPage(props: {
 
   return (
     <>
-      <Header />
       <main className="flex-1">
         <section className="bg-surface-alt px-4 py-14 sm:px-6 sm:py-16">
           <Reveal className="mx-auto max-w-2xl text-center">

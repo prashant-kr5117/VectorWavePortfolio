@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -22,10 +22,31 @@ const navLinks = [
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [servicesExpanded, setServicesExpanded] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
+  useEffect(() => {
+    function onScroll() {
+      setScrolled(window.scrollY > 40);
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const isHome = pathname === "/";
+  const transparent = isHome && !scrolled && !open;
+
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-surface/95 backdrop-blur">
+    <header
+      className={`z-50 border-b transition-colors duration-300 ${
+        isHome ? "fixed left-0 right-0 top-0" : "sticky top-0"
+      } ${
+        transparent
+          ? "border-transparent bg-transparent"
+          : "border-border bg-surface/95 backdrop-blur"
+      }`}
+    >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-10">
         <Link href="/" className="flex items-center gap-2">
           <Image src={Logo} alt="VectorWave Technologies" className="h-16 w-auto" priority />
@@ -42,10 +63,14 @@ export default function Header() {
                 <div key={link.href} className="group relative">
                   <Link
                     href={link.href}
-                    className={`relative flex items-center gap-1 py-1 text-[13px] font-bold transition-colors duration-200 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 ${
-                      active
-                        ? "text-primary after:w-full"
-                        : "text-ink-soft after:w-0 hover:text-primary hover:after:w-full"
+                    className={`relative flex items-center gap-1 py-1 text-[13px] font-bold transition-colors duration-300 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:transition-all after:duration-300 ${
+                      transparent
+                        ? `text-on-inverse after:bg-on-inverse ${active ? "after:w-full" : "after:w-0 hover:after:w-full"}`
+                        : `after:bg-primary ${
+                            active
+                              ? "text-primary after:w-full"
+                              : "text-ink-soft after:w-0 hover:text-primary hover:after:w-full"
+                          }`
                     }`}
                   >
                     {link.label}
@@ -81,10 +106,14 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative py-1 text-[13px] font-bold transition-colors duration-200 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 ${
-                  active
-                    ? "text-primary after:w-full"
-                    : "text-ink-soft after:w-0 hover:text-primary hover:after:w-full"
+                className={`relative py-1 text-[13px] font-bold transition-colors duration-300 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:transition-all after:duration-300 ${
+                  transparent
+                    ? `text-on-inverse after:bg-on-inverse ${active ? "after:w-full" : "after:w-0 hover:after:w-full"}`
+                    : `after:bg-primary ${
+                        active
+                          ? "text-primary after:w-full"
+                          : "text-ink-soft after:w-0 hover:text-primary hover:after:w-full"
+                      }`
                 }`}
               >
                 {link.label}
@@ -94,7 +123,7 @@ export default function Header() {
         </nav>
 
         <div className="hidden items-center gap-4 lg:flex">
-          <ThemeToggle />
+          <ThemeToggle colorClassName={transparent ? "text-on-inverse" : "text-ink"} />
           <Link
             href="/contact"
             className="inline-block rounded-lg bg-accent px-5 py-2.5 text-[13px] font-bold text-on-inverse transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-md active:translate-y-0"
@@ -104,7 +133,9 @@ export default function Header() {
         </div>
 
         <button
-          className="text-ink transition-transform duration-200 active:scale-90 lg:hidden"
+          className={`transition-colors duration-300 active:scale-90 lg:hidden ${
+            transparent ? "text-on-inverse" : "text-ink"
+          }`}
           aria-label="Toggle menu"
           aria-expanded={open}
           onClick={() => setOpen(!open)}
@@ -119,7 +150,7 @@ export default function Header() {
         }`}
       >
         <div className="overflow-hidden">
-          <nav className="flex flex-col gap-1 border-t border-border px-4 py-3">
+          <nav className="flex flex-col gap-1 border-t border-border bg-surface px-4 py-3">
             {navLinks.map((link) => {
               const active =
                 pathname === link.href ||

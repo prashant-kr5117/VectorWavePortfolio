@@ -15,7 +15,7 @@ function Stat({ value, label }: { value: string; label: string }) {
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden px-4 py-20 text-center sm:px-6 lg:py-28">
+    <section className="relative overflow-hidden px-4 pb-20 pt-28 text-center sm:px-6 lg:pb-28 lg:pt-32">
       <Image
         src={Banner}
         alt=""
