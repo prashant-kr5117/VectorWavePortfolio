@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import Typewriter from "@/components/Typewriter";
+import BookConsultationButton from "@/components/BookConsultationButton";
 import Banner from "@/src/Banner.png";
 
 function Stat({ value, label }: { value: string; label: string }) {
@@ -41,12 +42,9 @@ export default function Hero() {
           </p>
 
           <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link
-              href="/contact"
-              className="w-full rounded-lg bg-accent px-6 py-3 text-sm font-bold text-on-inverse transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-md active:translate-y-0 sm:w-auto"
-            >
+            <BookConsultationButton className="w-full rounded-lg bg-accent px-6 py-3 text-sm font-bold text-on-inverse transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-md active:translate-y-0 sm:w-auto">
               Book free consultation
-            </Link>
+            </BookConsultationButton>
             <Link
               href="/services"
               className="w-full rounded-lg border border-white/25 px-6 py-3 text-sm font-bold text-on-inverse transition-all duration-200 hover:-translate-y-0.5 hover:border-white hover:shadow-sm active:translate-y-0 sm:w-auto"

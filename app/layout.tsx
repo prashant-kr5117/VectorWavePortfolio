@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import Header from "@/components/Header";
+import { ConsultationModalProvider } from "@/components/ConsultationModal";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,9 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "VectorWave Technologies | Zoho, ERP and CRM Solutions",
+  title: "VectorWave Technologies Zoho & ERP Solutions for Growth",
   description:
-    "Custom Zoho and Odoo ERP, CRM automation, web development and AI-powered tools for growing businesses.",
+    "VectorWave Technologies offers Zoho & ERP Solutions tailored for growing businesses. Minimize downtime and enhance operational efficiency.",
 };
 
 export default function RootLayout({
@@ -45,8 +46,10 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col">
-        <Header />
-        {children}
+        <ConsultationModalProvider>
+          <Header />
+          {children}
+        </ConsultationModalProvider>
         <Script id="zsiq-init" strategy="afterInteractive">
           {`window.$zoho = window.$zoho || {};
 $zoho.salesiq = $zoho.salesiq || { ready: function () {} };`}

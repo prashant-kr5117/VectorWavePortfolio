@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import BookConsultationButton from "@/components/BookConsultationButton";
 
 export default function CTA() {
   return (
@@ -12,12 +12,9 @@ export default function CTA() {
           Let&apos;s collaborate to turn your ideas into impactful digital
           solutions that drive real results.
         </p>
-        <Link
-          href="/contact"
-          className="mt-5 inline-block rounded-lg bg-accent px-6 py-3 text-sm font-bold text-on-inverse transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-md active:translate-y-0"
-        >
+        <BookConsultationButton className="mt-5 inline-block rounded-lg bg-accent px-6 py-3 text-sm font-bold text-on-inverse transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-md active:translate-y-0">
           Book free consultation
-        </Link>
+        </BookConsultationButton>
       </Reveal>
     </section>
   );
