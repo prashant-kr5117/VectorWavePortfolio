@@ -19,8 +19,8 @@ export async function generateMetadata(props: {
   const service = getServiceBySlug(slug);
   if (!service) return {};
   return {
-    title: `${service.title} | VectorWave Technologies`,
-    description: service.intro,
+    title: service.metaTitle,
+    description: service.metaDescription,
   };
 }
 

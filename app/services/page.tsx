@@ -24,9 +24,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Services | VectorWave Technologies",
+  title: "ERP, CRM & Cloud Solutions | VectorWave Services",
   description:
-    "ERP, CRM, Zoho and Odoo implementation, annual maintenance, and custom application development for growing businesses.",
+    "Tailored ERP, CRM, Zoho, and Odoo solutions helping businesses streamline operations and grow with the right technology.",
 };
 
 const coreServices = [

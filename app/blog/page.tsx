@@ -7,7 +7,7 @@ import BlogGrid from "@/components/BlogGrid";
 export const metadata: Metadata = {
   title: "Blog | VectorWave Technologies",
   description:
-    "Insights on ERP, CRM, AI, web development, and finance from the VectorWave team.",
+    "Stay updated with VectorWave's blog on Zoho tools, ERP strategy, and digital transformation for growing businesses.",
 };
 
 export default function BlogPage() {

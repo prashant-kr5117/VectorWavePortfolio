@@ -6,9 +6,9 @@ import ContactForm from "@/components/ContactForm";
 import { MessageCircle, Mail, Phone, MapPin } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contact Us | VectorWave Technologies",
+  title: "Contact VectorWave Technologies | Get in Touch",
   description:
-    "Connect with our experts to get customized, high-impact digital solutions tailored to help your business scale efficiently.",
+    "Reach our team via live chat, email, or phone - Monday to Friday, 9:30 AM to 6:30 PM IST for tailored digital solutions.",
 };
 
 const contactMethods = [

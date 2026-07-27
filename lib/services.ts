@@ -16,6 +16,8 @@ export type ServiceCategory = {
   intro: string;
   icon: ServiceIcon;
   tools: ServiceTool[];
+  metaTitle: string;
+  metaDescription: string;
 };
 
 export const serviceCategories: ServiceCategory[] = [
@@ -25,6 +27,9 @@ export const serviceCategories: ServiceCategory[] = [
     intro:
       "Full-suite Zoho implementation covering everything from initial setup to customisation and go-live, all built around how your business actually works. We map your existing processes and configure the right combination of apps for better team efficiency and collaboration.",
     icon: "boxes",
+    metaTitle: "Zoho Bundled Suite | Zoho Implementation & Setup Services",
+    metaDescription:
+      "Get every Zoho tool configured and live, built around your business. End-to-end implementation, one trusted partner, zero guesswork.",
     tools: [
       {
         name: "Zoho One",
@@ -62,6 +67,9 @@ export const serviceCategories: ServiceCategory[] = [
     intro:
       "Accelerate revenue growth and streamline your sales process with powerful Zoho sales applications. From lead capture to deal closure and customer engagement, these tools help businesses automate workflows, improve conversions, and deliver exceptional customer experiences.",
     icon: "users",
+    metaTitle: "Zoho Sales Tools | Capture Leads & Close Deals Faster",
+    metaDescription:
+      "VectorWave sets up Zoho CRM, SalesIQ, Bigin, and Bookings to help your team capture more leads, automate follow-ups, and grow revenue faster.",
     tools: [
       {
         name: "Zoho CRM",
@@ -91,6 +99,9 @@ export const serviceCategories: ServiceCategory[] = [
     intro:
       "Good support keeps customers happy and businesses running. Zoho's tools enable teams to handle tickets faster, resolve issues remotely, and deliver customer experiences people actually appreciate.",
     icon: "headset",
+    metaTitle: "Zoho IT & Support | Helpdesk & Remote Support Tools",
+    metaDescription:
+      "VectorWave implements Zoho Desk, Assist, Lens, and FSM to help your support team resolve issues faster and keep customers satisfied.",
     tools: [
       {
         name: "Zoho Desk",
@@ -116,6 +127,9 @@ export const serviceCategories: ServiceCategory[] = [
     intro:
       "Zoho's financial tools consolidate accounting, billing, expenses, and inventory management into one unified platform, automating routine tasks and giving real-time visibility into business financial performance.",
     icon: "calculator",
+    metaTitle: "Zoho Finance Solutions | Accounting, Billing & Inventory",
+    metaDescription:
+      "Zoho Books, Invoice, Inventory, and more all connected in one system. VectorWave sets it up so you always know exactly where your business stands financially.",
     tools: [
       {
         name: "Zoho Books",
@@ -153,6 +167,9 @@ export const serviceCategories: ServiceCategory[] = [
     intro:
       "Managing people is one of the most important parts of running a business. Zoho's HR tools bring recruitment, onboarding, attendance, payroll, and performance management into one connected system.",
     icon: "user-cog",
+    metaTitle: "Zoho HR Solutions | People, Recruit & Payroll",
+    metaDescription:
+      "Manage your team from hire to retire. VectorWave implements Zoho People, Recruit, and Payroll to simplify HR - accurately, automatically, and compliantly.",
     tools: [
       {
         name: "Zoho People",

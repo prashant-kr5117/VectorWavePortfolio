@@ -16,9 +16,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About Us | VectorWave Technologies",
+  title: "About VectorWave Technologies",
   description:
-    "Learn how the VectorWave team helps businesses bring their sales, finance, HR, and operations together in one system.",
+    "Learn how the VectorWave team helps businesses bring their sales, finance, HR, and operations together in one system that actually makes life easier.",
 };
 
 const whatWeDo = [

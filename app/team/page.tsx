@@ -5,9 +5,9 @@ import Reveal from "@/components/Reveal";
 import { Layers, Users, Scale, Code2, BrainCircuit } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Our Team | VectorWave Technologies",
+  title: "Meet the VectorWave Team",
   description:
-    "Meet the innovators, strategists, and technologists behind VectorWave's Zoho, CRM, finance, web development, and AI solutions.",
+    "Certified Zoho consultants, CRM specialists, finance pros, web developers, and AI engineers all working together to help your business grow.",
 };
 
 const departments = [
