@@ -3,6 +3,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
+  color-scheme: light;
+
   /* page-flow text — inverts in dark mode */
   --color-ink: #0b1b33;
   --color-ink-soft: #33405c;
@@ -35,6 +37,8 @@
 }
 
 .dark {
+  color-scheme: dark;
+
   --color-ink: #f1f5f9;
   --color-ink-soft: #c7d0e0;
   --color-ink-muted: #9aa6be;

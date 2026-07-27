@@ -118,10 +118,12 @@ export default function ContactForm() {
             <select
               name="Lead Source"
               defaultValue="Website"
-              className="w-full rounded-lg border border-border px-3 py-2.5 text-sm text-ink outline-none transition-colors duration-200 focus:border-primary"
+              className="w-full rounded-lg border border-border bg-surface px-3 py-2.5 text-sm text-ink outline-none transition-colors duration-200 focus:border-primary"
             >
               {leadSources.map((source) => (
-                <option key={source}>{source}</option>
+                <option key={source} className="bg-surface text-ink">
+                  {source}
+                </option>
               ))}
             </select>
           </div>
