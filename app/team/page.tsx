@@ -26,7 +26,7 @@ const departments = [
     title: "Finance & Compliance Team",
     desc: "Qualified accounting and taxation professionals with strong expertise in corporate finance, GST compliance, payroll management, statutory reporting, and financial planning, keeping your finances accurate and operations transparent.",
   },
-  {
+  { 
     icon: Code2,
     title: "Web Development Team",
     desc: "Builds digital platforms that are fast, responsive, and built to perform: custom websites, business web applications, portal systems, and SEO-optimised architecture, with a focus on clean code, mobile responsiveness, and seamless integration with CRM and business systems.",

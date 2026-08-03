@@ -1,62 +1,77 @@
-import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import Typewriter from "@/components/Typewriter";
 import BookConsultationButton from "@/components/BookConsultationButton";
-import Banner from "@/src/Banner.png";
-
-function Stat({ value, label }: { value: string; label: string }) {
-  return (
-    <div>
-      <div className="text-lg font-bold text-on-inverse">{value}</div>
-      <div className="text-xs text-on-inverse-muted">{label}</div>
-    </div>
-  );
-}
+import EcosystemOrbit from "@/components/EcosystemOrbit";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden px-4 pb-20 pt-28 text-center sm:px-6 lg:pb-28 lg:pt-32">
-      <Image
-        src={Banner}
-        alt=""
-        fill
-        priority
-        className="object-cover"
+    <section className="relative overflow-hidden bg-ink-inverse px-4 pb-20 pt-28 sm:px-6 lg:px-10 lg:pb-28 lg:pt-36">
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.06]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)",
+          backgroundSize: "56px 56px",
+          maskImage: "radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 90%)",
+          WebkitMaskImage: "radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 90%)",
+        }}
       />
-      <div className="absolute inset-0 bg-ink-inverse/70" />
 
-      <div className="relative z-10">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-8">
         <Reveal>
-          <span className="inline-block rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-[11px] font-bold text-primary backdrop-blur-sm sm:text-xs">
+          <span className="inline-flex items-center gap-2 rounded-full border border-accent/25 bg-accent/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-wide text-accent">
+            <span className="h-1.5 w-1.5 shrink-0 animate-dot-pulse rounded-full bg-accent" />
             Zoho Authorised Partner · ERP · CRM · Web and AI Solutions
           </span>
 
-          <h1 className="mx-auto mt-5 max-w-xl text-[28px] font-bold leading-tight text-on-inverse sm:text-4xl">
-            <Typewriter text="Powering intelligent business flow, without the overhead" />
+          <h1 className="mt-5 max-w-xl text-[32px] font-bold leading-tight text-on-inverse sm:text-5xl">
+            <Typewriter
+              segments={[
+                { text: "Powering Intelligent " },
+                {
+                  text: "Business Flow,",
+                  className: "bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent",
+                },
+                { text: " without the overhead." },
+              ]}
+              speed={65}
+              startDelay={300}
+            />
           </h1>
 
-          <p className="mx-auto mt-4 max-w-md text-sm text-on-inverse-muted sm:text-base">
+          <p className="mt-5 max-w-md text-sm leading-relaxed text-on-inverse-muted sm:text-base">
             We implement Zoho and Odoo ERP, CRM automation, web development and
             AI-powered tools so growing businesses run on one connected system.
           </p>
 
-          <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <BookConsultationButton className="w-full rounded-lg bg-accent px-6 py-3 text-sm font-bold text-on-inverse transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-md active:translate-y-0 sm:w-auto">
-              Book free consultation
+          <div className="mt-7 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+            <BookConsultationButton className="btn-shine flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3 text-sm font-bold text-on-inverse transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-md active:translate-y-0 sm:w-auto">
+              Book free consultation <ArrowRight size={15} />
             </BookConsultationButton>
             <Link
               href="/services"
-              className="w-full rounded-lg border border-white/25 px-6 py-3 text-sm font-bold text-on-inverse transition-all duration-200 hover:-translate-y-0.5 hover:border-white hover:shadow-sm active:translate-y-0 sm:w-auto"
+              className="w-full rounded-lg border border-on-inverse-border px-6 py-3 text-center text-sm font-bold text-on-inverse transition-all duration-200 hover:-translate-y-0.5 hover:border-on-inverse sm:w-auto"
             >
-              Explore services
+              See our services
             </Link>
           </div>
 
-          <div className="mt-10 flex flex-wrap justify-center gap-8 sm:gap-10">
-            <Stat value="15+" label="Projects delivered" />
-            <Stat value="12" label="Industries served" />
+          <div className="mt-10 flex gap-10 border-t border-on-inverse-border pt-6">
+            <div>
+              <div className="text-2xl font-bold text-on-inverse">15+</div>
+              <div className="mt-0.5 text-xs text-on-inverse-faint">Projects delivered</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-on-inverse">12</div>
+              <div className="mt-0.5 text-xs text-on-inverse-faint">Industries served</div>
+            </div>
           </div>
+        </Reveal>
+
+        <Reveal delay={120}>
+          <EcosystemOrbit />
         </Reveal>
       </div>
     </section>

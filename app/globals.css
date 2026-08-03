@@ -132,6 +132,80 @@ body {
   animation: blink 1s step-end infinite;
 }
 
+@keyframes dot-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.animate-dot-pulse {
+  animation: dot-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee-scroll 24s linear infinite;
+}
+
+.animate-marquee:hover,
+.group:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+@keyframes orbit-dash {
+  from {
+    stroke-dashoffset: 16;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-orbit-dash {
+  animation: orbit-dash 1.6s linear infinite;
+}
+
+@keyframes shine-sweep {
+  from {
+    left: -60%;
+  }
+  to {
+    left: 130%;
+  }
+}
+
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(115deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+  transform: skewX(-20deg);
+}
+
+.btn-shine:hover::after {
+  animation: shine-sweep 0.65s ease forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

@@ -13,6 +13,7 @@ export type ServiceTool = {
 export type ServiceCategory = {
   slug: string;
   title: string;
+  short: string;
   intro: string;
   icon: ServiceIcon;
   tools: ServiceTool[];
@@ -24,6 +25,7 @@ export const serviceCategories: ServiceCategory[] = [
   {
     slug: "zoho-bundled-suite",
     title: "Zoho Bundled Suite",
+    short: "CRM, Finance, HR and Analytics set up as one connected suite.",
     intro:
       "Full-suite Zoho implementation covering everything from initial setup to customisation and go-live, all built around how your business actually works. We map your existing processes and configure the right combination of apps for better team efficiency and collaboration.",
     icon: "boxes",
@@ -64,6 +66,7 @@ export const serviceCategories: ServiceCategory[] = [
   {
     slug: "sales",
     title: "Sales",
+    short: "Pipeline automation, lead capture and reporting built around your process.",
     intro:
       "Accelerate revenue growth and streamline your sales process with powerful Zoho sales applications. From lead capture to deal closure and customer engagement, these tools help businesses automate workflows, improve conversions, and deliver exceptional customer experiences.",
     icon: "users",
@@ -96,6 +99,7 @@ export const serviceCategories: ServiceCategory[] = [
   {
     slug: "it-support",
     title: "IT & Support",
+    short: "Infrastructure, helpdesk and reliable uptime for your team.",
     intro:
       "Good support keeps customers happy and businesses running. Zoho's tools enable teams to handle tickets faster, resolve issues remotely, and deliver customer experiences people actually appreciate.",
     icon: "headset",
@@ -124,6 +128,7 @@ export const serviceCategories: ServiceCategory[] = [
   {
     slug: "zoho-finance",
     title: "Zoho Finance",
+    short: "Invoicing, expenses, compliance and reporting, kept in sync.",
     intro:
       "Zoho's financial tools consolidate accounting, billing, expenses, and inventory management into one unified platform, automating routine tasks and giving real-time visibility into business financial performance.",
     icon: "calculator",
@@ -164,6 +169,7 @@ export const serviceCategories: ServiceCategory[] = [
   {
     slug: "human-resources",
     title: "Human Resources",
+    short: "Recruitment, onboarding, attendance and payroll workflows.",
     intro:
       "Managing people is one of the most important parts of running a business. Zoho's HR tools bring recruitment, onboarding, attendance, payroll, and performance management into one connected system.",
     icon: "user-cog",

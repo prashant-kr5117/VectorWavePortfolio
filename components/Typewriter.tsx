@@ -2,17 +2,24 @@
 
 import { useEffect, useState } from "react";
 
+type Segment = { text: string; className?: string };
+
 export default function Typewriter({
   text,
+  segments,
   className = "",
   speed = 100,
   startDelay = 300,
 }: {
-  text: string;
+  text?: string;
+  segments?: Segment[];
   className?: string;
   speed?: number;
   startDelay?: number;
 }) {
+  const parts: Segment[] = segments ?? [{ text: text ?? "" }];
+  const fullText = parts.map((p) => p.text).join("");
+
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -20,7 +27,7 @@ export default function Typewriter({
     const timeout = setTimeout(() => {
       interval = setInterval(() => {
         setCount((c) => {
-          if (c >= text.length) {
+          if (c >= fullText.length) {
             clearInterval(interval);
             return c;
           }
@@ -33,15 +40,26 @@ export default function Typewriter({
       clearTimeout(timeout);
       clearInterval(interval);
     };
-  }, [text, speed, startDelay]);
+  }, [fullText, speed, startDelay]);
 
   return (
     <span className={className}>
       <span aria-hidden="true">
-        {text.slice(0, count)}
-        <span className="ml-0.5 inline-block w-[2px] animate-blink bg-current align-middle" style={{ height: "0.9em" }} />
+        {parts.map((part, i) => {
+          const start = parts.slice(0, i).reduce((sum, p) => sum + p.text.length, 0);
+          const visible = part.text.slice(0, Math.max(0, Math.min(part.text.length, count - start)));
+          return visible ? (
+            <span key={i} className={part.className}>
+              {visible}
+            </span>
+          ) : null;
+        })}
+        <span
+          className="ml-0.5 inline-block w-[2px] animate-blink bg-current align-middle"
+          style={{ height: "0.9em" }}
+        />
       </span>
-      <span className="sr-only">{text}</span>
+      <span className="sr-only">{fullText}</span>
     </span>
   );
 }

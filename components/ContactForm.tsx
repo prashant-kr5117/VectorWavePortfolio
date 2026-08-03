@@ -14,15 +14,24 @@ export default function ContactForm() {
     e.preventDefault();
     setStatus("loading");
 
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
     try {
-      const response = await fetch("https://crm.zoho.in/crm/WebToLeadForm", {
+      const response = await fetch("/api/contact", {
         method: "POST",
-        body: new FormData(e.currentTarget),
-        cache: "no-cache",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: formData.get("firstName"),
+          lastName: formData.get("lastName"),
+          email: formData.get("email"),
+          leadSource: formData.get("leadSource"),
+          requirements: formData.get("requirements"),
+        }),
       });
-      if (!response.ok) throw new Error("Zoho webform submission failed");
+      if (!response.ok) throw new Error("Contact form submission failed");
       setStatus("sent");
-      e.currentTarget.reset();
+      form.reset();
     } catch {
       setStatus("error");
     }
@@ -55,22 +64,6 @@ export default function ContactForm() {
         }`}
       >
         <div className="flex flex-col gap-4 overflow-hidden">
-          <input
-            type="hidden"
-            name="xnQsjsdp"
-            value="f7f8c3a086f7bdab1f0de876eb6d57608a909fa2cf50898341b089d1e4535878"
-          />
-          <input type="hidden" name="zc_gad" value="" />
-          <input
-            type="hidden"
-            name="xmIwtLD"
-            value="893ba5c89bad9cd4bc15197577acf25ec374220f91365a90591a73251deaa9e791cfeb31fff37f045ae53e6302b780bc"
-          />
-          <input type="hidden" name="actionType" value="TGVhZHM=" />
-          <input type="hidden" name="returnURL" value="null" />
-          <input type="hidden" name="aG9uZXlwb3Q" value="" />
-          <input type="hidden" name="wFaTrisJS" value="true" />
-
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
               <label className="mb-1 block text-xs font-bold text-ink-soft">
@@ -79,7 +72,7 @@ export default function ContactForm() {
               <input
                 required
                 type="text"
-                name="First Name"
+                name="firstName"
                 placeholder="Jordan"
                 className="w-full rounded-lg border border-border px-3 py-2.5 text-sm text-ink outline-none transition-colors duration-200 placeholder:text-ink-faint focus:border-primary"
               />
@@ -91,7 +84,7 @@ export default function ContactForm() {
               <input
                 required
                 type="text"
-                name="Last Name"
+                name="lastName"
                 placeholder="Taylor"
                 className="w-full rounded-lg border border-border px-3 py-2.5 text-sm text-ink outline-none transition-colors duration-200 placeholder:text-ink-faint focus:border-primary"
               />
@@ -105,7 +98,7 @@ export default function ContactForm() {
             <input
               required
               type="email"
-              name="Email"
+              name="email"
               placeholder="jordan@company.com"
               className="w-full rounded-lg border border-border px-3 py-2.5 text-sm text-ink outline-none transition-colors duration-200 placeholder:text-ink-faint focus:border-primary"
             />
@@ -116,7 +109,7 @@ export default function ContactForm() {
               How did you hear about us
             </label>
             <select
-              name="Lead Source"
+              name="leadSource"
               defaultValue="Website"
               className="w-full rounded-lg border border-border bg-surface px-3 py-2.5 text-sm text-ink outline-none transition-colors duration-200 focus:border-primary"
             >
@@ -134,7 +127,7 @@ export default function ContactForm() {
             </label>
             <textarea
               rows={4}
-              name="LEADCF5"
+              name="requirements"
               placeholder="Tell us what you're looking to build or automate"
               className="w-full rounded-lg border border-border px-3 py-2.5 text-sm text-ink outline-none transition-colors duration-200 placeholder:text-ink-faint focus:border-primary"
             />

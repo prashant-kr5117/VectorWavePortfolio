@@ -80,20 +80,25 @@ export default function Header() {
                     />
                   </Link>
 
-                  <div className="invisible absolute left-1/2 top-full z-20 w-72 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
+                  <div className="invisible absolute left-1/2 top-full z-20 w-80 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
                     <div className="rounded-xl border border-border bg-surface p-2 shadow-lg">
                       {serviceCategories.map((service) => (
                         <Link
                           key={service.slug}
                           href={`/services/${service.slug}`}
-                          className="group/item flex items-center gap-3 rounded-lg px-3 py-2.5 transition-colors duration-200 hover:bg-surface-alt"
+                          className="group/item flex items-start gap-3 rounded-lg px-3 py-2.5 transition-colors duration-200 hover:bg-surface-alt"
                         >
                           <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-surface-chip text-primary transition-transform duration-300 group-hover/item:scale-110">
                             <ServiceIcon icon={service.icon} size={16} />
                           </div>
-                          <span className="text-xs font-bold text-ink-soft group-hover/item:text-ink">
-                            {service.title}
-                          </span>
+                          <div>
+                            <div className="text-xs font-bold text-ink-soft group-hover/item:text-ink">
+                              {service.title}
+                            </div>
+                            <div className="mt-0.5 text-[11px] leading-snug text-ink-faint">
+                              {service.short}
+                            </div>
+                          </div>
                         </Link>
                       ))}
                     </div>
@@ -123,10 +128,18 @@ export default function Header() {
         </nav>
 
         <div className="hidden items-center gap-4 lg:flex">
-          <ThemeToggle colorClassName={transparent ? "text-on-inverse" : "text-ink"} />
+          <span
+            className={`flex h-9 w-9 items-center justify-center rounded-lg border transition-colors duration-300 ${
+              transparent
+                ? "border-white/25 text-on-inverse"
+                : "border-border bg-surface-alt text-ink"
+            }`}
+          >
+            <ThemeToggle colorClassName={transparent ? "text-on-inverse" : "text-ink"} />
+          </span>
           <Link
             href="/contact"
-            className="inline-block rounded-lg bg-accent px-5 py-2.5 text-[13px] font-bold text-on-inverse transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-md active:translate-y-0"
+            className="btn-shine inline-block rounded-lg bg-accent px-5 py-2.5 text-[13px] font-bold text-on-inverse transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-md active:translate-y-0"
           >
             Book a call
           </Link>
