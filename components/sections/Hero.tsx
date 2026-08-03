@@ -4,6 +4,7 @@ import Reveal from "@/components/Reveal";
 import Typewriter from "@/components/Typewriter";
 import BookConsultationButton from "@/components/BookConsultationButton";
 import EcosystemOrbit from "@/components/EcosystemOrbit";
+import Counter from "@/components/Counter";
 
 export default function Hero() {
   return (
@@ -26,7 +27,7 @@ export default function Hero() {
             Zoho Authorised Partner · ERP · CRM · Web and AI Solutions
           </span>
 
-          <h1 className="mt-5 max-w-xl text-[32px] font-bold leading-tight text-on-inverse sm:text-5xl">
+          <h1 className="mt-5 min-h-[120px] max-w-xl text-[32px] font-bold leading-tight text-on-inverse sm:min-h-[180px] sm:text-5xl">
             <Typewriter
               segments={[
                 { text: "Powering Intelligent " },
@@ -36,7 +37,7 @@ export default function Hero() {
                 },
                 { text: " without the overhead." },
               ]}
-              speed={65}
+              speed={85}
               startDelay={300}
             />
           </h1>
@@ -60,11 +61,11 @@ export default function Hero() {
 
           <div className="mt-10 flex gap-10 border-t border-on-inverse-border pt-6">
             <div>
-              <div className="text-2xl font-bold text-on-inverse">15+</div>
+              <Counter value={15} suffix="+" className="text-2xl font-bold text-on-inverse" />
               <div className="mt-0.5 text-xs text-on-inverse-faint">Projects delivered</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-on-inverse">12</div>
+              <Counter value={12} className="text-2xl font-bold text-on-inverse" />
               <div className="mt-0.5 text-xs text-on-inverse-faint">Industries served</div>
             </div>
           </div>
