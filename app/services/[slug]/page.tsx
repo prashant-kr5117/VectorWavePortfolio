@@ -5,7 +5,12 @@ import Footer from "@/components/Footer";
 import CTA from "@/components/sections/CTA";
 import Reveal from "@/components/Reveal";
 import ServiceIcon from "@/components/ServiceIcon";
-import { getServiceBySlug, serviceCategories } from "@/lib/services";
+import {
+  getServiceBySlug,
+  getServicesByPlatform,
+  getPlatform,
+  serviceCategories,
+} from "@/lib/services";
 import { ArrowLeft } from "lucide-react";
 
 export function generateStaticParams() {
@@ -31,7 +36,10 @@ export default async function ServiceDetailPage(props: {
   const service = getServiceBySlug(slug);
   if (!service) notFound();
 
-  const otherServices = serviceCategories.filter((s) => s.slug !== service.slug);
+  const platform = getPlatform(service.platform);
+  const otherServices = getServicesByPlatform(service.platform).filter(
+    (s) => s.slug !== service.slug
+  );
 
   return (
     <>
@@ -47,6 +55,11 @@ export default async function ServiceDetailPage(props: {
             <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-ink-inverse text-on-inverse">
               <ServiceIcon icon={service.icon} size={26} />
             </div>
+            {platform && (
+              <span className="mb-3 inline-block rounded-full bg-surface-chip px-3 py-1 text-[11px] font-bold text-primary">
+                {platform.name}
+              </span>
+            )}
             <h1 className="mx-auto text-[26px] font-bold leading-tight text-ink sm:text-3xl">
               {service.title}
             </h1>
@@ -84,7 +97,7 @@ export default async function ServiceDetailPage(props: {
           <div className="mx-auto max-w-5xl">
             <Reveal className="mb-6 text-center">
               <h2 className="text-lg font-bold text-ink">
-                Other services we provide
+                Other {platform?.name ?? ""} services we provide
               </h2>
             </Reveal>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">

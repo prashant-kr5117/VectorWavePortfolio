@@ -53,21 +53,25 @@ const services = [
     icon: Code2,
     title: "Web Development",
     desc: "Fast, SEO-friendly websites that convert visitors.",
+    slug: "web-development",
   },
   {
     icon: ShoppingCart,
     title: "E-Commerce",
     desc: "Secure online stores built to grow sales.",
+    slug: "web-development",
   },
   {
     icon: Bot,
     title: "Artificial Intelligence",
     desc: "Automation that speeds up decisions and tasks.",
+    slug: "ai-integration",
   },
   {
     icon: Smartphone,
     title: "App Development",
     desc: "Android, iOS and cross-platform apps for your team.",
+    slug: "mobile-app-development",
   },
 ];
 

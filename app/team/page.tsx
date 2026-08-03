@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Footer from "@/components/Footer";
 import CTA from "@/components/sections/CTA";
 import Reveal from "@/components/Reveal";
 import { Layers, Users, Scale, Code2, BrainCircuit } from "lucide-react";
+import TeamImage from "@/src/TeamImage.jpeg";
 
 export const metadata: Metadata = {
   title: "Meet the VectorWave Team",
@@ -42,6 +44,17 @@ export default function TeamPage() {
   return (
     <>
       <main className="flex-1">
+        <section className="relative h-64 w-full overflow-hidden sm:h-80 lg:h-96">
+          <Image
+            src={TeamImage}
+            alt="The VectorWave team"
+            fill
+            preload
+            sizes="100vw"
+            className="object-cover"
+          />
+        </section>
+
         <section className="bg-surface-alt px-4 py-14 text-center sm:px-6 sm:py-16">
           <Reveal>
             <span className="inline-block rounded-full bg-surface-chip px-4 py-1.5 text-[11px] font-bold text-primary">

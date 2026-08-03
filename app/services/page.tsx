@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import CTA from "@/components/sections/CTA";
 import Reveal from "@/components/Reveal";
 import ServiceIcon from "@/components/ServiceIcon";
-import { serviceCategories } from "@/lib/services";
+import { platforms, getServicesByPlatform } from "@/lib/services";
 import {
   Network,
   Users,
@@ -87,38 +87,61 @@ export default function ServicesPage() {
               We provide a wide range of services
             </h1>
             <p className="mx-auto mt-4 max-w-xl text-sm text-ink-muted sm:text-base">
-              We work with businesses of all sizes to simplify operations,
-              improve productivity, and drive growth using the right cloud
-              tools and custom technology built around how you work.
+              We work with businesses to simplify operations, improve
+              productivity, and drive growth using the right cloud tools and
+              custom technology built around how you work. Whether your team
+              runs on Zoho, Odoo, or Microsoft 365, we implement, connect, and
+              support the platform you&apos;ve already chosen or help you
+              pick the right one.
             </p>
           </Reveal>
         </section>
 
         <section className="px-4 py-14 sm:px-6 lg:px-10">
           <div className="mx-auto max-w-6xl">
-            <Reveal className="mb-8 text-center">
+            <Reveal className="mb-10 text-center">
               <h2 className="text-xl font-bold text-ink sm:text-2xl">
-                Zoho platforms we implement
+                Platforms &amp; services we implement
               </h2>
               <p className="mt-1 text-sm text-ink-muted">
                 Select a category to see the specific tools and what they cover.
               </p>
             </Reveal>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
-              {serviceCategories.map((service, i) => (
-                <Reveal key={service.slug} delay={i * 60}>
-                  <Link
-                    href={`/services/${service.slug}`}
-                    className="group flex h-full flex-col items-center gap-3 rounded-xl border border-border bg-surface p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg"
-                  >
-                    <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-ink-inverse text-on-inverse transition-transform duration-300 group-hover:scale-110">
-                      <ServiceIcon icon={service.icon} size={20} />
+
+            <div className="flex flex-col gap-12">
+              {platforms.map((platform) => (
+                <div key={platform.slug}>
+                  <Reveal className="mb-5 flex items-center gap-3">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-ink-inverse text-on-inverse">
+                      <ServiceIcon icon={platform.icon} size={18} />
                     </div>
-                    <span className="text-sm font-bold text-ink">
-                      {service.title}
-                    </span>
-                  </Link>
-                </Reveal>
+                    <div>
+                      <div className="text-sm font-bold text-ink sm:text-base">
+                        {platform.name}
+                      </div>
+                      <p className="text-xs text-ink-muted sm:text-sm">
+                        {platform.short}
+                      </p>
+                    </div>
+                  </Reveal>
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+                    {getServicesByPlatform(platform.slug).map((service, i) => (
+                      <Reveal key={service.slug} delay={i * 60}>
+                        <Link
+                          href={`/services/${service.slug}`}
+                          className="group flex h-full flex-col items-center gap-3 rounded-xl border border-border bg-surface p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg"
+                        >
+                          <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-surface-chip text-primary transition-transform duration-300 group-hover:scale-110">
+                            <ServiceIcon icon={service.icon} size={20} />
+                          </div>
+                          <span className="text-sm font-bold text-ink">
+                            {service.title}
+                          </span>
+                        </Link>
+                      </Reveal>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
           </div>
