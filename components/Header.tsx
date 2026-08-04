@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
-import Logo from "@/src/logo.png";
+import Logo from "@/src/logo2.png";
 import ThemeToggle from "@/components/ThemeToggle";
 import ServiceIcon from "@/components/ServiceIcon";
 import { platforms, getServicesByPlatform } from "@/lib/services";
@@ -64,7 +64,7 @@ export default function Header() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-10">
         <Link href="/" className="flex items-center gap-2">
-          <Image src={Logo} alt="VectorWave Technologies" className="-my-3 h-24 w-auto" priority />
+          <Image src={Logo} alt="VectorWave Technologies" className="-my-3 h-10 w-auto" priority />
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex">
