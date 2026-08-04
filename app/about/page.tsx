@@ -101,7 +101,7 @@ export default function AboutPage() {
               About Us
             </span>
             <h1 className="mx-auto mt-5 min-h-[68px] max-w-2xl text-[26px] font-bold leading-tight text-on-inverse sm:min-h-[80px] sm:text-3xl">
-              <Typewriter text="Engineering ERP systems that drive business performance" speed={22} />
+              <Typewriter text="Engineering ERP systems that drive business performance" speed={70} />
             </h1>
             <p className="mx-auto mt-4 max-w-xl text-sm text-on-inverse-muted sm:text-base">
               We specialize in ERP implementation and CRM automation, with deep
@@ -139,7 +139,7 @@ export default function AboutPage() {
           <div className="mx-auto max-w-5xl">
             <Reveal className="mb-8 text-center">
               <h2 className="text-xl font-bold text-ink sm:text-2xl">
-                What we do
+                What we Provide
               </h2>
             </Reveal>
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">

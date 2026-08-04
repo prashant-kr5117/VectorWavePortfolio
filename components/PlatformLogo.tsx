@@ -3,12 +3,14 @@ import ServiceIcon from "@/components/ServiceIcon";
 import ZohoLogo from "@/src/zoho.png";
 import OdooLogo from "@/src/odoo_logo.png";
 import Microsoft365Logo from "@/src/microsoft-365.png";
+import WebCodingImage from "@/src/Web Coding.png";
 import type { Platform, PlatformSlug } from "@/lib/services";
 
 const logos: Partial<Record<PlatformSlug, typeof ZohoLogo>> = {
   zoho: ZohoLogo,
   odoo: OdooLogo,
   "microsoft-365": Microsoft365Logo,
+  "custom-development": WebCodingImage,
 };
 
 export default function PlatformLogo({
