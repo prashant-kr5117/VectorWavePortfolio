@@ -5,10 +5,11 @@ import Typewriter from "@/components/Typewriter";
 import BookConsultationButton from "@/components/BookConsultationButton";
 import EcosystemOrbit from "@/components/EcosystemOrbit";
 import Counter from "@/components/Counter";
+import HoverGlow from "@/components/HoverGlow";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-ink-inverse px-4 pb-20 pt-28 sm:px-6 lg:px-10 lg:pb-28 lg:pt-36">
+    <HoverGlow as="section" className="bg-ink-inverse px-4 pb-20 pt-28 sm:px-6 lg:px-10 lg:pb-28 lg:pt-36">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.06]"
         style={{
@@ -75,6 +76,6 @@ export default function Hero() {
           <EcosystemOrbit />
         </Reveal>
       </div>
-    </section>
+    </HoverGlow>
   );
 }

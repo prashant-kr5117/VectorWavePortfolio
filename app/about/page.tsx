@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import CTA from "@/components/sections/CTA";
 import Reveal from "@/components/Reveal";
+import HoverGlow from "@/components/HoverGlow";
 import {
   Boxes,
   Code2,
@@ -224,7 +225,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="bg-ink-inverse px-4 py-14 sm:px-6 lg:px-10">
+        <HoverGlow as="section" className="bg-ink-inverse px-4 py-14 sm:px-6 lg:px-10">
           <div className="mx-auto max-w-5xl">
             <Reveal className="mb-8 text-center">
               <h2 className="text-xl font-bold text-on-inverse sm:text-2xl">
@@ -255,7 +256,7 @@ export default function AboutPage() {
               ))}
             </Reveal>
           </div>
-        </section>
+        </HoverGlow>
 
         <CTA />
       </main>

@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import CTA from "@/components/sections/CTA";
 import Reveal from "@/components/Reveal";
 import BlogIcon from "@/components/BlogIcon";
+import HoverGlow from "@/components/HoverGlow";
 import { getPostBySlug, getRelatedPosts, posts } from "@/lib/posts";
 import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
 
@@ -68,9 +69,9 @@ export default async function BlogPostPage(props: {
 
         <section className="px-4 py-14 sm:px-6">
           <Reveal className="mx-auto flex max-w-2xl flex-col gap-5">
-            <div className="mb-2 flex h-40 items-center justify-center rounded-xl bg-ink-inverse text-on-inverse">
+            <HoverGlow className="mb-2 flex h-40 items-center justify-center rounded-xl bg-ink-inverse text-on-inverse">
               <BlogIcon icon={post.icon} size={48} />
-            </div>
+            </HoverGlow>
             {post.content.map((paragraph, i) => (
               <p key={i} className="text-sm leading-relaxed text-ink-soft sm:text-base">
                 {paragraph}

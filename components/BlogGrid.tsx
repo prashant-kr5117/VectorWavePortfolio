@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Calendar, Clock, User, Search, ArrowRight } from "lucide-react";
 import { getSortedPosts } from "@/lib/posts";
 import BlogIcon from "@/components/BlogIcon";
+import HoverGlow from "@/components/HoverGlow";
 
 const categories = ["All", "ERP", "CRM", "AI", "Web Dev", "Finance"];
 
@@ -65,9 +66,9 @@ export default function BlogGrid() {
           href={`/blog/${featured.slug}`}
           className="group mb-10 flex flex-col overflow-hidden rounded-xl border border-border bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg sm:flex-row"
         >
-          <div className="flex h-40 items-center justify-center bg-ink-inverse text-on-inverse transition-transform duration-300 group-hover:scale-105 sm:h-auto sm:w-64 sm:shrink-0">
+          <HoverGlow className="flex h-40 items-center justify-center bg-ink-inverse text-on-inverse transition-transform duration-300 group-hover:scale-105 sm:h-auto sm:w-64 sm:shrink-0">
             <BlogIcon icon={featured.icon} size={48} />
-          </div>
+          </HoverGlow>
           <div className="flex flex-1 flex-col justify-center p-6">
             <span className="mb-2 inline-block w-fit rounded-full bg-surface-chip px-3 py-1 text-[10px] font-bold text-primary">
               Latest &middot; {featured.category}

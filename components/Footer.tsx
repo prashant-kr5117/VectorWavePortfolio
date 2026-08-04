@@ -1,11 +1,7 @@
 import Link from "next/link";
 import { MapPin, Mail } from "lucide-react";
-
-const socials = [
-  { label: "in", name: "LinkedIn" },
-  { label: "f", name: "Facebook" },
-  { label: "ig", name: "Instagram" },
-];
+import HoverGlow from "@/components/HoverGlow";
+import { socialLinks } from "@/lib/social";
 
 const companyLinks = [
   { label: "Home", href: "/" },
@@ -17,7 +13,7 @@ const companyLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-ink-inverse px-4 pb-6 pt-10 sm:px-6 lg:px-10">
+    <HoverGlow as="footer" className="bg-ink-inverse px-4 pb-6 pt-10 sm:px-6 lg:px-10">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 border-b border-ink-inverse-alt pb-8 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="mb-3 text-lg font-bold text-on-inverse">
@@ -83,17 +79,22 @@ export default function Footer() {
           Copyright 2026 VectorWave Technologies
         </span>
         <div className="flex gap-2">
-          {socials.map((s) => (
-            <span
-              key={s.name}
-              aria-label={s.name}
-              className="flex h-8 w-8 items-center justify-center rounded-full border border-on-inverse-border text-xs font-bold text-on-inverse-muted transition-colors duration-200 hover:border-primary hover:text-on-inverse"
+          {socialLinks.map((social) => (
+            <a
+              key={social.name}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.name}
+              className="flex h-8 w-8 items-center justify-center rounded-full border border-on-inverse-border text-on-inverse-muted transition-colors duration-200 hover:border-primary hover:text-on-inverse"
             >
-              {s.label}
-            </span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d={social.path} />
+              </svg>
+            </a>
           ))}
         </div>
       </div>
-    </footer>
+    </HoverGlow>
   );
 }
