@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   Boxes,
   Users,
@@ -6,12 +7,12 @@ import {
   Calculator,
   UserCog,
   Database,
-  Code2,
   ShoppingCart,
   Bot,
   Smartphone,
 } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import WebCodingImage from "@/src/Web Coding.png";
 
 const services = [
   {
@@ -50,7 +51,7 @@ const services = [
     desc: "Secure, accurate transfers with minimal downtime.",
   },
   {
-    icon: Code2,
+    logo: WebCodingImage,
     title: "Web Development",
     desc: "Fast, SEO-friendly websites that convert visitors.",
     slug: "web-development",
@@ -94,9 +95,15 @@ export default function Services() {
               "group h-full rounded-xl border border-border bg-surface p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg";
             const content = (
               <>
-                <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-surface-chip text-primary transition-transform duration-300 group-hover:scale-110">
-                  <s.icon size={18} />
-                </div>
+                {s.logo ? (
+                  <div className="mb-3 h-12 w-12 shrink-0 overflow-hidden rounded-full transition-transform duration-300 group-hover:scale-110">
+                    <Image src={s.logo} alt="" className="h-full w-full object-cover" />
+                  </div>
+                ) : (
+                  <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-surface-chip text-primary transition-transform duration-300 group-hover:scale-110">
+                    <s.icon size={18} />
+                  </div>
+                )}
                 <div className="mb-1 text-sm font-bold text-ink">
                   {s.title}
                 </div>
