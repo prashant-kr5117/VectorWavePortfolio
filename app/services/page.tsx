@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Footer from "@/components/Footer";
 import CTA from "@/components/sections/CTA";
 import Reveal from "@/components/Reveal";
 import ServiceIcon from "@/components/ServiceIcon";
+import PlatformLogo from "@/components/PlatformLogo";
 import { platforms, getServicesByPlatform } from "@/lib/services";
+import ZohoLogo from "@/src/zoho.png";
+import OdooLogo from "@/src/odoo_logo.png";
 import {
   Network,
   Users,
-  Layers,
-  Puzzle,
   ShieldCheck,
   Code2,
   Factory,
@@ -41,12 +43,12 @@ const coreServices = [
     desc: "Managing leads, sales pipelines, and customer relationships becomes a lot easier with the right CRM in place. We customise workflows, automate follow-ups, and give your team the insights they need.",
   },
   {
-    icon: Layers,
+    logo: ZohoLogo,
     title: "Zoho Implementation",
     desc: "Zoho has a tool for almost every part of your business. We implement and configure Zoho platforms so everything works together, giving your team one connected system for sales, finance, HR, and more.",
   },
   {
-    icon: Puzzle,
+    logo: OdooLogo,
     title: "Odoo Implementation",
     desc: "Odoo's modular approach means you only use what your business actually needs. We handle end-to-end Odoo implementation covering inventory, finance, sales, and operations.",
   },
@@ -112,9 +114,7 @@ export default function ServicesPage() {
               {platforms.map((platform) => (
                 <div key={platform.slug}>
                   <Reveal className="mb-5 flex items-center gap-3">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-ink-inverse text-on-inverse">
-                      <ServiceIcon icon={platform.icon} size={18} />
-                    </div>
+                    <PlatformLogo platform={platform} size={40} iconSize={18} />
                     <div>
                       <div className="text-sm font-bold text-ink sm:text-base">
                         {platform.name}
@@ -161,9 +161,15 @@ export default function ServicesPage() {
               {coreServices.map((s, i) => (
                 <Reveal key={s.title} delay={i * 60}>
                   <div className="group h-full rounded-xl border border-border bg-surface p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg">
-                    <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-surface-chip text-primary transition-transform duration-300 group-hover:scale-110">
-                      <s.icon size={20} />
-                    </div>
+                    {s.logo ? (
+                      <div className="mb-3 inline-flex h-10 min-w-10 items-center justify-center rounded-lg border border-border bg-white px-2.5 transition-transform duration-300 group-hover:scale-110">
+                        <Image src={s.logo} alt={`${s.title} logo`} style={{ height: 22, width: "auto" }} />
+                      </div>
+                    ) : (
+                      <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-surface-chip text-primary transition-transform duration-300 group-hover:scale-110">
+                        <s.icon size={20} />
+                      </div>
+                    )}
                     <div className="mb-1 text-sm font-bold text-ink">
                       {s.title}
                     </div>

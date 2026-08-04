@@ -8,6 +8,7 @@ import { Menu, X, ChevronDown, ArrowRight, Phone, Mail } from "lucide-react";
 import Logo from "@/src/logo2.png";
 import ThemeToggle from "@/components/ThemeToggle";
 import ServiceIcon from "@/components/ServiceIcon";
+import PlatformLogo from "@/components/PlatformLogo";
 import { platforms, getServicesByPlatform } from "@/lib/services";
 import { useIsDarkTheme } from "@/lib/theme";
 import { socialLinks } from "@/lib/social";
@@ -165,9 +166,12 @@ export default function Header() {
                               }`}
                               style={{ transitionDelay: `${colIndex * 50}ms` }}
                             >
-                              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-surface-chip text-primary">
-                                <ServiceIcon icon={platform.icon} size={13} />
-                              </span>
+                              <PlatformLogo
+                                platform={platform}
+                                size={24}
+                                iconSize={13}
+                                fallbackBg="rounded-md bg-surface-chip text-primary"
+                              />
                               <span className="text-[11px] font-bold uppercase tracking-wide text-ink-faint">
                                 {platform.name}
                               </span>
@@ -328,7 +332,12 @@ export default function Header() {
                                   className="flex w-full items-center justify-between rounded-md px-2 py-2 text-xs font-bold text-ink-muted transition-colors duration-200 hover:bg-surface-alt hover:text-ink"
                                 >
                                   <span className="flex items-center gap-2">
-                                    <ServiceIcon icon={platform.icon} size={14} />
+                                    <PlatformLogo
+                                      platform={platform}
+                                      size={20}
+                                      iconSize={12}
+                                      fallbackBg="rounded-md bg-surface-chip text-primary"
+                                    />
                                     {platform.name}
                                   </span>
                                   <ChevronDown

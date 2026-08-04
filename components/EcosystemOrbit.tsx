@@ -1,32 +1,56 @@
 "use client";
 
 import { useState } from "react";
+import Image, { type StaticImageData } from "next/image";
 import {
-  Boxes,
-  Workflow,
   Calculator,
   Code2,
   Bot,
-  Building2,
   Layers,
   type LucideIcon,
 } from "lucide-react";
+import ZohoLogo from "@/src/zoho.png";
+import OdooLogo from "@/src/odoo_logo.png";
+import Microsoft365Logo from "@/src/microsoft-365.png";
 
 type Node = {
   key: string;
   label: string;
   desc: string;
-  icon: LucideIcon;
+  icon?: LucideIcon;
+  logo?: StaticImageData;
 };
 
 const NODES: Node[] = [
-  { key: "zoho", label: "Zoho", desc: "CRM, Books, Inventory and more, fully implemented and connected.", icon: Boxes },
-  { key: "odoo", label: "Odoo", desc: "Modular open-source ERP tailored to your sales and finance flow.", icon: Workflow },
+  { key: "zoho", label: "Zoho", desc: "CRM, Books, Inventory and more, fully implemented and connected.", logo: ZohoLogo },
+  { key: "odoo", label: "Odoo", desc: "Modular open-source ERP tailored to your sales and finance flow.", logo: OdooLogo },
   { key: "finance", label: "Finance", desc: "Invoicing, expenses and reconciliation kept accurate and in sync.", icon: Calculator },
   { key: "web", label: "Web Development", desc: "Fast, SEO-ready websites that convert visitors into leads.", icon: Code2 },
   { key: "ai", label: "AI", desc: "Automation and AI tooling that speeds up decisions and tasks.", icon: Bot },
-  { key: "dynamics", label: "Microsoft Dynamics 365", desc: "Enterprise CRM and ERP rollouts for larger, complex teams.", icon: Building2 },
+  { key: "microsoft-365", label: "Microsoft 365", desc: "Office, collaboration and Dynamics 365 rollouts for larger, complex teams.", logo: Microsoft365Logo },
 ];
+
+function NodeIcon({ node, size }: { node: Node; size: number }) {
+  if (node.logo) {
+    return (
+      <span
+        className="flex shrink-0 items-center justify-center rounded-md bg-white px-1.5"
+        style={{ height: size, minWidth: size }}
+      >
+        <Image src={node.logo} alt={`${node.label} logo`} style={{ height: size * 0.6, width: "auto" }} />
+      </span>
+    );
+  }
+  const Icon = node.icon!;
+  return (
+    <span
+      className="flex shrink-0 items-center justify-center rounded-md bg-primary/15 text-primary"
+      style={{ width: size, height: size }}
+    >
+      <Icon size={size * 0.55} />
+    </span>
+  );
+}
 
 const RADIUS = 40;
 
@@ -78,7 +102,6 @@ export default function EcosystemOrbit() {
 
         {NODES.map((node, i) => {
           const { x, y } = position(i, NODES.length);
-          const Icon = node.icon;
           const isActive = active === node.key;
           const hSide = x > 62 ? "right" : x < 38 ? "left" : "center";
           const vSide = y > 60 ? "top" : "bottom";
@@ -102,9 +125,7 @@ export default function EcosystemOrbit() {
                       : "border-on-inverse-border bg-ink-inverse-alt/80 text-on-inverse"
                   }`}
                 >
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-primary/15 text-primary">
-                    <Icon size={13} />
-                  </span>
+                  <NodeIcon node={node} size={24} />
                   <span className="whitespace-nowrap">{node.label}</span>
                 </button>
 
@@ -129,20 +150,15 @@ export default function EcosystemOrbit() {
       </div>
 
       <div className="grid grid-cols-2 gap-2.5 sm:hidden">
-        {NODES.map((node) => {
-          const Icon = node.icon;
-          return (
-            <div
-              key={node.key}
-              className="flex items-center gap-2 rounded-xl border border-on-inverse-border bg-ink-inverse-alt px-3 py-2.5"
-            >
-              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-primary/15 text-primary">
-                <Icon size={14} />
-              </span>
-              <span className="text-[11px] font-bold text-on-inverse">{node.label}</span>
-            </div>
-          );
-        })}
+        {NODES.map((node) => (
+          <div
+            key={node.key}
+            className="flex items-center gap-2 rounded-xl border border-on-inverse-border bg-ink-inverse-alt px-3 py-2.5"
+          >
+            <NodeIcon node={node} size={28} />
+            <span className="text-[11px] font-bold text-on-inverse">{node.label}</span>
+          </div>
+        ))}
       </div>
     </div>
   );
