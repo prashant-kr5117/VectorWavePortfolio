@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import CTA from "@/components/sections/CTA";
 import Reveal from "@/components/Reveal";
 import HoverGlow from "@/components/HoverGlow";
+import Typewriter from "@/components/Typewriter";
 import TeamImage from "@/src/TeamImage.jpeg";
 import {
   Boxes,
@@ -99,8 +100,8 @@ export default function AboutPage() {
             <span className="inline-block rounded-full bg-surface-chip px-4 py-1.5 text-[11px] font-bold text-primary">
               About Us
             </span>
-            <h1 className="mx-auto mt-5 max-w-2xl text-[26px] font-bold leading-tight text-on-inverse sm:text-3xl">
-              Engineering ERP systems that drive business performance
+            <h1 className="mx-auto mt-5 min-h-[68px] max-w-2xl text-[26px] font-bold leading-tight text-on-inverse sm:min-h-[80px] sm:text-3xl">
+              <Typewriter text="Engineering ERP systems that drive business performance" speed={22} />
             </h1>
             <p className="mx-auto mt-4 max-w-xl text-sm text-on-inverse-muted sm:text-base">
               We specialize in ERP implementation and CRM automation, with deep

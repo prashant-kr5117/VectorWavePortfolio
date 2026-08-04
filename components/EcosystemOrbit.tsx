@@ -117,14 +117,29 @@ export default function EcosystemOrbit() {
                   type="button"
                   onMouseEnter={() => setActive(node.key)}
                   onMouseLeave={() => setActive((cur) => (cur === node.key ? null : cur))}
+                  onMouseMove={(e) => {
+                    const el = e.currentTarget;
+                    const rect = el.getBoundingClientRect();
+                    el.style.setProperty("--mx", `${((e.clientX - rect.left) / rect.width) * 100}%`);
+                    el.style.setProperty("--my", `${((e.clientY - rect.top) / rect.height) * 100}%`);
+                  }}
                   onFocus={() => setActive(node.key)}
                   onBlur={() => setActive((cur) => (cur === node.key ? null : cur))}
-                  className={`flex items-center gap-2 rounded-xl border px-3 py-2.5 text-xs font-bold shadow-lg backdrop-blur transition-all duration-300 ${
+                  className={`relative flex items-center gap-2 overflow-hidden rounded-xl border px-3 py-2.5 text-xs font-bold shadow-lg backdrop-blur transition-all duration-300 ${
                     isActive
                       ? "-translate-y-0.5 scale-105 border-accent bg-ink-inverse-alt text-on-inverse shadow-[0_16px_34px_-10px_rgba(48,182,205,0.5)]"
                       : "border-on-inverse-border bg-ink-inverse-alt/80 text-on-inverse"
                   }`}
                 >
+                  <span
+                    className={`pointer-events-none absolute inset-0 transition-opacity duration-300 ${
+                      isActive ? "opacity-100" : "opacity-0"
+                    }`}
+                    style={{
+                      background:
+                        "radial-gradient(160px circle at var(--mx, 50%) var(--my, 50%), rgba(48,182,205,0.35), transparent 70%)",
+                    }}
+                  />
                   <NodeIcon node={node} size={24} />
                   <span className="whitespace-nowrap">{node.label}</span>
                 </button>
