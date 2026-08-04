@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight, Phone, Mail } from "lucide-react";
 import Logo from "@/src/logo2.png";
 import ThemeToggle from "@/components/ThemeToggle";
 import ServiceIcon from "@/components/ServiceIcon";
@@ -18,6 +18,24 @@ const navLinks = [
   { label: "Blog", href: "/blog" },
   { label: "Team", href: "/team" },
   { label: "Contact", href: "/contact" },
+];
+
+const socialLinks = [
+  {
+    name: "LinkedIn",
+    href: "#",
+    path: "M6.94 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM7 8.48H3V21h4V8.48Zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-3.96 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.68-2.91V8.48Z",
+  },
+  {
+    name: "Facebook",
+    href: "#",
+    path: "M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.33-.04-1.54-.14-2.82-.14C11.98 2 10 3.66 10 6.7v2.8H7v4h3V22h4v-8.5Z",
+  },
+  {
+    name: "Instagram",
+    href: "#",
+    path: "M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.21.6 1.76 1.15.5.5.9 1.1 1.15 1.76.25.64.42 1.37.47 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.76c-.5.5-1.1.9-1.76 1.15-.64.25-1.37.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.76-1.15 4.9 4.9 0 0 1-1.15-1.76c-.25-.64-.42-1.37-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.21 1.15-1.76a4.9 4.9 0 0 1 1.76-1.15c.64-.25 1.37-.42 2.43-.47C8.94 2.01 9.28 2 12 2Zm0 3.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Zm0 2a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm6.75-1.75a1.05 1.05 0 1 0 0-2.1 1.05 1.05 0 0 0 0 2.1Z",
+  },
 ];
 
 const itemDotStyles = [
@@ -62,6 +80,41 @@ export default function Header() {
           : "border-border bg-surface/95 backdrop-blur"
       }`}
     >
+      <div className="hidden items-center justify-between bg-ink-inverse px-4 py-1.5 text-on-inverse-muted sm:px-6 lg:flex lg:px-10">
+        <div className="flex items-center gap-5 text-[11.5px]">
+          <a
+            href="tel:+918791810555"
+            className="flex items-center gap-1.5 transition-colors duration-200 hover:text-on-inverse"
+          >
+            <Phone size={12} />
+            +91-8791810555
+          </a>
+          <a
+            href="mailto:admin@vectorwavetechnologies.com"
+            className="flex items-center gap-1.5 transition-colors duration-200 hover:text-on-inverse"
+          >
+            <Mail size={12} />
+            admin@vectorwavetechnologies.com
+          </a>
+        </div>
+        <div className="flex items-center gap-3">
+          {socialLinks.map((social) => (
+            <a
+              key={social.name}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.name}
+              className="transition-colors duration-200 hover:text-on-inverse"
+            >
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d={social.path} />
+              </svg>
+            </a>
+          ))}
+        </div>
+      </div>
+
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-10">
         <Link href="/" className="flex items-center gap-2">
           <Image src={Logo} alt="VectorWave Technologies" className="-my-3 h-10 w-auto" priority />
