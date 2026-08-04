@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Footer from "@/components/Footer";
 import CTA from "@/components/sections/CTA";
 import Reveal from "@/components/Reveal";
 import HoverGlow from "@/components/HoverGlow";
+import TeamImage from "@/src/TeamImage.jpeg";
 import {
   Boxes,
   Code2,
@@ -83,15 +85,24 @@ export default function AboutPage() {
   return (
     <>
       <main className="flex-1">
-        <section className="bg-surface-alt px-4 py-14 text-center sm:px-6 sm:py-16">
-          <Reveal>
+        <section className="relative overflow-hidden px-4 py-14 text-center sm:px-6 sm:py-16">
+          <Image
+            src={TeamImage}
+            alt=""
+            fill
+            preload
+            sizes="100vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-ink-inverse/80" />
+          <Reveal className="relative">
             <span className="inline-block rounded-full bg-surface-chip px-4 py-1.5 text-[11px] font-bold text-primary">
               About Us
             </span>
-            <h1 className="mx-auto mt-5 max-w-2xl text-[26px] font-bold leading-tight text-ink sm:text-3xl">
+            <h1 className="mx-auto mt-5 max-w-2xl text-[26px] font-bold leading-tight text-on-inverse sm:text-3xl">
               Engineering ERP systems that drive business performance
             </h1>
-            <p className="mx-auto mt-4 max-w-xl text-sm text-ink-muted sm:text-base">
+            <p className="mx-auto mt-4 max-w-xl text-sm text-on-inverse-muted sm:text-base">
               We specialize in ERP implementation and CRM automation, with deep
               hands-on expertise in Zoho and Odoo, helping growing businesses
               bring sales, finance, HR, and operations together into one system.

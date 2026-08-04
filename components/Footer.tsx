@@ -5,7 +5,7 @@ import { socialLinks } from "@/lib/social";
 
 const companyLinks = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
+  { label: "About Us", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Blog", href: "/blog" },
   { label: "Team", href: "/team" },
