@@ -159,8 +159,14 @@ body {
   animation: marquee-scroll 24s linear infinite;
 }
 
+.animate-marquee-reverse {
+  animation: marquee-scroll 24s linear infinite reverse;
+}
+
 .animate-marquee:hover,
-.group:hover .animate-marquee {
+.group:hover .animate-marquee,
+.animate-marquee-reverse:hover,
+.group:hover .animate-marquee-reverse {
   animation-play-state: paused;
 }
 

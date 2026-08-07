@@ -8,7 +8,6 @@ const companyLinks = [
   { label: "About Us", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Blog", href: "/blog" },
-  { label: "Team", href: "/team" },
 ];
 
 export default function Footer() {

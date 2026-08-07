@@ -2,7 +2,7 @@ import Image from "next/image";
 import ServiceIcon from "@/components/ServiceIcon";
 import ZohoLogo from "@/src/zoho.png";
 import OdooLogo from "@/src/odoo_logo.png";
-import Microsoft365Logo from "@/src/microsoft-365.png";
+import Microsoft365Logo from "@/src/Microsoft_Dynamics_365_Logo.svg";
 import WebCodingImage from "@/src/Web Coding.png";
 import type { Platform, PlatformSlug } from "@/lib/services";
 

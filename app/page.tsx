@@ -1,5 +1,6 @@
 import Hero from "@/components/sections/Hero";
 import TrustBadges from "@/components/sections/TrustBadges";
+import PartnerLogos from "@/components/sections/PartnerLogos";
 import HowWeHelp from "@/components/sections/HowWeHelp";
 import Services from "@/components/sections/Services";
 import Process from "@/components/sections/Process";
@@ -15,6 +16,7 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <TrustBadges />
+        <PartnerLogos reverse />
         <HowWeHelp />
         <Services />
         <Process />

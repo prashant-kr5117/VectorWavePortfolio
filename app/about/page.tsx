@@ -5,6 +5,7 @@ import CTA from "@/components/sections/CTA";
 import Reveal from "@/components/Reveal";
 import HoverGlow from "@/components/HoverGlow";
 import Typewriter from "@/components/Typewriter";
+import PartnerLogos from "@/components/sections/PartnerLogos";
 import TeamImage from "@/src/TeamImage.jpeg";
 import {
   Boxes,
@@ -17,12 +18,16 @@ import {
   Cpu,
   Truck,
   CheckCircle2,
+  UserRound,
+  Layers,
+  Scale,
+  BrainCircuit,
 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About VectorWave Technologies",
   description:
-    "Learn how the VectorWave team helps businesses bring their sales, finance, HR, and operations together in one system that actually makes life easier.",
+    "Meet the VectorWave team: certified Zoho consultants, CRM specialists, finance pros, web developers, and AI engineers helping businesses bring sales, finance, HR, and operations together in one system.",
 };
 
 const whatWeDo = [
@@ -34,7 +39,13 @@ const whatWeDo = [
   { icon: GraduationCap, label: "Tech Support & Trainings" },
 ];
 
-const leadership = [
+const leadership: {
+  icon: typeof Briefcase;
+  role: string;
+  desc: string;
+  name?: string;
+  photo?: string;
+}[] = [
   {
     icon: Briefcase,
     role: "Chief Executive Officer",
@@ -54,6 +65,34 @@ const leadership = [
     icon: Truck,
     role: "Supply Chain & Operations Lead",
     desc: "Handles the practical side of ERP: inventory management, procurement workflows, warehouse structure, and fulfilment logic that reflects how your business actually runs.",
+  },
+];
+
+const departments = [
+  {
+    icon: Layers,
+    title: "Certified Zoho Consultants & Implementation Experts",
+    desc: "Our Zoho Consulting Team consists of certified Zoho experts with extensive experience implementing and customizing the complete Zoho ecosystem: CRM, Books, Zoho One deployment, workflow automation, and advanced integrations. From requirement gathering and solution architecture to data migration and optimization, the team ensures structured and seamless Zoho implementation.",
+  },
+  {
+    icon: Users,
+    title: "CRM Consulting & Business Automation Specialists",
+    desc: "The CRM Implementation Team builds CRM systems that are structured, scalable, and fully customised around how the business actually operates, with customer data centralised and workflows running automatically. The team specialises in Zoho CRM implementation, lead management, sales automation, and reporting dashboards.",
+  },
+  {
+    icon: Scale,
+    title: "Finance & Compliance Team",
+    desc: "Qualified accounting and taxation professionals with strong expertise in corporate finance, GST compliance, payroll management, statutory reporting, and financial planning, keeping your finances accurate and operations transparent.",
+  },
+  {
+    icon: Code2,
+    title: "Web Development Team",
+    desc: "Builds digital platforms that are fast, responsive, and built to perform: custom websites, business web applications, portal systems, and SEO-optimised architecture, with a focus on clean code, mobile responsiveness, and seamless integration with CRM and business systems.",
+  },
+  {
+    icon: BrainCircuit,
+    title: "AI Team",
+    desc: "Builds intelligent, data-driven systems that help businesses work smarter: AI, machine learning, automation, and predictive analytics that optimise workflows and support better decision-making, integrated directly into CRM and finance platforms.",
   },
 ];
 
@@ -95,7 +134,7 @@ export default function AboutPage() {
             sizes="100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-ink-inverse/80" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink-inverse via-ink-inverse/75 to-ink-inverse/45" />
           <Reveal className="relative">
             <span className="inline-block rounded-full bg-surface-chip px-4 py-1.5 text-[11px] font-bold text-primary">
               About Us
@@ -110,6 +149,8 @@ export default function AboutPage() {
             </p>
           </Reveal>
         </section>
+
+        <PartnerLogos />
 
         <section className="px-4 py-14 sm:px-6 lg:px-10">
           <div className="mx-auto grid max-w-5xl gap-10 sm:grid-cols-2">
@@ -187,22 +228,75 @@ export default function AboutPage() {
           <div className="mx-auto max-w-6xl">
             <Reveal className="mb-8 text-center">
               <h2 className="text-xl font-bold text-ink sm:text-2xl">
-                Individual leaderships
+                Meet the team
               </h2>
+              <p className="mt-2 text-sm text-ink-muted">
+                Behind every solution we deliver is a group of people who
+                genuinely care about getting it right.
+              </p>
+            </Reveal>
+            <Reveal className="mb-4 text-xs font-bold uppercase tracking-wide text-ink-faint">
+              Leadership
             </Reveal>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {leadership.map((person, i) => (
                 <Reveal key={person.role} delay={i * 60}>
                   <div className="group h-full rounded-xl border border-border bg-surface p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg">
-                    <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-ink-inverse text-on-inverse transition-transform duration-300 group-hover:scale-110">
-                      <person.icon size={18} />
+                    <div className="relative mb-3 h-14 w-14 shrink-0">
+                      {person.photo ? (
+                        <Image
+                          src={person.photo}
+                          alt={person.name ?? person.role}
+                          fill
+                          className="rounded-full object-cover"
+                        />
+                      ) : (
+                        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-surface-chip text-primary transition-transform duration-300 group-hover:scale-110">
+                          <UserRound size={24} />
+                        </div>
+                      )}
+                      <div className="absolute -bottom-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-ink-inverse text-on-inverse ring-2 ring-surface">
+                        <person.icon size={12} />
+                      </div>
                     </div>
-                    <div className="mb-1 text-sm font-bold text-ink">
+                    {person.name && (
+                      <div className="text-sm font-bold text-ink">{person.name}</div>
+                    )}
+                    <div
+                      className={
+                        person.name
+                          ? "mb-1 mt-0.5 text-xs font-semibold text-primary"
+                          : "mb-1 text-sm font-bold text-ink"
+                      }
+                    >
                       {person.role}
                     </div>
                     <p className="text-xs leading-relaxed text-ink-muted">
                       {person.desc}
                     </p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+
+            <Reveal className="mb-4 mt-10 text-xs font-bold uppercase tracking-wide text-ink-faint">
+              Departments
+            </Reveal>
+            <div className="flex flex-col gap-4">
+              {departments.map((dept, i) => (
+                <Reveal key={dept.title} delay={i * 60}>
+                  <div className="group flex flex-col gap-4 rounded-xl border border-border bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg sm:flex-row sm:items-start">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-ink-inverse text-on-inverse transition-transform duration-300 group-hover:scale-110">
+                      <dept.icon size={20} />
+                    </div>
+                    <div>
+                      <div className="mb-2 text-sm font-bold text-ink sm:text-base">
+                        {dept.title}
+                      </div>
+                      <p className="text-sm leading-relaxed text-ink-muted">
+                        {dept.desc}
+                      </p>
+                    </div>
                   </div>
                 </Reveal>
               ))}
