@@ -8,6 +8,7 @@ import { Menu, X, ChevronDown, ArrowRight, Phone, Mail } from "lucide-react";
 import Logo from "@/src/logo2.png";
 import LogoLight from "@/src/White Theme logo.png";
 import ThemeToggle from "@/components/ThemeToggle";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ServiceIcon from "@/components/ServiceIcon";
 import PlatformLogo from "@/components/PlatformLogo";
 import { platforms, getServicesByPlatform } from "@/lib/services";
@@ -255,6 +256,15 @@ export default function Header() {
                 : "border-border bg-surface-alt text-ink"
             }`}
           >
+            <LanguageSwitcher colorClassName={transparent ? "text-on-inverse" : "text-ink"} />
+          </span>
+          <span
+            className={`flex h-9 w-9 items-center justify-center rounded-lg border transition-colors duration-300 ${
+              transparent
+                ? "border-white/25 text-on-inverse"
+                : "border-border bg-surface-alt text-ink"
+            }`}
+          >
             <ThemeToggle colorClassName={transparent ? "text-on-inverse" : "text-ink"} />
           </span>
           <Link
@@ -398,6 +408,10 @@ export default function Header() {
               );
             })}
             <div className="mt-2 flex items-center justify-between border-t border-border pt-3">
+              <span className="text-sm font-bold text-ink-soft">Language</span>
+              <LanguageSwitcher />
+            </div>
+            <div className="mt-2 flex items-center justify-between">
               <span className="text-sm font-bold text-ink-soft">Theme</span>
               <ThemeToggle />
             </div>

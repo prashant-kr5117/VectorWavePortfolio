@@ -212,6 +212,32 @@ body {
   animation: shine-sweep 0.65s ease forwards;
 }
 
+/* Google Translate injects a top banner iframe (and other overlay elements)
+   directly under <body>, always tagged with its "skiptranslate" class —
+   the obfuscated wrapper class names change between versions, so this is
+   the stable hook. We suppress it since we drive language selection from
+   our own header UI instead. */
+body > .skiptranslate {
+  display: none !important;
+}
+
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+#google_translate_element {
+  display: none !important;
+}
+
+.goog-text-highlight {
+  background: none !important;
+  box-shadow: none !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

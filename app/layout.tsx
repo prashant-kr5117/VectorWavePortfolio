@@ -58,6 +58,20 @@ $zoho.salesiq = $zoho.salesiq || { ready: function () {} };`}
           src="https://salesiq.zohopublic.in/widget?wc=siq6f8903107a8b817d8ef6172d9f7859f5110c8b5761dd815ba383efcd446c75f420f72f74bd858ff51404ca330c48216c"
           strategy="afterInteractive"
         />
+        <div id="google_translate_element" className="hidden" />
+        <Script id="google-translate-init" strategy="afterInteractive">
+          {`function googleTranslateElementInit() {
+  new window.google.translate.TranslateElement(
+    { pageLanguage: 'en', includedLanguages: 'en,nl', autoDisplay: false },
+    'google_translate_element'
+  );
+}`}
+        </Script>
+        <Script
+          id="google-translate-script"
+          src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
