@@ -8,10 +8,10 @@ import HoverGlow from "@/components/HoverGlow";
 import { industries } from "@/lib/industries";
 
 const secondaryTech = [
-  { name: "Microsoft Dynamics 365", desc: "Enterprise business applications", href: "/services" },
-  { name: "Salesforce", desc: "Enterprise CRM & customer experience", href: null },
-  { name: "Odoo", desc: "Flexible modular ERP", href: "/services" },
-  { name: "AI & Custom Technology", desc: "Agents · Automation · Web · Mobile · APIs", href: "/services" },
+  { id: "tech-dynamics", name: "Microsoft Dynamics 365", desc: "Enterprise business applications", href: "/services" },
+  { id: "tech-salesforce", name: "Salesforce", desc: "Enterprise CRM & customer experience", href: null },
+  { id: "tech-odoo", name: "Odoo", desc: "Flexible modular ERP", href: "/services" },
+  { id: "tech-ai", name: "AI & Custom Technology", desc: "Agents · Automation · Web · Mobile · APIs", href: "/services" },
 ];
 
 const ecosystem = [
@@ -51,7 +51,10 @@ export default function TechnologyAndIndustry() {
               <span className="text-on-inverse-muted">Not the other way around.</span>
             </h2>
 
-            <div className="mt-7 rounded-xl border border-accent/40 bg-gradient-to-br from-accent/15 to-primary/10 p-6">
+            <div
+              id="tech-zoho"
+              className="mt-7 scroll-mt-24 rounded-xl border border-accent/40 bg-gradient-to-br from-accent/15 to-primary/10 p-6"
+            >
               <span className="inline-block rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-on-inverse">
                 Flagship
               </span>
@@ -80,13 +83,18 @@ export default function TechnologyAndIndustry() {
                 return t.href ? (
                   <Link
                     key={t.name}
+                    id={t.id}
                     href={t.href}
-                    className="group block border-t border-on-inverse-border py-4 last:border-b"
+                    className="group block scroll-mt-24 border-t border-on-inverse-border py-4 last:border-b"
                   >
                     {content}
                   </Link>
                 ) : (
-                  <div key={t.name} className="border-t border-on-inverse-border py-4 last:border-b">
+                  <div
+                    key={t.name}
+                    id={t.id}
+                    className="scroll-mt-24 border-t border-on-inverse-border py-4 last:border-b"
+                  >
                     {content}
                   </div>
                 );

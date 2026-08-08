@@ -172,7 +172,10 @@ export default function ServicesPage() {
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {industries.map((item, i) => (
                 <Reveal key={item.title} delay={i * 50}>
-                  <div className="group h-full rounded-xl border border-border bg-surface p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg">
+                  <div
+                    id={item.slug}
+                    className="group h-full scroll-mt-24 rounded-xl border border-border bg-surface p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg"
+                  >
                     <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-ink-inverse text-on-inverse transition-transform duration-300 group-hover:scale-110">
                       <item.icon size={18} />
                     </div>

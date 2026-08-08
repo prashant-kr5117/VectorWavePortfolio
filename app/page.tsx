@@ -1,7 +1,6 @@
 import Hero from "@/components/sections/Hero";
 import TrustBadges from "@/components/sections/TrustBadges";
 import PartnerLogos from "@/components/sections/PartnerLogos";
-import HowWeHelp from "@/components/sections/HowWeHelp";
 import ProcessChains from "@/components/sections/ProcessChains";
 import BusinessDiagnosis from "@/components/sections/BusinessDiagnosis";
 import Services from "@/components/sections/Services";
@@ -21,7 +20,6 @@ export default function Home() {
         <Hero />
         <TrustBadges />
         <PartnerLogos reverse />
-        <HowWeHelp />
         <ProcessChains />
         <BusinessDiagnosis />
         <Services />

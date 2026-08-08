@@ -1,13 +1,22 @@
 import Link from "next/link";
-import { MapPin, Mail } from "lucide-react";
+import Image from "next/image";
+import { MapPin, Mail, Phone } from "lucide-react";
 import HoverGlow from "@/components/HoverGlow";
 import { socialLinks } from "@/lib/social";
+import Logo from "@/src/logo2.png";
 
-const companyLinks = [
-  { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
-  { label: "Services", href: "/services" },
-  { label: "Blog", href: "/blog" },
+const platformLinks = [
+  { label: "Zoho", href: "/#tech-zoho" },
+  { label: "Dynamics 365", href: "/#tech-dynamics" },
+  { label: "Salesforce", href: "/#tech-salesforce" },
+  { label: "Odoo", href: "/#tech-odoo" },
+];
+
+const industryLinks = [
+  { label: "EV Manufacturing", href: "/services#ev-manufacturing" },
+  { label: "Real Estate", href: "/services#real-estate" },
+  { label: "Laptop Refurbishment", href: "/services#laptop-manufacturing-refurbishment" },
+  { label: "Trading", href: "/services#trading-distribution" },
 ];
 
 export default function Footer() {
@@ -15,20 +24,19 @@ export default function Footer() {
     <HoverGlow as="footer" className="bg-ink-inverse px-4 pb-6 pt-10 sm:px-6 lg:px-10">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 border-b border-ink-inverse-alt pb-8 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <div className="mb-3 text-lg font-bold text-on-inverse">
-            VectorWave Technologies
-          </div>
-          <p className="text-sm leading-relaxed text-on-inverse-muted">
-            Streamline your operations and scale faster. Our experts build
-            custom Zoho, Odoo, and AI-driven ERP/CRM solutions tailored to
-            power your business.
+          <Image src={Logo} alt="VectorWave Technologies" className="mb-3.5 h-7 w-auto" />
+          <p className="max-w-[260px] text-sm leading-relaxed text-on-inverse-muted">
+            A business transformation and enterprise technology company, with
+            a dashboard and reporting practice backed by financial and data
+            analysts. Zoho is our flagship platform; we also implement
+            Dynamics 365, Salesforce, Odoo and custom technology.
           </p>
         </div>
 
         <div>
-          <div className="mb-3 text-base font-bold text-on-inverse">Company</div>
+          <div className="mb-3 text-base font-bold text-on-inverse">Platforms</div>
           <ul className="space-y-2.5 text-sm text-on-inverse-muted">
-            {companyLinks.map((link) => (
+            {platformLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
@@ -42,12 +50,18 @@ export default function Footer() {
         </div>
 
         <div>
-          <div className="mb-3 text-base font-bold text-on-inverse">Services</div>
+          <div className="mb-3 text-base font-bold text-on-inverse">Industries</div>
           <ul className="space-y-2.5 text-sm text-on-inverse-muted">
-            <li>Zoho ERP</li>
-            <li>CRM</li>
-            <li>Web development</li>
-            <li>AI tools</li>
+            {industryLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="transition-colors duration-200 hover:text-on-inverse"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -69,14 +83,28 @@ export default function Footer() {
                 admin@vectorwavetechnologies.com
               </a>
             </li>
+            <li className="flex items-center gap-2">
+              <Phone size={16} />
+              <a
+                href="tel:+918791810555"
+                className="transition-colors duration-200 hover:text-on-inverse"
+              >
+                +91-8791810555
+              </a>
+            </li>
           </ul>
         </div>
       </div>
 
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-3 pt-5 sm:flex-row sm:justify-between">
-        <span className="text-sm text-on-inverse-faint">
-          Copyright 2026 VectorWave Technologies
-        </span>
+        <div className="flex flex-col items-center gap-1 text-center sm:items-start sm:text-left">
+          <span className="text-sm text-on-inverse-faint">
+            © 2026 VectorWave Technologies. All rights reserved.
+          </span>
+          <span className="text-xs text-on-inverse-faint">
+            Zoho Ecosystem · Microsoft Dynamics 365 · Salesforce · Odoo
+          </span>
+        </div>
         <div className="flex gap-2">
           {socialLinks.map((social) => (
             <a
