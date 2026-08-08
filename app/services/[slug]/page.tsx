@@ -14,7 +14,11 @@ import {
 import { ArrowLeft } from "lucide-react";
 
 export function generateStaticParams() {
-  return serviceCategories.map((service) => ({ slug: service.slug }));
+  // "zoho-bundled-suite" has its own dedicated static route
+  // (app/services/zoho-bundled-suite/page.tsx) with a custom design.
+  return serviceCategories
+    .filter((service) => service.slug !== "zoho-bundled-suite")
+    .map((service) => ({ slug: service.slug }));
 }
 
 export async function generateMetadata(props: {
