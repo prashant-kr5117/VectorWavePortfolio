@@ -5,7 +5,7 @@ import { Globe, Check } from "lucide-react";
 
 const LANGUAGES = [
   { code: "en", label: "English" },
-  { code: "nl", label: "Nederlands" },
+  { code: "nl", label: "Netherland" },
 ];
 
 // Google Translate rewrites text nodes across the page, which can leave React's
