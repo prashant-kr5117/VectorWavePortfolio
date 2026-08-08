@@ -2,8 +2,12 @@ import Hero from "@/components/sections/Hero";
 import TrustBadges from "@/components/sections/TrustBadges";
 import PartnerLogos from "@/components/sections/PartnerLogos";
 import HowWeHelp from "@/components/sections/HowWeHelp";
+import ProcessChains from "@/components/sections/ProcessChains";
+import BusinessDiagnosis from "@/components/sections/BusinessDiagnosis";
 import Services from "@/components/sections/Services";
+import TechnologyAndIndustry from "@/components/sections/TechnologyAndIndustry";
 import Process from "@/components/sections/Process";
+import WhyVectorWave from "@/components/sections/WhyVectorWave";
 import Innovation from "@/components/sections/Innovation";
 import Testimonial from "@/components/sections/Testimonial";
 import VideoTestimonial from "@/components/sections/VideoTestimonial";
@@ -18,8 +22,12 @@ export default function Home() {
         <TrustBadges />
         <PartnerLogos reverse />
         <HowWeHelp />
+        <ProcessChains />
+        <BusinessDiagnosis />
         <Services />
+        <TechnologyAndIndustry />
         <Process />
+        <WhyVectorWave />
         <Innovation />
         <Testimonial />
         <VideoTestimonial

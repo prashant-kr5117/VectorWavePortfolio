@@ -7,23 +7,10 @@ import Reveal from "@/components/Reveal";
 import ServiceIcon from "@/components/ServiceIcon";
 import PlatformLogo from "@/components/PlatformLogo";
 import { platforms, getServicesByPlatform } from "@/lib/services";
+import { industries } from "@/lib/industries";
 import ZohoLogo from "@/src/zoho.png";
 import OdooLogo from "@/src/odoo_logo.png";
-import {
-  Network,
-  Users,
-  ShieldCheck,
-  Code2,
-  Factory,
-  ShoppingCart,
-  HeartPulse,
-  GraduationCap,
-  Landmark,
-  Building2,
-  Truck,
-  Briefcase,
-  Package,
-} from "lucide-react";
+import { Network, Users, ShieldCheck, Code2 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "ERP, CRM & Cloud Solutions | VectorWave Services",
@@ -62,18 +49,6 @@ const coreServices = [
     title: "Custom Application Development",
     desc: "We build secure, scalable web and mobile applications designed around your specific business processes, focused on performance, ease of use, and long-term adaptability.",
   },
-];
-
-const industries = [
-  { icon: Factory, title: "Manufacturing", desc: "Production planning, inventory, procurement, and quality management with real-time visibility on the floor." },
-  { icon: ShoppingCart, title: "Retail & E-Commerce", desc: "Keep inventory in sync, manage orders, and engage customers with scalable CRM and ERP systems." },
-  { icon: HeartPulse, title: "Healthcare", desc: "Patient management, billing, appointment scheduling, and operational tracking with data privacy intact." },
-  { icon: GraduationCap, title: "Education", desc: "Admissions, student records, fee management, communication, and reporting in one integrated system." },
-  { icon: Landmark, title: "Financial Services", desc: "Automation tools, CRM systems, and analytics platforms for reporting accuracy and compliance tracking." },
-  { icon: Building2, title: "Real Estate", desc: "Lead management, property listings, contracts, and post-sale service across the full customer lifecycle." },
-  { icon: Truck, title: "Logistics & Supply Chain", desc: "Shipment tracking, warehouse management, order fulfilment, and vendor coordination in real time." },
-  { icon: Briefcase, title: "IT & Professional Services", desc: "Project management systems, client portals, time tracking, and billing automation." },
-  { icon: Package, title: "Trading & Distribution", desc: "Tight control over inventory, procurement, and sales with automated reordering." },
 ];
 
 export default function ServicesPage() {
