@@ -125,6 +125,7 @@ export default function EcosystemOrbit() {
                   }}
                   onFocus={() => setActive(node.key)}
                   onBlur={() => setActive((cur) => (cur === node.key ? null : cur))}
+                  aria-label={node.logo ? node.label : undefined}
                   className={`relative flex items-center gap-2 overflow-hidden rounded-xl border px-3 py-2.5 text-xs font-bold shadow-lg backdrop-blur transition-all duration-300 ${
                     isActive
                       ? "-translate-y-0.5 scale-105 border-accent bg-ink-inverse-alt text-on-inverse shadow-[0_16px_34px_-10px_rgba(48,182,205,0.5)]"
@@ -141,7 +142,11 @@ export default function EcosystemOrbit() {
                     }}
                   />
                   <NodeIcon node={node} size={24} />
-                  <span className="whitespace-nowrap">{node.label}</span>
+                  {node.logo ? (
+                    <span className="sr-only">{node.label}</span>
+                  ) : (
+                    <span className="whitespace-nowrap">{node.label}</span>
+                  )}
                 </button>
 
                 <div
@@ -168,10 +173,16 @@ export default function EcosystemOrbit() {
         {NODES.map((node) => (
           <div
             key={node.key}
-            className="flex items-center gap-2 rounded-xl border border-on-inverse-border bg-ink-inverse-alt px-3 py-2.5"
+            className={`flex items-center gap-2 rounded-xl border border-on-inverse-border bg-ink-inverse-alt px-3 py-2.5 ${
+              node.logo ? "justify-center" : ""
+            }`}
           >
             <NodeIcon node={node} size={28} />
-            <span className="text-[11px] font-bold text-on-inverse">{node.label}</span>
+            {node.logo ? (
+              <span className="sr-only">{node.label}</span>
+            ) : (
+              <span className="text-[11px] font-bold text-on-inverse">{node.label}</span>
+            )}
           </div>
         ))}
       </div>
