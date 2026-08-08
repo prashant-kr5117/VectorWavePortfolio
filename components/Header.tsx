@@ -1,18 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, ArrowRight, Phone, Mail } from "lucide-react";
-import Logo from "@/src/logo2.png";
-import LogoLight from "@/src/White Theme logo.png";
-import ThemeToggle from "@/components/ThemeToggle";
+import Logo from "@/src/White Theme logo.png";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ServiceIcon from "@/components/ServiceIcon";
 import PlatformLogo from "@/components/PlatformLogo";
 import { platforms, getServicesByPlatform } from "@/lib/services";
-import { useIsDarkTheme } from "@/lib/theme";
 import { socialLinks } from "@/lib/social";
 
 const navLinks = [
@@ -24,11 +21,11 @@ const navLinks = [
 ];
 
 const itemDotStyles = [
-  "bg-rose-50 text-rose-600 dark:bg-rose-500/10 dark:text-rose-400",
-  "bg-emerald-50 text-emerald-600 dark:bg-emerald-500/10 dark:text-emerald-400",
-  "bg-blue-50 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400",
-  "bg-violet-50 text-violet-600 dark:bg-violet-500/10 dark:text-violet-400",
-  "bg-amber-50 text-amber-600 dark:bg-amber-500/10 dark:text-amber-400",
+  "bg-rose-50 text-rose-600",
+  "bg-emerald-50 text-emerald-600",
+  "bg-blue-50 text-blue-600",
+  "bg-violet-50 text-violet-600",
+  "bg-amber-50 text-amber-600",
 ];
 
 export default function Header() {
@@ -36,33 +33,14 @@ export default function Header() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [servicesExpanded, setServicesExpanded] = useState(false);
   const [openPlatform, setOpenPlatform] = useState<string | null>(null);
-  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const isDark = useIsDarkTheme();
-
-  useEffect(() => {
-    function onScroll() {
-      setScrolled(window.scrollY > 40);
-    }
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   const isHome = pathname === "/";
-  // The homepage hero has a permanently-dark background, so the transparent,
-  // white-text overlay treatment only makes sense in dark theme. In light
-  // theme the nav bar should always read as a normal light bar.
-  const transparent = isHome && !scrolled && !open && isDark;
 
   return (
     <header
-      className={`z-50 border-b transition-colors duration-300 ${
+      className={`z-50 border-b border-border bg-surface/95 backdrop-blur transition-colors duration-300 ${
         isHome ? "fixed left-0 right-0 top-0" : "sticky top-0"
-      } ${
-        transparent
-          ? "border-transparent bg-transparent"
-          : "border-border bg-surface/95 backdrop-blur"
       }`}
     >
       <div className="hidden items-center justify-between bg-ink-inverse px-4 py-1.5 text-on-inverse-muted sm:px-6 lg:flex lg:px-10">
@@ -103,7 +81,7 @@ export default function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-10">
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src={isDark ? Logo : LogoLight}
+            src={Logo}
             alt="VectorWave Technologies"
             className="-my-3 h-10 w-auto"
             priority
@@ -132,14 +110,10 @@ export default function Header() {
                   <Link
                     href={link.href}
                     onClick={() => setServicesOpen(false)}
-                    className={`relative flex items-center gap-1 py-1 text-[13px] font-bold transition-colors duration-300 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:transition-all after:duration-300 ${
-                      transparent
-                        ? `text-on-inverse after:bg-on-inverse ${active ? "after:w-full" : "after:w-0 hover:after:w-full"}`
-                        : `after:bg-primary ${
-                            active
-                              ? "text-primary after:w-full"
-                              : "text-ink-soft hover:text-primary hover:after:w-full after:w-0"
-                          }`
+                    className={`relative flex items-center gap-1 py-1 text-[13px] font-bold transition-colors duration-300 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 ${
+                      active
+                        ? "text-primary after:w-full"
+                        : "text-ink-soft hover:text-primary hover:after:w-full after:w-0"
                     }`}
                   >
                     {link.label}
@@ -232,14 +206,10 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative py-1 text-[13px] font-bold transition-colors duration-300 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:transition-all after:duration-300 ${
-                  transparent
-                    ? `text-on-inverse after:bg-on-inverse ${active ? "after:w-full" : "after:w-0 hover:after:w-full"}`
-                    : `after:bg-primary ${
-                        active
-                          ? "text-primary after:w-full"
-                          : "text-ink-soft hover:text-primary hover:after:w-full after:w-0"
-                      }`
+                className={`relative py-1 text-[13px] font-bold transition-colors duration-300 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 ${
+                  active
+                    ? "text-primary after:w-full"
+                    : "text-ink-soft hover:text-primary hover:after:w-full after:w-0"
                 }`}
               >
                 {link.label}
@@ -249,23 +219,8 @@ export default function Header() {
         </nav>
 
         <div className="hidden items-center gap-4 lg:flex">
-          <span
-            className={`flex h-9 w-9 items-center justify-center rounded-lg border transition-colors duration-300 ${
-              transparent
-                ? "border-white/25 text-on-inverse"
-                : "border-border bg-surface-alt text-ink"
-            }`}
-          >
-            <LanguageSwitcher colorClassName={transparent ? "text-on-inverse" : "text-ink"} />
-          </span>
-          <span
-            className={`flex h-9 w-9 items-center justify-center rounded-lg border transition-colors duration-300 ${
-              transparent
-                ? "border-white/25 text-on-inverse"
-                : "border-border bg-surface-alt text-ink"
-            }`}
-          >
-            <ThemeToggle colorClassName={transparent ? "text-on-inverse" : "text-ink"} />
+          <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-surface-alt text-ink">
+            <LanguageSwitcher colorClassName="text-ink" />
           </span>
           <Link
             href="/contact"
@@ -276,9 +231,7 @@ export default function Header() {
         </div>
 
         <button
-          className={`transition-colors duration-300 active:scale-90 lg:hidden ${
-            transparent ? "text-on-inverse" : "text-ink"
-          }`}
+          className="text-ink transition-colors duration-300 active:scale-90 lg:hidden"
           aria-label="Toggle menu"
           aria-expanded={open}
           onClick={() => setOpen(!open)}
@@ -410,10 +363,6 @@ export default function Header() {
             <div className="mt-2 flex items-center justify-between border-t border-border pt-3">
               <span className="text-sm font-bold text-ink-soft">Language</span>
               <LanguageSwitcher />
-            </div>
-            <div className="mt-2 flex items-center justify-between">
-              <span className="text-sm font-bold text-ink-soft">Theme</span>
-              <ThemeToggle />
             </div>
             <Link
               href="/contact"

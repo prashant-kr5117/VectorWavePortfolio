@@ -1,11 +1,9 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 :root {
   color-scheme: light;
 
-  /* page-flow text — inverts in dark mode */
+  /* page-flow text */
   --color-ink: #0b1b33;
   --color-ink-soft: #33405c;
   --color-ink-muted: #55607a;
@@ -13,7 +11,7 @@
   --color-ink-faint-2: #93a0bd;
   --color-link-deep: #0c447c;
 
-  /* page-flow surfaces/borders — invert in dark mode */
+  /* page-flow surfaces/borders */
   --color-surface: #ffffff;
   --color-surface-alt: #f8fafc;
   --color-surface-chip: #eff4fe;
@@ -28,31 +26,12 @@
   --color-on-inverse-faint: #6b7690;
   --color-on-inverse-border: #33405c;
 
-  /* brand accent — fixed, reads fine on both */
+  /* brand accent */
   --color-accent: #30b6cd;
   --color-accent-hover: #2aa0b4;
 
-  /* primary blue — inverts (lighter in dark mode for contrast) */
+  /* primary blue */
   --color-primary: #1d4ed8;
-}
-
-.dark {
-  color-scheme: dark;
-
-  --color-ink: #f1f5f9;
-  --color-ink-soft: #c7d0e0;
-  --color-ink-muted: #9aa6be;
-  --color-ink-faint: #7c87a0;
-  --color-ink-faint-2: #8590ac;
-  --color-link-deep: #4c93d6;
-
-  --color-surface: #0b1420;
-  --color-surface-alt: #111b2e;
-  --color-surface-chip: #16233b;
-  --color-border: #22304a;
-  --color-border-soft: #2c3b58;
-
-  --color-primary: #3b82f6;
 }
 
 @theme inline {
