@@ -37,7 +37,7 @@ function NodeIcon({ node, size }: { node: Node; size: number }) {
         className="flex shrink-0 items-center justify-center rounded-md bg-white px-1.5"
         style={{ height: size, minWidth: size }}
       >
-        <Image src={node.logo} alt={`${node.label} logo`} style={{ height: size * 0.6, width: "auto" }} />
+        <Image src={node.logo} alt={`${node.label} logo`} style={{ height: size * 0.85, width: "auto" }} />
       </span>
     );
   }

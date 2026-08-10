@@ -62,7 +62,7 @@ export default function Hero() {
 
           <div className="mt-10 flex gap-10 border-t border-on-inverse-border pt-6">
             <div>
-              <Counter value={15} suffix="+" className="text-2xl font-bold text-on-inverse" />
+              <Counter value={50} suffix="+" className="text-2xl font-bold text-on-inverse" />
               <div className="mt-0.5 text-xs text-on-inverse-faint">Projects delivered</div>
             </div>
             <div>
