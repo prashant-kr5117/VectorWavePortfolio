@@ -44,17 +44,17 @@ export default function Header() {
       }`}
     >
       <div className="hidden items-center justify-between bg-ink-inverse px-4 py-3 text-on-inverse-muted sm:px-6 lg:flex lg:px-10">
-        <div className="flex items-center gap-6 text-[13px] font-semibold text-accent">
+        <div className="flex items-center gap-6 text-[13px] font-semibold text-[#ffffff]">
           <a
             href="tel:+918791810555"
-            className="flex items-center gap-2 transition-colors duration-200 hover:text-on-inverse"
+            className="flex items-center gap-2 transition-colors duration-200 hover:text-accent"
           >
             <Phone size={15} />
             +91-8791810555
           </a>
           <a
             href="mailto:admin@vectorwavetechnologies.com"
-            className="flex items-center gap-2 transition-colors duration-200 hover:text-on-inverse"
+            className="flex items-center gap-2 transition-colors duration-200 hover:text-accent"
           >
             <Mail size={15} />
             admin@vectorwavetechnologies.com
