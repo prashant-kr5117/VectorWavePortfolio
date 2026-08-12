@@ -43,24 +43,24 @@ export default function Header() {
         isHome ? "fixed left-0 right-0 top-0" : "sticky top-0"
       }`}
     >
-      <div className="hidden items-center justify-between bg-ink-inverse px-4 py-1.5 text-on-inverse-muted sm:px-6 lg:flex lg:px-10">
-        <div className="flex items-center gap-5 text-[11.5px]">
+      <div className="hidden items-center justify-between bg-ink-inverse px-4 py-3 text-on-inverse-muted sm:px-6 lg:flex lg:px-10">
+        <div className="flex items-center gap-6 text-[13px] font-semibold text-accent">
           <a
             href="tel:+918791810555"
-            className="flex items-center gap-1.5 transition-colors duration-200 hover:text-on-inverse"
+            className="flex items-center gap-2 transition-colors duration-200 hover:text-on-inverse"
           >
-            <Phone size={12} />
+            <Phone size={15} />
             +91-8791810555
           </a>
           <a
             href="mailto:admin@vectorwavetechnologies.com"
-            className="flex items-center gap-1.5 transition-colors duration-200 hover:text-on-inverse"
+            className="flex items-center gap-2 transition-colors duration-200 hover:text-on-inverse"
           >
-            <Mail size={12} />
+            <Mail size={15} />
             admin@vectorwavetechnologies.com
           </a>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
           {socialLinks.map((social) => (
             <a
               key={social.name}
@@ -70,7 +70,7 @@ export default function Header() {
               aria-label={social.name}
               className="transition-colors duration-200 hover:text-on-inverse"
             >
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d={social.path} />
               </svg>
             </a>
@@ -83,7 +83,7 @@ export default function Header() {
           <Image
             src={Logo}
             alt="VectorWave Technologies"
-            className="-my-3 h-10 w-auto"
+            className="-my-5 h-14 w-auto"
             priority
           />
         </Link>

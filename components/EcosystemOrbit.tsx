@@ -34,10 +34,10 @@ function NodeIcon({ node, size }: { node: Node; size: number }) {
   if (node.logo) {
     return (
       <span
-        className="flex shrink-0 items-center justify-center rounded-md bg-white px-1.5"
+        className="flex shrink-0 items-center justify-center rounded-md bg-white px-2.5"
         style={{ height: size, minWidth: size }}
       >
-        <Image src={node.logo} alt={`${node.label} logo`} style={{ height: size * 0.85, width: "auto" }} />
+        <Image src={node.logo} alt={`${node.label} logo`} style={{ height: size * 0.8, width: "auto" }} />
       </span>
     );
   }
@@ -126,7 +126,9 @@ export default function EcosystemOrbit() {
                   onFocus={() => setActive(node.key)}
                   onBlur={() => setActive((cur) => (cur === node.key ? null : cur))}
                   aria-label={node.logo ? node.label : undefined}
-                  className={`relative flex items-center gap-2 overflow-hidden rounded-xl border px-3 py-2.5 text-xs font-bold shadow-lg backdrop-blur transition-all duration-300 ${
+                  className={`relative flex items-center gap-2 overflow-hidden rounded-xl border text-xs font-bold shadow-lg backdrop-blur transition-all duration-300 ${
+                    node.logo ? "px-4 py-3.5" : "px-3 py-2.5"
+                  } ${
                     isActive
                       ? "-translate-y-0.5 scale-105 border-accent bg-ink-inverse-alt text-on-inverse shadow-[0_16px_34px_-10px_rgba(48,182,205,0.5)]"
                       : "border-on-inverse-border bg-ink-inverse-alt/80 text-on-inverse"
@@ -141,7 +143,7 @@ export default function EcosystemOrbit() {
                         "radial-gradient(160px circle at var(--mx, 50%) var(--my, 50%), rgba(48,182,205,0.35), transparent 70%)",
                     }}
                   />
-                  <NodeIcon node={node} size={24} />
+                  <NodeIcon node={node} size={node.logo ? 40 : 24} />
                   {node.logo ? (
                     <span className="sr-only">{node.label}</span>
                   ) : (
@@ -173,11 +175,11 @@ export default function EcosystemOrbit() {
         {NODES.map((node) => (
           <div
             key={node.key}
-            className={`flex items-center gap-2 rounded-xl border border-on-inverse-border bg-ink-inverse-alt px-3 py-2.5 ${
-              node.logo ? "justify-center" : ""
+            className={`flex items-center gap-2 rounded-xl border border-on-inverse-border bg-ink-inverse-alt ${
+              node.logo ? "justify-center px-4 py-4" : "px-3 py-2.5"
             }`}
           >
-            <NodeIcon node={node} size={28} />
+            <NodeIcon node={node} size={node.logo ? 44 : 28} />
             {node.logo ? (
               <span className="sr-only">{node.label}</span>
             ) : (
