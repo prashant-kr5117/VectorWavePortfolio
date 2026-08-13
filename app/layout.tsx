@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   title: "VectorWave Technologies Zoho & ERP Solutions for Growth",
   description:
     "VectorWave Technologies offers Zoho & ERP Solutions tailored for growing businesses. Minimize downtime and enhance operational efficiency.",
+  verification: {
+    google: "neRDqdfkU_CIj2CdW_usGd930c9yq8ty_LUSejZkmSo",
+  },
 };
 
 export default function RootLayout({
@@ -36,6 +39,17 @@ export default function RootLayout({
           <Header />
           {children}
         </ConsultationModalProvider>
+        <Script
+          id="ga4-lib"
+          src="https://www.googletagmanager.com/gtag/js?id=G-2YYH8VS7J8"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-2YYH8VS7J8');`}
+        </Script>
         <Script id="zsiq-init" strategy="afterInteractive">
           {`window.$zoho = window.$zoho || {};
 $zoho.salesiq = $zoho.salesiq || { ready: function () {} };`}
