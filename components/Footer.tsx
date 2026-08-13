@@ -24,7 +24,7 @@ export default function Footer() {
     <HoverGlow as="footer" className="bg-ink-inverse px-4 pb-6 pt-10 sm:px-6 lg:px-10">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 border-b border-ink-inverse-alt pb-8 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <Image src={Logo} alt="VectorWave Technologies" className="mb-3.5 h-7 w-auto" />
+          <Image src={Logo} alt="VectorWave Technologies" className="mb-3.5 h-11 w-auto" />
           <p className="max-w-[260px] text-sm leading-relaxed text-on-inverse-muted">
             A business transformation and enterprise technology company, with
             a dashboard and reporting practice backed by financial and data
