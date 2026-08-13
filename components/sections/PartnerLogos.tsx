@@ -5,6 +5,8 @@ import OdooLogo from "@/src/odoo_logo.png";
 import MicrosoftDynamics365Logo from "@/src/Microsoft_Dynamics_365_Logo.svg";
 import ReactLogo from "@/src/react_original_wordmark_logo_icon_146375.webp";
 import ShopifyLogo from "@/src/shopify.png";
+import NetSuiteLogo from "@/src/NetSuite_idNc45xmoe_0.svg";
+import TallyLogo from "@/src/tally.svg";
 
 const partners = [
   { src: ZohoLogo, alt: "Zoho" },
@@ -12,6 +14,8 @@ const partners = [
   { src: MicrosoftDynamics365Logo, alt: "Microsoft Dynamics 365" },
   { src: ShopifyLogo, alt: "Shopify" },
   { src: ReactLogo, alt: "React" },
+  { src: NetSuiteLogo, alt: "NetSuite" },
+  { src: TallyLogo, alt: "Tally" },
 ];
 const partnersLoop = [...partners, ...partners];
 
