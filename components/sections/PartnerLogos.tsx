@@ -14,7 +14,7 @@ const partners = [
   { src: MicrosoftDynamics365Logo, alt: "Microsoft Dynamics 365" },
   { src: ShopifyLogo, alt: "Shopify" },
   { src: ReactLogo, alt: "React" },
-  { src: NetSuiteLogo, alt: "NetSuite" },
+  { src: NetSuiteLogo, alt: "NetSuite", className: "h-5 sm:h-6" },
   { src: TallyLogo, alt: "Tally" },
 ];
 const partnersLoop = [...partners, ...partners];
@@ -41,7 +41,7 @@ export default function PartnerLogos({ reverse = false }: { reverse?: boolean })
             key={`${partner.alt}-${i}`}
             src={partner.src}
             alt={partner.alt}
-            className="h-7 w-auto shrink-0 object-contain sm:h-8"
+            className={`w-auto shrink-0 object-contain ${partner.className ?? "h-7 sm:h-8"}`}
           />
         ))}
       </div>
