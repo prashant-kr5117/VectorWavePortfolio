@@ -9,6 +9,10 @@ export type BlogPost = {
   author: string;
   date: string;
   dateValue: string;
+  /** ISO date the post was last updated. Defaults to dateValue when unset. */
+  dateModifiedValue?: string;
+  /** Featured image URL (absolute, or root-relative like "/blog/my-post.jpg"). */
+  image?: string;
   readTime: string;
   icon: PostIcon;
 };

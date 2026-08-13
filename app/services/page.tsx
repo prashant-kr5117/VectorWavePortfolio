@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import JsonLd from "@/components/JsonLd";
+import { SITE_URL, ORGANIZATION_ID, WEBSITE_ID, breadcrumbSchema } from "@/lib/seo";
 import Footer from "@/components/Footer";
 import CTA from "@/components/sections/CTA";
 import Reveal from "@/components/Reveal";
@@ -51,9 +53,31 @@ const coreServices = [
   },
 ];
 
+const servicesJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": `${SITE_URL}/services#webpage`,
+      url: `${SITE_URL}/services`,
+      name: "Services | VectorWave Technologies",
+      description:
+        "Explore VectorWave Technologies services across Zoho, Odoo, Microsoft Dynamics 365, IT support, web development, AI integration and business automation.",
+      isPartOf: { "@id": WEBSITE_ID },
+      about: { "@id": ORGANIZATION_ID },
+      inLanguage: "en",
+    },
+    breadcrumbSchema(`${SITE_URL}/services#breadcrumb`, [
+      { name: "Home", item: `${SITE_URL}/` },
+      { name: "Services", item: `${SITE_URL}/services` },
+    ]),
+  ],
+};
+
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd data={servicesJsonLd} />
       <main className="flex-1">
         <section className="bg-surface-alt px-4 py-14 text-center sm:px-6 sm:py-16">
           <Reveal>

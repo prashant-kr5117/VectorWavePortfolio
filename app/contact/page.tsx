@@ -3,12 +3,35 @@ import Footer from "@/components/Footer";
 import CTA from "@/components/sections/CTA";
 import Reveal from "@/components/Reveal";
 import ContactForm from "@/components/ContactForm";
+import JsonLd from "@/components/JsonLd";
+import { SITE_URL, ORGANIZATION_ID, WEBSITE_ID, breadcrumbSchema } from "@/lib/seo";
 import { MessageCircle, Mail, Phone, MapPin } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Contact VectorWave Technologies | Get in Touch",
   description:
     "Reach our team via live chat, email, or phone - Monday to Friday, 9:30 AM to 6:30 PM IST for tailored digital solutions.",
+};
+
+const contactJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ContactPage",
+      "@id": `${SITE_URL}/contact#webpage`,
+      url: `${SITE_URL}/contact`,
+      name: "Contact VectorWave Technologies",
+      description:
+        "Get in touch with VectorWave Technologies for ERP, CRM, automation, custom development and digital transformation solutions.",
+      isPartOf: { "@id": WEBSITE_ID },
+      about: { "@id": ORGANIZATION_ID },
+      inLanguage: "en",
+    },
+    breadcrumbSchema(`${SITE_URL}/contact#breadcrumb`, [
+      { name: "Home", item: `${SITE_URL}/` },
+      { name: "Contact", item: `${SITE_URL}/contact` },
+    ]),
+  ],
 };
 
 const contactMethods = [
@@ -37,6 +60,7 @@ const contactMethods = [
 export default function ContactPage() {
   return (
     <>
+      <JsonLd data={contactJsonLd} />
       <main className="flex-1">
         <section className="bg-surface-alt px-4 py-14 text-center sm:px-6 sm:py-16">
           <Reveal>

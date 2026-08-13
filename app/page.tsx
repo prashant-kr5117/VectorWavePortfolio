@@ -1,3 +1,5 @@
+import JsonLd from "@/components/JsonLd";
+import { SITE_URL, ORGANIZATION_ID, WEBSITE_ID, organizationSchema, websiteSchema } from "@/lib/seo";
 import Hero from "@/components/sections/Hero";
 import TrustBadges from "@/components/sections/TrustBadges";
 import PartnerLogos from "@/components/sections/PartnerLogos";
@@ -13,9 +15,29 @@ import VideoTestimonial from "@/components/sections/VideoTestimonial";
 import CTA from "@/components/sections/CTA";
 import Footer from "@/components/Footer";
 
+const homeJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    organizationSchema,
+    websiteSchema,
+    {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/#webpage`,
+      url: `${SITE_URL}/`,
+      name: "VectorWave Technologies",
+      description:
+        "VectorWave Technologies assists growing businesses with Zoho and Odoo ERP, CRM automation, web development and AI-powered business solutions.",
+      isPartOf: { "@id": WEBSITE_ID },
+      about: { "@id": ORGANIZATION_ID },
+      inLanguage: "en",
+    },
+  ],
+};
+
 export default function Home() {
   return (
     <>
+      <JsonLd data={homeJsonLd} />
       <main className="flex-1">
         <Hero />
         <TrustBadges />

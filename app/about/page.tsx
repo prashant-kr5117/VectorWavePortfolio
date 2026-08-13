@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import JsonLd from "@/components/JsonLd";
+import { SITE_URL, ORGANIZATION_ID, WEBSITE_ID, breadcrumbSchema } from "@/lib/seo";
 import Footer from "@/components/Footer";
 import CTA from "@/components/sections/CTA";
 import Reveal from "@/components/Reveal";
@@ -121,9 +123,31 @@ const stats = [
   { value: "56K+", label: "Lines of Code" },
 ];
 
+const aboutJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": `${SITE_URL}/about#webpage`,
+      url: `${SITE_URL}/about`,
+      name: "About Us | VectorWave Technologies",
+      description:
+        "Learn about VectorWave Technologies and our approach to ERP implementation, CRM automation, digital solutions and business transformation.",
+      isPartOf: { "@id": WEBSITE_ID },
+      about: { "@id": ORGANIZATION_ID },
+      inLanguage: "en",
+    },
+    breadcrumbSchema(`${SITE_URL}/about#breadcrumb`, [
+      { name: "Home", item: `${SITE_URL}/` },
+      { name: "About Us", item: `${SITE_URL}/about` },
+    ]),
+  ],
+};
+
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={aboutJsonLd} />
       <main className="flex-1">
         <section className="relative overflow-hidden px-4 py-14 text-center sm:px-6 sm:py-16">
           <Image

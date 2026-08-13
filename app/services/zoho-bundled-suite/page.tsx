@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Footer from "@/components/Footer";
+import ServiceJsonLd from "@/components/ServiceJsonLd";
+import { getServiceBySlug } from "@/lib/services";
 import { inter } from "./_components/fonts";
 import { Hero } from "./_components/Hero";
 import { PageNav } from "./_components/PageNav";
@@ -25,9 +27,12 @@ export const metadata: Metadata = {
     "VectorWave designs Zoho as one connected business system — CRM, Finance, Inventory, Operations, Automation and Management Reporting — architected around how your business actually works.",
 };
 
+const zohoBundledSuiteService = getServiceBySlug("zoho-bundled-suite")!;
+
 export default function ZohoServicePage() {
   return (
     <div className={inter.className}>
+      <ServiceJsonLd service={zohoBundledSuiteService} />
       <main className="flex-1">
         <Hero />
         <PageNav />

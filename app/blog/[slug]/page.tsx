@@ -6,6 +6,7 @@ import CTA from "@/components/sections/CTA";
 import Reveal from "@/components/Reveal";
 import BlogIcon from "@/components/BlogIcon";
 import HoverGlow from "@/components/HoverGlow";
+import ArticleJsonLd from "@/components/ArticleJsonLd";
 import { getPostBySlug, getRelatedPosts, posts } from "@/lib/posts";
 import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
 
@@ -36,6 +37,7 @@ export default async function BlogPostPage(props: {
 
   return (
     <>
+      <ArticleJsonLd post={post} />
       <main className="flex-1">
         <section className="bg-surface-alt px-4 py-14 sm:px-6 sm:py-16">
           <Reveal className="mx-auto max-w-2xl text-center">

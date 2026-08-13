@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import CTA from "@/components/sections/CTA";
 import Reveal from "@/components/Reveal";
 import ServiceIcon from "@/components/ServiceIcon";
+import ServiceJsonLd from "@/components/ServiceJsonLd";
 import {
   getServiceBySlug,
   getServicesByPlatform,
@@ -47,6 +48,7 @@ export default async function ServiceDetailPage(props: {
 
   return (
     <>
+      <ServiceJsonLd service={service} />
       <main className="flex-1">
         <section className="bg-surface-alt px-4 py-14 text-center sm:px-6 sm:py-16">
           <Reveal className="mx-auto max-w-2xl">

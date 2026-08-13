@@ -3,6 +3,8 @@ import Footer from "@/components/Footer";
 import CTA from "@/components/sections/CTA";
 import Reveal from "@/components/Reveal";
 import BlogGrid from "@/components/BlogGrid";
+import JsonLd from "@/components/JsonLd";
+import { SITE_URL, ORGANIZATION_ID, WEBSITE_ID, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Blog | VectorWave Technologies",
@@ -10,9 +12,31 @@ export const metadata: Metadata = {
     "Stay updated with VectorWave's blog on Zoho tools, ERP strategy, and digital transformation for growing businesses.",
 };
 
+const blogJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": `${SITE_URL}/blog#webpage`,
+      url: `${SITE_URL}/blog`,
+      name: "Blog | VectorWave Technologies",
+      description:
+        "Insights and articles from VectorWave Technologies covering ERP, CRM, automation, AI and business technology.",
+      isPartOf: { "@id": WEBSITE_ID },
+      about: { "@id": ORGANIZATION_ID },
+      inLanguage: "en",
+    },
+    breadcrumbSchema(`${SITE_URL}/blog#breadcrumb`, [
+      { name: "Home", item: `${SITE_URL}/` },
+      { name: "Blog", item: `${SITE_URL}/blog` },
+    ]),
+  ],
+};
+
 export default function BlogPage() {
   return (
     <>
+      <JsonLd data={blogJsonLd} />
       <main className="flex-1">
         <section className="bg-surface-alt px-4 py-14 text-center sm:px-6 sm:py-16">
           <Reveal>
