@@ -14,7 +14,7 @@ const partners = [
   { src: MicrosoftDynamics365Logo, alt: "Microsoft Dynamics 365" },
   { src: ShopifyLogo, alt: "Shopify" },
   { src: ReactLogo, alt: "React" },
-  { src: NetSuiteLogo, alt: "NetSuite", className: "h-5 sm:h-6" },
+  { src: NetSuiteLogo, alt: "NetSuite", className: "h-3.5 sm:h-4" },
   { src: TallyLogo, alt: "Tally" },
 ];
 const partnersLoop = [...partners, ...partners];
