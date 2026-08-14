@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { ArrowRight, ShoppingCart, ClipboardList, Warehouse, Factory } from "lucide-react";
 import Reveal from "@/components/Reveal";
 
@@ -29,9 +32,12 @@ const processes = [
 ];
 
 export default function ProcessChains() {
+  const [active, setActive] = useState(0);
+  const process = processes[active];
+
   return (
     <section className="bg-surface-alt px-4 py-20 sm:px-6 lg:px-10 lg:py-28">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-5xl">
         <Reveal className="mb-12 max-w-2xl">
           <span className="inline-flex items-center gap-2 rounded-full bg-surface-chip px-4 py-1.5 text-[11px] font-bold uppercase tracking-wide text-primary">
             How we think
@@ -48,47 +54,76 @@ export default function ProcessChains() {
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
-          {processes.map((p, i) => (
-            <Reveal
-              key={p.n}
-              delay={i * 60}
-              className="group rounded-2xl border border-border bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg sm:p-7"
-            >
-              <div className="mb-5 flex items-center gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-surface-chip text-primary transition-transform duration-300 group-hover:scale-110">
-                  <p.icon size={18} />
-                </div>
-                <div>
-                  <span className="text-[11px] font-bold tracking-wide text-primary">{p.n}</span>
-                  <div className="text-base font-bold text-ink">{p.title}</div>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap items-center gap-y-2">
-                {p.chain.map((step, si) => {
-                  const isLast = si === p.chain.length - 1;
-                  return (
-                    <span key={step} className="flex items-center">
-                      {si > 0 && (
-                        <ArrowRight size={12} className="mx-1.5 shrink-0 text-ink-faint" />
-                      )}
-                      <span
-                        className={`whitespace-nowrap rounded-md px-2.5 py-1 text-xs font-bold ${
-                          isLast
-                            ? "bg-primary text-white"
-                            : "bg-surface-alt text-ink-soft"
-                        }`}
-                      >
-                        {step}
-                      </span>
+        <Reveal>
+          <div role="tablist" aria-label="Business processes" className="flex flex-wrap gap-2">
+            {processes.map((p, i) => {
+              const isActive = i === active;
+              return (
+                <button
+                  key={p.n}
+                  type="button"
+                  role="tab"
+                  aria-selected={isActive}
+                  onClick={() => setActive(i)}
+                  className={`group flex items-center gap-2.5 rounded-xl border px-3.5 py-2.5 text-left transition-all duration-300 sm:px-4 sm:py-3 ${
+                    isActive
+                      ? "border-primary bg-primary shadow-md shadow-primary/20"
+                      : "border-border bg-surface hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-sm"
+                  }`}
+                >
+                  <span
+                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition-colors duration-300 ${
+                      isActive ? "bg-white/15 text-white" : "bg-surface-chip text-primary"
+                    }`}
+                  >
+                    <p.icon size={16} />
+                  </span>
+                  <span>
+                    <span
+                      className={`block text-[10px] font-bold tracking-wide ${
+                        isActive ? "text-white/70" : "text-primary"
+                      }`}
+                    >
+                      {p.n}
                     </span>
-                  );
-                })}
-              </div>
-            </Reveal>
-          ))}
-        </div>
+                    <span className={`block text-sm font-bold ${isActive ? "text-white" : "text-ink"}`}>
+                      {p.title}
+                    </span>
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          <div role="tabpanel" className="mt-5 rounded-2xl border border-border bg-surface p-6 sm:p-8">
+            <div key={active} className="flex flex-wrap items-center gap-y-3">
+              {process.chain.map((step, si) => {
+                const isLast = si === process.chain.length - 1;
+                return (
+                  <div key={`${active}-${step}`} className="flex items-center">
+                    {si > 0 && (
+                      <ArrowRight
+                        size={15}
+                        style={{ animationDelay: `${si * 90}ms` }}
+                        className="mx-1.5 shrink-0 animate-flow-arrow text-ink-faint sm:mx-2"
+                      />
+                    )}
+                    <div
+                      style={{ animationDelay: `${si * 70}ms` }}
+                      className={`animate-[fade-in-up_0.5s_ease-out_backwards] whitespace-nowrap rounded-lg border px-3 py-2 text-xs font-bold transition-transform duration-300 hover:-translate-y-0.5 sm:px-3.5 sm:py-2.5 sm:text-sm ${
+                        isLast
+                          ? "border-primary bg-primary text-white shadow-md shadow-primary/25"
+                          : "border-border bg-surface-alt text-ink-soft"
+                      }`}
+                    >
+                      {step}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
