@@ -65,6 +65,8 @@ export default function ProcessChains() {
                   role="tab"
                   aria-selected={isActive}
                   onClick={() => setActive(i)}
+                  onMouseEnter={() => setActive(i)}
+                  onFocus={() => setActive(i)}
                   className={`group flex items-center gap-2.5 rounded-xl border px-3.5 py-2.5 text-left transition-all duration-300 sm:px-4 sm:py-3 ${
                     isActive
                       ? "border-primary bg-primary shadow-md shadow-primary/20"
