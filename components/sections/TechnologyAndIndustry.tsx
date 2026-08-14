@@ -7,11 +7,52 @@ import Reveal from "@/components/Reveal";
 import HoverGlow from "@/components/HoverGlow";
 import { industries } from "@/lib/industries";
 
-const secondaryTech = [
-  { id: "tech-dynamics", name: "Microsoft Dynamics 365", desc: "Enterprise business applications", href: "/services" },
-  { id: "tech-salesforce", name: "Salesforce", desc: "Enterprise CRM & customer experience", href: null },
-  { id: "tech-odoo", name: "Odoo", desc: "Flexible modular ERP", href: "/services" },
-  { id: "tech-ai", name: "AI & Custom Technology", desc: "Agents · Automation · Web · Mobile · APIs", href: "/services" },
+const techPlatforms = [
+  {
+    id: "tech-zoho",
+    name: "Zoho",
+    badge: "Flagship",
+    tagline: "Flagship ecosystem",
+    coverage: ["ERP", "CRM", "Finance", "Inventory", "HR", "Analytics"],
+    fit: "Best for teams that want one connected suite instead of stitching together point tools.",
+    href: null,
+  },
+  {
+    id: "tech-dynamics",
+    name: "Microsoft Dynamics 365",
+    badge: null,
+    tagline: "Enterprise business applications",
+    coverage: ["Finance", "Supply Chain", "Sales", "Customer Service"],
+    fit: "Best for larger enterprises already invested in the Microsoft ecosystem.",
+    href: "/services",
+  },
+  {
+    id: "tech-salesforce",
+    name: "Salesforce",
+    badge: null,
+    tagline: "Enterprise CRM & customer experience",
+    coverage: ["Sales Cloud", "Service Cloud", "Marketing Cloud"],
+    fit: "Best for complex, high-volume sales organizations that need deep customization.",
+    href: null,
+  },
+  {
+    id: "tech-odoo",
+    name: "Odoo",
+    badge: null,
+    tagline: "Flexible modular ERP",
+    coverage: ["Sales", "Inventory", "Manufacturing", "Accounting"],
+    fit: "Best for growing businesses that want an affordable, modular open-source ERP.",
+    href: "/services",
+  },
+  {
+    id: "tech-ai",
+    name: "AI & Custom Technology",
+    badge: null,
+    tagline: "Agents · Automation · Web · Mobile · APIs",
+    coverage: ["Custom agents", "Workflow automation", "Web & mobile apps", "API integrations"],
+    fit: "Best for businesses that need something no off-the-shelf platform covers.",
+    href: "/services",
+  },
 ];
 
 const ecosystem = [
@@ -34,6 +75,8 @@ const visibilityQuestions = [
 ];
 
 export default function TechnologyAndIndustry() {
+  const [activeTech, setActiveTech] = useState(0);
+  const activePlatform = techPlatforms[activeTech];
   const [activeIndustry, setActiveIndustry] = useState(0);
   const active = industries[activeIndustry];
 
@@ -51,52 +94,73 @@ export default function TechnologyAndIndustry() {
               <span className="text-on-inverse-muted">Not the other way around.</span>
             </h2>
 
-            <div
-              id="tech-zoho"
-              className="mt-7 scroll-mt-24 rounded-xl border border-accent/40 bg-gradient-to-br from-accent/15 to-primary/10 p-6"
-            >
-              <span className="inline-block rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-on-inverse">
-                Flagship
-              </span>
-              <div className="mt-3 text-lg font-bold text-on-inverse">Zoho</div>
-              <p className="mt-1 text-sm text-on-inverse-muted">
-                Flagship ecosystem — ERP · CRM · Finance · Inventory · HR · Analytics
-              </p>
+            <div className="mt-7 rounded-xl border border-accent/40 bg-gradient-to-br from-accent/15 to-primary/10 p-6">
+              <div key={activeTech} className="animate-[fade-in-up_0.4s_ease-out_backwards]">
+                {activePlatform.badge && (
+                  <span className="inline-block rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-on-inverse">
+                    {activePlatform.badge}
+                  </span>
+                )}
+                <div className="mt-3 text-lg font-bold text-on-inverse">{activePlatform.name}</div>
+                <p className="mt-1 text-sm text-on-inverse-muted">{activePlatform.tagline}</p>
+
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {activePlatform.coverage.map((c) => (
+                    <span
+                      key={c}
+                      className="whitespace-nowrap rounded-md bg-white/10 px-2.5 py-1 text-[11px] font-bold text-on-inverse"
+                    >
+                      {c}
+                    </span>
+                  ))}
+                </div>
+
+                <p className="mt-4 text-xs leading-relaxed text-on-inverse-muted">{activePlatform.fit}</p>
+
+                {activePlatform.href && (
+                  <Link
+                    href={activePlatform.href}
+                    className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-accent hover:underline"
+                  >
+                    View related services
+                    <ArrowRight size={12} />
+                  </Link>
+                )}
+              </div>
             </div>
 
-            <div className="mt-2 flex flex-col">
-              {secondaryTech.map((t) => {
-                const content = (
-                  <>
+            <div role="tablist" aria-label="Technology platforms" className="mt-2 flex flex-col">
+              {techPlatforms.map((t, i) => {
+                const isActive = i === activeTech;
+                return (
+                  <button
+                    key={t.id}
+                    id={t.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={isActive}
+                    onClick={() => setActiveTech(i)}
+                    onMouseEnter={() => setActiveTech(i)}
+                    onFocus={() => setActiveTech(i)}
+                    className="group block w-full scroll-mt-24 border-t border-on-inverse-border py-4 text-left last:border-b"
+                  >
                     <div className="flex items-center justify-between gap-2">
-                      <span className="text-sm font-bold text-on-inverse">{t.name}</span>
-                      {t.href && (
-                        <ChevronRight
-                          size={15}
-                          className="shrink-0 text-on-inverse-faint transition-transform duration-200 group-hover:translate-x-0.5"
-                        />
-                      )}
+                      <span
+                        className={`text-sm font-bold transition-colors duration-200 ${
+                          isActive ? "text-on-inverse" : "text-on-inverse-muted group-hover:text-on-inverse"
+                        }`}
+                      >
+                        {t.name}
+                      </span>
+                      <ChevronRight
+                        size={15}
+                        className={`shrink-0 transition-all duration-200 ${
+                          isActive ? "translate-x-0.5 text-accent" : "text-on-inverse-faint"
+                        }`}
+                      />
                     </div>
-                    <span className="text-xs text-on-inverse-muted">{t.desc}</span>
-                  </>
-                );
-                return t.href ? (
-                  <Link
-                    key={t.name}
-                    id={t.id}
-                    href={t.href}
-                    className="group block scroll-mt-24 border-t border-on-inverse-border py-4 last:border-b"
-                  >
-                    {content}
-                  </Link>
-                ) : (
-                  <div
-                    key={t.name}
-                    id={t.id}
-                    className="scroll-mt-24 border-t border-on-inverse-border py-4 last:border-b"
-                  >
-                    {content}
-                  </div>
+                    <span className="text-xs text-on-inverse-muted">{t.tagline}</span>
+                  </button>
                 );
               })}
             </div>
@@ -116,14 +180,18 @@ export default function TechnologyAndIndustry() {
               <span className="text-on-inverse-muted">Different processes.</span>
             </h2>
 
-            <div className="mt-6 flex flex-col">
+            <div role="tablist" aria-label="Industries" className="mt-6 flex flex-col">
               {industries.map((ind, i) => {
                 const isActive = i === activeIndustry;
                 return (
                   <button
                     key={ind.slug}
                     type="button"
+                    role="tab"
+                    aria-selected={isActive}
                     onClick={() => setActiveIndustry(i)}
+                    onMouseEnter={() => setActiveIndustry(i)}
+                    onFocus={() => setActiveIndustry(i)}
                     className={`flex items-center gap-2.5 border-t border-on-inverse-border py-3 text-left text-[13.5px] font-bold transition-colors duration-200 last:border-b ${
                       isActive ? "text-on-inverse" : "text-on-inverse-muted hover:text-on-inverse"
                     }`}
@@ -136,39 +204,41 @@ export default function TechnologyAndIndustry() {
             </div>
 
             <div className="mt-6 rounded-xl border border-on-inverse-border bg-white/5 p-5">
-              <p className="text-sm leading-relaxed text-on-inverse">{active.model}</p>
+              <div key={activeIndustry} className="animate-[fade-in-up_0.4s_ease-out_backwards]">
+                <p className="text-sm leading-relaxed text-on-inverse">{active.model}</p>
 
-              <div className="mt-4 text-[10.5px] font-bold uppercase tracking-wide text-accent">
-                Key processes
-              </div>
-              <p className="mt-1.5 text-xs leading-relaxed text-on-inverse-muted">
-                {active.caps.join(" · ")}
-              </p>
+                <div className="mt-4 text-[10.5px] font-bold uppercase tracking-wide text-accent">
+                  Key processes
+                </div>
+                <p className="mt-1.5 text-xs leading-relaxed text-on-inverse-muted">
+                  {active.caps.join(" · ")}
+                </p>
 
-              <div className="mt-4 text-[10.5px] font-bold uppercase tracking-wide text-accent">
-                Management visibility
-              </div>
-              <p className="mt-1.5 text-xs leading-relaxed text-on-inverse-muted">
-                {active.visibility}
-              </p>
+                <div className="mt-4 text-[10.5px] font-bold uppercase tracking-wide text-accent">
+                  Management visibility
+                </div>
+                <p className="mt-1.5 text-xs leading-relaxed text-on-inverse-muted">
+                  {active.visibility}
+                </p>
 
-              {active.flow && (
-                <>
-                  <div className="mt-4 text-[10.5px] font-bold uppercase tracking-wide text-accent">
-                    Signature process
-                  </div>
-                  <div className="mt-2 flex flex-wrap items-center gap-x-1.5 gap-y-1.5">
-                    {active.flow.map((step, si) => (
-                      <span key={step} className="flex items-center gap-1.5">
-                        {si > 0 && <ArrowRight size={10} className="shrink-0 text-on-inverse-faint" />}
-                        <span className="whitespace-nowrap rounded-md bg-white/10 px-2 py-1 text-[11px] font-bold text-on-inverse">
-                          {step}
+                {active.flow && (
+                  <>
+                    <div className="mt-4 text-[10.5px] font-bold uppercase tracking-wide text-accent">
+                      Signature process
+                    </div>
+                    <div className="mt-2 flex flex-wrap items-center gap-x-1.5 gap-y-1.5">
+                      {active.flow.map((step, si) => (
+                        <span key={step} className="flex items-center gap-1.5">
+                          {si > 0 && <ArrowRight size={10} className="shrink-0 text-on-inverse-faint" />}
+                          <span className="whitespace-nowrap rounded-md bg-white/10 px-2 py-1 text-[11px] font-bold text-on-inverse">
+                            {step}
+                          </span>
                         </span>
-                      </span>
-                    ))}
-                  </div>
-                </>
-              )}
+                      ))}
+                    </div>
+                  </>
+                )}
+              </div>
             </div>
           </Reveal>
         </div>
