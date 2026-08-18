@@ -83,7 +83,7 @@ export default function Header() {
           <Image
             src={Logo}
             alt="VectorWave Technologies"
-            className="-my-6 h-16 w-auto"
+            className="-my-6 h-23 w-auto"
             priority
           />
         </Link>
