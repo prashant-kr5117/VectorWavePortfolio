@@ -60,7 +60,7 @@ export default function LanguageSwitcher({
 }: {
   colorClassName?: string;
 }) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] =  useState(false);
   const [current, setCurrent] = useState("en");
   const ref = useRef<HTMLDivElement>(null);
 
