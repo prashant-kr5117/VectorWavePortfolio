@@ -37,7 +37,6 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <PartnerLogos reverse />
-        <BusinessDiagnosis />
         <ProcessChains />
         <Services />
         <TechnologyAndIndustry />
@@ -50,6 +49,7 @@ export default function Home() {
           role="CEO, Maxvill"
         />
         <Process />
+        <BusinessDiagnosis />
         <CTA />
       </main>
     </>
