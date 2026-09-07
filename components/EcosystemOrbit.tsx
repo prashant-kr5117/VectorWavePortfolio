@@ -6,7 +6,7 @@ import { Layers, type LucideIcon } from "lucide-react";
 import ZohoLogo from "@/src/zoho.png";
 import OdooLogo from "@/src/odoo_logo.png";
 import Microsoft365Logo from "@/src/Microsoft_Dynamics_365_Logo.svg";
-import FinancePhoto from "@/src/services/zoho-finance.jpg";
+import FinancePhoto from "@/src/services/dynamics-365-sales.jpg";
 import WebDevPhoto from "@/src/services/web-development.jpg";
 import AiPhoto from "@/src/services/ai-integration.jpg";
 
