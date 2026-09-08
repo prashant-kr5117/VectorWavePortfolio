@@ -10,12 +10,31 @@ export default function CTA() {
           <h2 className="text-lg font-bold text-on-inverse sm:text-xl">
             Ready to bring your systems into one place?
           </h2>
-          <p className="mx-auto mt-2 max-w-md text-sm text-on-inverse-muted">
-            Let&apos;s map out where your processes are breaking down and design
-            the right connected setup to fix it.
+          <p className="mx-auto mt-2 max-w-lg text-sm text-on-inverse-muted">
+            Start with a free audit. We map where your processes break down across
+            Sales, Finance, Marketing and Supply Chain, then show the right
+            connected setup to fix it &mdash; across Zoho and Odoo ERP, custom
+            development and agentic AI.
           </p>
-          <BookConsultationButton className="btn btn-primary btn--md mt-5">
-            Book free consultation
+          <ul className="mx-auto mt-5 flex max-w-lg flex-wrap justify-center gap-2">
+            {[
+              "Sales",
+              "Finance",
+              "Marketing",
+              "SCM",
+              "Custom development",
+              "Agentic AI",
+            ].map((area) => (
+              <li
+                key={area}
+                className="rounded-full border border-on-inverse-border px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-on-inverse-muted"
+              >
+                {area}
+              </li>
+            ))}
+          </ul>
+          <BookConsultationButton className="btn btn-primary btn--md mt-6">
+            Book a free audit
           </BookConsultationButton>
         </HoverGlow>
       </Reveal>

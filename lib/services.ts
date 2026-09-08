@@ -110,7 +110,9 @@ export type PlatformProfile = {
   /** Stage labels for the platform architecture diagram (components/services/PlatformArchitectureFlow.tsx). */
   architecture: string[];
   implementation: { step: string; detail: string }[];
-  /** Contextual CTA label for this platform's service pages — see WORKSTREAM-04-RESULT.md Section 13. */
+  /** Heading above the contextual CTA on this platform's service pages. */
+  ctaHeading: string;
+  /** Contextual CTA button label for this platform's service pages — see WORKSTREAM-04-RESULT.md Section 13. */
   ctaLabel: string;
 };
 
@@ -123,7 +125,8 @@ export const platformProfiles: Record<PlatformSlug, PlatformProfile> = {
       { step: "Connect", detail: "Link Zoho to your website, email and any tools you're keeping." },
       { step: "Go live & support", detail: "Migrate data, train the team, and stay available after launch." },
     ],
-    ctaLabel: "Talk to a Zoho solution architect",
+    ctaHeading: "See where your Zoho setup can improve",
+    ctaLabel: "Book a free Zoho audit",
   },
   odoo: {
     architecture: ["CRM", "Sales", "Inventory", "Manufacturing", "Accounting", "Reporting"],
@@ -133,7 +136,8 @@ export const platformProfiles: Record<PlatformSlug, PlatformProfile> = {
       { step: "Customize with Studio", detail: "Adjust forms, views and reports without a full dev cycle." },
       { step: "Migrate & support", detail: "Move existing data across and stay available after go-live." },
     ],
-    ctaLabel: "Talk to an Odoo implementation specialist",
+    ctaHeading: "See where your Odoo setup can improve",
+    ctaLabel: "Book a free Odoo audit",
   },
   "microsoft-365": {
     architecture: ["Sales", "Customer Service", "Finance", "Supply Chain", "Business Central", "Power Platform"],
@@ -143,7 +147,8 @@ export const platformProfiles: Record<PlatformSlug, PlatformProfile> = {
       { step: "Extend with Power Platform", detail: "Add Power Apps, Power Automate and Power BI where needed." },
       { step: "Secure & support", detail: "Apply identity/device policy and stay available after go-live." },
     ],
-    ctaLabel: "Talk to a Microsoft 365 solution architect",
+    ctaHeading: "See where your Microsoft 365 setup can improve",
+    ctaLabel: "Book a free Microsoft 365 audit",
   },
   "custom-development": {
     architecture: ["Business requirement", "Architecture", "APIs", "Application", "Integrations", "Data", "Deployment"],
@@ -153,7 +158,8 @@ export const platformProfiles: Record<PlatformSlug, PlatformProfile> = {
       { step: "Build & integrate", detail: "Develop the application and connect it via API to your CRM/ERP." },
       { step: "Deploy & support", detail: "Ship it, monitor it, and keep it running." },
     ],
-    ctaLabel: "Discuss your project",
+    ctaHeading: "Scope your custom build",
+    ctaLabel: "Book a free technical audit",
   },
 };
 

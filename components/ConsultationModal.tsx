@@ -142,18 +142,25 @@ export function ConsultationModalProvider({
                 : "translate-y-4 scale-95 opacity-0"
             }`}
           >
-            <div className="mb-3 flex items-center justify-between">
-              <h2
-                id="consultation-modal-title"
-                className="text-sm font-bold text-on-inverse"
-              >
-                Book your free consultation
-              </h2>
+            <div className="mb-3 flex items-start justify-between gap-4">
+              <div>
+                <h2
+                  id="consultation-modal-title"
+                  className="text-sm font-bold text-on-inverse"
+                >
+                  Book your free audit
+                </h2>
+                <p className="mt-1 text-xs leading-relaxed text-on-inverse-muted">
+                  A short review of your Sales, Finance, Marketing and Supply
+                  Chain processes &mdash; across Zoho and Odoo ERP, custom
+                  development and agentic AI.
+                </p>
+              </div>
               <button
                 type="button"
                 onClick={close}
                 aria-label="Close"
-                className="rounded-full bg-surface/90 p-1.5 text-ink-muted shadow-md backdrop-blur transition-colors duration-200 hover:bg-surface hover:text-ink"
+                className="shrink-0 rounded-full bg-surface/90 p-1.5 text-ink-muted shadow-md backdrop-blur transition-colors duration-200 hover:bg-surface hover:text-ink"
               >
                 <X size={18} />
               </button>

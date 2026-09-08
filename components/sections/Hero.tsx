@@ -56,7 +56,7 @@ export default function Hero() {
 
           <div className="mt-7 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
             <BookConsultationButton className="btn btn-primary btn--md w-full sm:w-auto">
-              Book free consultation <ArrowRight size={15} />
+              Book a free audit <ArrowRight size={15} />
             </BookConsultationButton>
             <Link href="/services" className="btn btn-secondary-inverse btn--md w-full sm:w-auto">
               See our services

@@ -22,7 +22,7 @@ export function ZohoCTA() {
           and reporting architecture for where you want to go.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3.5">
-          <PrimaryConsultButton>Book a Zoho Consultation</PrimaryConsultButton>
+          <PrimaryConsultButton>Book a free Zoho audit</PrimaryConsultButton>
           <OutlineDarkConsultButton>Talk to a Solution Architect</OutlineDarkConsultButton>
         </div>
       </Reveal>

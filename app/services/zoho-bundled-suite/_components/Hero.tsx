@@ -40,7 +40,7 @@ export function Hero() {
             system, not a set of disconnected apps.
           </p>
           <div className="mt-8 flex flex-wrap gap-3.5">
-            <PrimaryConsultButton>Book a Zoho Consultation</PrimaryConsultButton>
+            <PrimaryConsultButton>Book a free Zoho audit</PrimaryConsultButton>
             <a
               href="#architecture"
               className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/25 px-6 py-4 text-[13.5px] font-bold tracking-wide text-[#F2F1EA] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#20C4D9] hover:bg-[#20C4D9]/[0.06]"

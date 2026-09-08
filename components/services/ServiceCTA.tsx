@@ -25,7 +25,7 @@ export default function ServiceCTA({
     <section className="px-4 py-16 sm:px-6 lg:px-10 lg:py-20">
       <Reveal>
         <HoverGlow className="rounded-2xl border border-border bg-ink-inverse px-6 py-14 text-center transition-all duration-300 hover:border-accent/50 sm:px-10">
-          <h2 className="text-lg font-bold text-on-inverse sm:text-xl">{profile.ctaLabel}</h2>
+          <h2 className="text-lg font-bold text-on-inverse sm:text-xl">{profile.ctaHeading}</h2>
           <p className="mx-auto mt-2 max-w-md text-sm text-on-inverse-muted">
             {`Tell us about your ${serviceTitle.toLowerCase()} requirements and we'll map out how it fits with what you already run.`}
           </p>

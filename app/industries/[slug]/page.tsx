@@ -81,7 +81,7 @@ export default async function IndustryDetailPage(props: {
                   {industry.desc}
                 </p>
                 <BookConsultationButton className="btn btn-primary btn--md mt-6">
-                  Book free consultation <ArrowRight size={15} />
+                  Book a free audit <ArrowRight size={15} />
                 </BookConsultationButton>
               </Reveal>
               <Reveal delay={120}>
@@ -116,7 +116,7 @@ export default async function IndustryDetailPage(props: {
                 {industry.desc}
               </p>
               <BookConsultationButton className="btn btn-primary btn--md mt-6">
-                Book free consultation <ArrowRight size={15} />
+                Book a free audit <ArrowRight size={15} />
               </BookConsultationButton>
             </Reveal>
           </section>
@@ -249,7 +249,7 @@ export default async function IndustryDetailPage(props: {
                 for your {industry.title.toLowerCase()} operation.
               </p>
               <BookConsultationButton className="btn btn-primary btn--md mt-5">
-                Book free consultation <ArrowRight size={15} />
+                Book a free audit <ArrowRight size={15} />
               </BookConsultationButton>
             </HoverGlow>
           </Reveal>
