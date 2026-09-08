@@ -56,13 +56,13 @@ export default function ProcessChainTabs() {
               onFocus={() => setActive(i)}
               className={`group flex items-center gap-2.5 rounded-xl border px-3.5 py-2.5 text-left transition-all duration-300 sm:px-4 sm:py-3 ${
                 isActive
-                  ? "border-primary bg-primary shadow-md shadow-primary/20"
-                  : "border-border bg-surface hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-sm"
+                  ? "border-ink-inverse bg-ink-inverse shadow-md shadow-ink-inverse/25"
+                  : "border-border bg-surface hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-sm"
               }`}
             >
               <span
                 className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition-colors duration-300 ${
-                  isActive ? "bg-white/15 text-white" : "bg-surface-chip text-primary"
+                  isActive ? "bg-white/10 text-accent" : "bg-surface-chip text-primary"
                 }`}
               >
                 <p.icon size={16} />
@@ -70,7 +70,7 @@ export default function ProcessChainTabs() {
               <span>
                 <span
                   className={`block text-[10px] font-bold tracking-wide ${
-                    isActive ? "text-white/70" : "text-primary"
+                    isActive ? "text-accent" : "text-primary"
                   }`}
                 >
                   {p.n}
@@ -101,7 +101,7 @@ export default function ProcessChainTabs() {
                   style={{ animationDelay: `${si * 70}ms` }}
                   className={`animate-[fade-in-up_0.5s_ease-out_backwards] whitespace-nowrap rounded-lg border px-3 py-2 text-xs font-bold transition-transform duration-300 hover:-translate-y-0.5 sm:px-3.5 sm:py-2.5 sm:text-sm ${
                     isLast
-                      ? "border-primary bg-primary text-white shadow-md shadow-primary/25"
+                      ? "border-ink-inverse bg-ink-inverse text-white shadow-md shadow-ink-inverse/25"
                       : "border-border bg-surface-alt text-ink-soft"
                   }`}
                 >
