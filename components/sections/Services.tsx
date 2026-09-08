@@ -21,8 +21,8 @@ export default function Services() {
       <div className="mx-auto max-w-7xl">
         <Reveal className="mb-10">
           <SectionHeading
-            heading="One integrated technology capability"
-            description="19 services across four platforms — implementation, integration and the custom work that connects them."
+            heading="Websites, systems, and everything in between"
+            description="We design and build business websites, e-commerce and web apps, and implement ERP, CRM and AI across Zoho, Odoo, Microsoft 365 and custom development."
             align="center"
           />
         </Reveal>

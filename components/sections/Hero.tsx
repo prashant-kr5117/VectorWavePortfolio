@@ -31,7 +31,7 @@ export default function Hero() {
         <Reveal>
           <span className="inline-flex items-center gap-2 rounded-full border border-accent/25 bg-accent/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-wide text-accent">
             <span className="h-1.5 w-1.5 shrink-0 animate-dot-pulse rounded-full bg-accent" />
-            ERP · CRM · Web &amp; AI Solutions
+            Web · ERP · CRM · AI Solutions
           </span>
 
           <h1 className="mt-5 min-h-[120px] max-w-xl text-[32px] font-bold leading-tight text-on-inverse sm:min-h-[180px] sm:text-5xl">
@@ -50,8 +50,9 @@ export default function Hero() {
           </h1>
 
           <p className="mt-5 max-w-md text-sm leading-relaxed text-on-inverse-muted sm:text-base">
-            We implement Zoho and Odoo ERP, CRM automation, web development and
-            AI-powered tools so growing businesses run on one connected system.
+            We design and build business websites, e-commerce and web apps &mdash;
+            and implement Zoho and Odoo ERP, CRM automation and AI tooling for
+            growing businesses.
           </p>
 
           <div className="mt-7 flex flex-col items-start gap-3 sm:flex-row sm:items-center">

@@ -93,7 +93,7 @@ export const platforms: Platform[] = [
   {
     slug: "custom-development",
     name: "Custom Development",
-    short: "Web, mobile and AI builds connected to the systems you already run.",
+    short: "Websites, e-commerce, mobile apps and AI — built from scratch, integrated when needed.",
     icon: "code",
   },
 ];
@@ -871,41 +871,46 @@ export const serviceCategories: ServiceCategory[] = [
     image: WebDevelopmentImage,
     platform: "custom-development",
     title: "Web Development",
-    short: "Websites, portals and e-commerce builds connected to the systems behind them.",
+    short: "Websites, e-commerce and web apps — designed, built and maintained end to end.",
     intro:
-      "A website that isn't connected to your CRM or ERP is just a brochure. We build business websites, customer portals, and online stores that pull and push data from the platforms you run, so leads, orders, and support requests land exactly where your team already works.",
+      "We design and build fast, modern websites, online stores and web applications — from a marketing site that turns visitors into leads to a full customer portal or custom web app. Built on current frameworks, accessible and SEO-ready, and, when you need it, wired straight into the CRM, ERP or tools running behind the scenes.",
     problem:
-      "A website that doesn't talk to the CRM or ERP behind it means leads and orders have to be re-entered by hand.",
+      "Most business websites are slow, awkward to update and disconnected from the tools the team actually runs on — so they leak leads and create manual work.",
     useCases: [
-      "A business whose current website isn't connected to its CRM/ERP",
-      "A company that needs a customer self-service portal",
+      "A business that needs a new or rebuilt marketing website",
       "A team launching or replatforming an online store",
+      "A company that needs a customer portal or custom web app",
+      "A site that should feed leads and orders straight into a CRM or ERP",
     ],
-    integrations: ["Zoho / Odoo / Microsoft 365 (via API)", "Payment gateways", "Email & marketing tools", "Analytics"],
+    integrations: ["CMS / headless content", "Payment gateways", "Zoho / Odoo / Microsoft 365 (via API)", "Email & marketing tools", "Analytics"],
     icon: "globe",
-    metaTitle: "Web Development | Business Websites & E-Commerce",
+    metaTitle: "Web Development | Websites, E-Commerce & Web Apps",
     metaDescription:
-      "VectorWave builds websites, online stores, and customer portals connected directly to the CRM or ERP systems behind them.",
+      "VectorWave designs and builds business websites, online stores, customer portals and web apps — fast, SEO-ready, and integrated with your CRM or ERP when you need it.",
     tools: [
       {
         name: "Business Websites",
-        desc: "Fast, SEO-ready sites built on modern frameworks, designed to convert visitors into leads.",
+        desc: "Fast, SEO-ready marketing sites on modern frameworks, designed to convert visitors into leads and easy for your team to keep updated.",
       },
       {
         name: "E-Commerce",
-        desc: "Online stores connected directly to inventory, pricing, and order fulfilment, no manual syncing.",
+        desc: "Online stores with checkout, payments and catalogue management — optionally connected to live inventory and pricing so nothing is synced by hand.",
       },
       {
-        name: "Customer Portals",
-        desc: "Self-service login areas for invoices, tickets, or order status, pulled live from your backend.",
+        name: "Web Apps & Portals",
+        desc: "Custom web applications and self-service login areas — dashboards, invoices, tickets or order status — built around how your business works.",
+      },
+      {
+        name: "Design & UX",
+        desc: "Interface and experience design from wireframe to production, matched to your brand and tuned for speed and accessibility.",
       },
       {
         name: "API & Integration",
-        desc: "Connects your website to Zoho, Odoo, Microsoft 365, or any third-party system you rely on.",
+        desc: "Connects the site to Zoho, Odoo, Microsoft 365, payment gateways or any third-party system when you want data flowing automatically.",
       },
       {
         name: "Ongoing Support & Hosting",
-        desc: "Monitoring, updates, and hosting so the site stays fast and secure after launch.",
+        desc: "Monitoring, updates, security patching and hosting so the site stays fast and secure after launch.",
       },
     ],
   },

@@ -17,9 +17,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   ...buildMetadata({
-    title: "VectorWave Technologies Zoho & ERP Solutions for Growth",
+    title: "VectorWave Technologies | Web Development, ERP & AI Solutions",
     description:
-      "VectorWave Technologies offers Zoho & ERP Solutions tailored for growing businesses. Minimize downtime and enhance operational efficiency.",
+      "VectorWave Technologies designs and builds business websites, e-commerce and web apps, and implements Zoho, Odoo and Dynamics 365 ERP with CRM automation and AI for growing businesses.",
     path: "/",
   }),
   verification: {

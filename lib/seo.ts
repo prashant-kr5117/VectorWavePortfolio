@@ -10,7 +10,7 @@ export const organizationSchema = {
   name: "VectorWave Technologies",
   url: `${SITE_URL}/`,
   description:
-    "A business transformation and enterprise technology company providing ERP implementation, CRM automation, Zoho, Odoo, Dynamics 365 and custom technology solutions.",
+    "A web development and enterprise technology company building business websites, e-commerce and web applications, and providing ERP implementation, CRM automation, Zoho, Odoo, Dynamics 365 and custom software solutions.",
   email: "admin@vectorwavetechnologies.com",
   telephone: "+91-8791810555",
   address: {
