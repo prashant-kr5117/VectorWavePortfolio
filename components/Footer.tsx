@@ -69,9 +69,16 @@ export default function Footer() {
           <ul className="space-y-2.5 text-sm text-on-inverse-muted">
             <li className="flex items-start gap-2">
               <MapPin size={16} className="mt-0.5 shrink-0" />
-              GOLDEN-I, Office No 1034-1035, 10th Floor, Tower 3, Plot No 11,
-              Sector-Techzone IV, Greater Noida (West), Uttar Pradesh 201318,
-              India
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Golden%20I%2C%20Techzone%204%2C%20Greater%20Noida%20West%2C%20Uttar%20Pradesh%20201318"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors duration-200 hover:text-on-inverse"
+              >
+                GOLDEN-I, Office No 1034-1035, 10th Floor, Tower 3, Plot No 11,
+                Sector-Techzone IV, Greater Noida (West), Uttar Pradesh 201318,
+                India
+              </a>
             </li>
             <li className="flex items-center gap-2">
               <Mail size={16} />

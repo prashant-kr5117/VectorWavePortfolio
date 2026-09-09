@@ -4,7 +4,12 @@ import ContactForm from "@/components/ContactForm";
 import JsonLd from "@/components/JsonLd";
 import { Card, CardIcon } from "@/components/ui/Card";
 import { SITE_URL, ORGANIZATION_ID, WEBSITE_ID, breadcrumbSchema, buildMetadata } from "@/lib/seo";
-import { MessageCircle, Mail, Phone, MapPin } from "lucide-react";
+import { MessageCircle, Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+
+/** Building geocodes reliably by name — used for both the embedded map and the directions link. */
+const OFFICE_MAPS_QUERY = "Golden I, Techzone 4, Greater Noida West, Uttar Pradesh 201318";
+const OFFICE_MAP_EMBED_SRC = `https://www.google.com/maps?q=${encodeURIComponent(OFFICE_MAPS_QUERY)}&output=embed`;
+const OFFICE_MAP_DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(OFFICE_MAPS_QUERY)}`;
 
 export const metadata: Metadata = buildMetadata({
   title: "Contact VectorWave Technologies | Get in Touch",
@@ -132,6 +137,26 @@ export default function ContactPage() {
                       +91-8791810555
                     </a>
                   </div>
+
+                  <div className="mt-5 overflow-hidden rounded-xl border border-border">
+                    <iframe
+                      src={OFFICE_MAP_EMBED_SRC}
+                      title="VectorWave Technologies office location on Google Maps"
+                      className="block h-56 w-full border-0 sm:h-64"
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      allowFullScreen
+                    />
+                  </div>
+                  <a
+                    href={OFFICE_MAP_DIRECTIONS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-primary transition-colors duration-200 hover:text-link-deep"
+                  >
+                    Get directions
+                    <ArrowRight size={13} />
+                  </a>
                 </div>
               </Reveal>
             </div>
