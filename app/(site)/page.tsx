@@ -23,7 +23,7 @@ const homeJsonLd = {
       url: `${SITE_URL}/`,
       name: "VectorWave Technologies",
       description:
-        "VectorWave Technologies builds business websites, e-commerce and web apps, and assists growing businesses with Zoho and Odoo ERP, CRM automation and AI-powered solutions.",
+        "VectorWave Technologies assists growing businesses with Zoho and Odoo ERP, CRM automation, web development and AI-powered business solutions.",
       isPartOf: { "@id": WEBSITE_ID },
       about: { "@id": ORGANIZATION_ID },
       inLanguage: "en",
