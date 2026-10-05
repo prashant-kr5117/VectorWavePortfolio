@@ -80,11 +80,15 @@ function toBlogPost(post: SanityPost): BlogPost {
   };
 }
 
+// Webhook (app/api/revalidate) refreshes posts instantly; the 5-minute revalidate
+// is a fallback so new posts still appear if the webhook is missing or fails.
+const POST_CACHE = { next: { revalidate: 300, tags: ["post"] } };
+
 export async function getSortedPosts(): Promise<BlogPost[]> {
   const posts = await client.fetch<SanityPost[]>(
     postsQuery,
     {},
-    { next: { tags: ["post"] } }
+    POST_CACHE
   );
   return posts.map(toBlogPost);
 }
@@ -93,7 +97,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | undefined>
   const post = await client.fetch<SanityPost | null>(
     postBySlugQuery,
     { slug },
-    { next: { tags: ["post"] } }
+    POST_CACHE
   );
   return post ? toBlogPost(post) : undefined;
 }
