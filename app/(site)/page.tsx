@@ -9,6 +9,7 @@ import TechnologyAndIndustry from "@/components/sections/TechnologyAndIndustry";
 import WhyVectorWave from "@/components/sections/WhyVectorWave";
 import CaseStudy from "@/components/sections/CaseStudy";
 import Process from "@/components/sections/Process";
+import LatestPosts from "@/components/sections/LatestPosts";
 import CTA from "@/components/sections/CTA";
 
 const homeJsonLd = {
@@ -50,6 +51,7 @@ export default function Home() {
         />
         <Process />
         <BusinessDiagnosis />
+        <LatestPosts />
         <CTA />
       </main>
     </>
