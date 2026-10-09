@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Calendar, Clock, User, Search, ArrowRight } from "lucide-react";
 import type { BlogPost } from "@/lib/posts";
@@ -71,9 +72,22 @@ export default function BlogGrid({ posts: allPosts }: { posts: BlogPost[] }) {
           href={`/blog/${featured.slug}`}
           className="group mb-10 flex flex-col overflow-hidden rounded-xl border border-border bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg sm:flex-row"
         >
-          <HoverGlow className="flex h-40 items-center justify-center bg-ink-inverse text-on-inverse transition-transform duration-300 group-hover:scale-105 sm:h-auto sm:w-64 sm:shrink-0">
-            <BlogIcon icon={featured.icon} size={48} />
-          </HoverGlow>
+          {featured.image ? (
+            <div className="relative h-48 overflow-hidden sm:h-auto sm:min-h-56 sm:w-80 sm:shrink-0">
+              <Image
+                src={featured.image}
+                alt={featured.imageAlt ?? featured.title}
+                fill
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                sizes="(min-width: 640px) 320px, 100vw"
+                priority
+              />
+            </div>
+          ) : (
+            <HoverGlow className="flex h-40 items-center justify-center bg-ink-inverse text-on-inverse transition-transform duration-300 group-hover:scale-105 sm:h-auto sm:w-64 sm:shrink-0">
+              <BlogIcon icon={featured.icon} size={48} />
+            </HoverGlow>
+          )}
           <div className="flex flex-1 flex-col justify-center p-6">
             <span className="mb-2 inline-block w-fit rounded-full bg-surface-chip px-3 py-1 text-[10px] font-bold text-primary">
               Latest &middot; {featured.category}
@@ -114,9 +128,21 @@ export default function BlogGrid({ posts: allPosts }: { posts: BlogPost[] }) {
         <div className="grid grid-cols-1 items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((post) => (
             <Card key={post.slug} href={`/blog/${post.slug}`} padding="sm" className="overflow-hidden !p-0">
-              <div className="flex h-32 shrink-0 items-center justify-center bg-surface-alt text-primary transition-transform duration-300 group-hover:scale-105">
-                <BlogIcon icon={post.icon} size={36} />
-              </div>
+              {post.image ? (
+                <div className="relative h-40 shrink-0 overflow-hidden">
+                  <Image
+                    src={post.image}
+                    alt={post.imageAlt ?? post.title}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    sizes="(min-width: 1024px) 368px, (min-width: 640px) 50vw, 100vw"
+                  />
+                </div>
+              ) : (
+                <div className="flex h-32 shrink-0 items-center justify-center bg-surface-alt text-primary transition-transform duration-300 group-hover:scale-105">
+                  <BlogIcon icon={post.icon} size={36} />
+                </div>
+              )}
               <div className="flex flex-1 flex-col p-5">
                 <span className="mb-2 inline-block w-fit rounded-full bg-surface-chip px-3 py-1 text-[10px] font-bold text-primary">
                   {post.category}
