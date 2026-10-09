@@ -144,40 +144,4 @@
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
-  <url>
-    <loc>https://vectorwavetechnologies.com/blog/zoho-vs-odoo-choosing-the-right-erp-foundation</loc>
-    <lastmod>2026-08-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vectorwavetechnologies.com/blog/5-signs-your-business-has-outgrown-spreadsheets</loc>
-    <lastmod>2026-08-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vectorwavetechnologies.com/blog/where-ai-actually-pays-off-inside-a-growing-business</loc>
-    <lastmod>2026-08-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vectorwavetechnologies.com/blog/zoho-crm-automation-where-teams-leave-value-on-the-table</loc>
-    <lastmod>2026-08-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vectorwavetechnologies.com/blog/what-makes-a-business-website-actually-convert</loc>
-    <lastmod>2026-08-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vectorwavetechnologies.com/blog/getting-your-chart-of-accounts-audit-ready-with-zoho-books</loc>
-    <lastmod>2026-08-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
 </urlset>

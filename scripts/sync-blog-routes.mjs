@@ -20,7 +20,7 @@ const client = createClient({
 
 async function run() {
   const posts = await client.fetch(
-    `*[_type == "post"] | order(publishedAt desc) { "slug": slug.current, title }`
+    `*[_type == "post" && !string::startsWith(_id, "post-")] | order(publishedAt desc) { "slug": slug.current, title }`
   );
 
   const outPath = path.resolve(__dirname, "..", "e2e", "lib", "blog-routes.generated.json");

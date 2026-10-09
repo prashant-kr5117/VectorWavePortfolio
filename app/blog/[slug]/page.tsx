@@ -80,7 +80,7 @@ export default async function BlogPostPage(props: {
         <section className="px-4 py-14 sm:px-6">
           <Reveal className="mx-auto flex max-w-2xl flex-col gap-5">
             {post.image ? (
-              <div className="relative mb-2 h-56 w-full overflow-hidden rounded-xl sm:h-72">
+              <div className="relative mb-2 aspect-video w-full overflow-hidden rounded-xl">
                 <Image
                   src={post.image}
                   alt={post.imageAlt ?? post.title}

@@ -1,30 +1,26 @@
 {
-  "generatedAt": "2026-08-24T00:00:00.000Z",
+  "generatedAt": "2026-10-09T14:08:26.257Z",
   "source": "scripts/sync-blog-routes.mjs, reading published posts from Sanity",
   "posts": [
     {
-      "slug": "5-signs-your-business-has-outgrown-spreadsheets",
-      "title": "5 signs your business has outgrown spreadsheets"
+      "slug": "manual-sales-processes-are-costing-you-deals",
+      "title": "Manual Sales Processes Are Costing You Deals"
     },
     {
-      "slug": "zoho-crm-automation-where-teams-leave-value-on-the-table",
-      "title": "Zoho CRM automation: where most teams leave value on the table"
+      "slug": "zoho-crm-vs-salesforce-an-honest-comparison-for-growing-indian-businesses",
+      "title": "Zoho CRM vs Salesforce: An honest Comparison for growing indian Businesses"
     },
     {
-      "slug": "where-ai-actually-pays-off-inside-a-growing-business",
-      "title": "Where AI actually pays off inside a growing business"
+      "slug": "5-signs-your-business-has-outgrown-its-current-software-and-what-to-do-about-it",
+      "title": "5 Signs Your Business Has Outgrown Its Current Software (And What to Do About It)"
     },
     {
-      "slug": "what-makes-a-business-website-actually-convert",
-      "title": "What makes a business website actually convert"
+      "slug": "erp-vs-crm",
+      "title": "ERP vs CRM: What's the Difference and Which One Does Your Business Actually Need?"
     },
     {
-      "slug": "getting-your-chart-of-accounts-audit-ready-with-zoho-books",
-      "title": "Getting your chart of accounts audit-ready with Zoho Books"
-    },
-    {
-      "slug": "zoho-vs-odoo-choosing-the-right-erp-foundation",
-      "title": "Zoho vs Odoo: choosing the right ERP foundation"
+      "slug": "what-is-zoho-one-and-is-it-right-for-your-business-in-2026",
+      "title": "What is Zoho One and is it right for your business in 2026?"
     }
   ]
 }
